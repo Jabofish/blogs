@@ -561,6 +561,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="编解码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      字符编码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      摩斯电码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base编码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osint" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSINT
+    </span>
+  </a>
+  
 </li>
       
     </ul>
@@ -608,7 +650,37 @@
 <h1 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h1>
 <p>Misc（杂项）即miscellaneous的简写，除开其他四个方向的题目都可以归类到Misc中。因此，misc的方向很多很杂，特别考验尝试和学习的能力，有时需要快速学习上手新的概念和新的工具。</p>
 <h2 id="_1">编解码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>实际上都是0和1之间的转换，然后再转换成含有意义的字符串/</p>
+<p>实际上都是0和1之间的转换，然后再转换成含有意义的字符串。</p>
+<h3 id="_2">字符编码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>常用的有UTF-8，ASCII，GB 2312，Unicode。混用编码可能会导致乱码。</p>
+<h3 id="_3">摩斯电码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>用点和划表示字符：点（·）占一个单位，划（-）占三个单位。</li>
+<li>间隔单位：点划间：1；字符间：3；单词间：7。</li>
+</ul>
+<h3 id="base">Base编码<a class="headerlink" href="#base" title="Permanent link">&para;</a></h3>
+<p><strong>Base64</strong> ：</p>
+<ul>
+<li><strong>特点</strong> ：每<strong>6</strong>位二进制数据转换为一个64进制的值，对应ASCII字符集中的一个字符。因此，Base64编码的输出是由64个可打印字符组成，包括大写字母A-Z、小写字母a-z、数字0-9、加号（+）、斜杠（/）和<strong>等号（=）</strong>作为填充字符。</li>
+<li><strong>用途</strong> ：广泛用于在URL、Cookie、网页、电子邮件等需要文本表示的场合传输较小的二进制数据。</li>
+</ul>
+<p><strong>Base32</strong> ：</p>
+<ul>
+<li><strong>特点</strong> ：每<strong>5</strong>位二进制数据转换为一个32进制的值，对应ASCII字符集中的一个字符。Base32编码的输出由大写字母A-Z和数字2-7组成，适合人类阅读。</li>
+<li><strong>用途</strong> ：常用于需要减少混淆和误读的场合，如电子邮件地址的一部分，或是二维码中的数据编码。</li>
+</ul>
+<p><strong>Base16</strong> （十六进制编码）：</p>
+<ul>
+<li><strong>特点</strong> ：每<strong>4</strong>位二进制数据转换为一个16进制的值，对应ASCII字符集中的一个字符。Base16编码的输出由数字0-9和大写字母A-F组成。</li>
+<li><strong>用途</strong> ：常用于编程和系统中显示二进制数据，如文件权限、MAC地址等。</li>
+</ul>
+<h2 id="osint">OSINT<a class="headerlink" href="#osint" title="Permanent link">&para;</a></h2>
+<p>全称为<strong>O</strong>pen <strong>S</strong>ourse <strong>INT</strong>elligence：开源网络情报。常见题型有根据图片推理找到拍摄位置、时间等信息，可以简单理解为“盒”。<strong>（请遵守相关法律法规）</strong></p>
+<ul>
+<li>常用工具：<a href="https://github.com/ffffffff0x/Digital-Privacy/">Digital-Privacy</a>（需要能访问Github）；<a href="https://web.archive.org/">Way Back Machine（网页快照）</a></li>
+<li>文件信息：文档元信息、工程文件夹、文件夹路径</li>
+<li>图片信息：以图搜图工具</li>
+</ul>
 
 
 
