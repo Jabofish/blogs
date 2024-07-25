@@ -639,6 +639,7 @@
 <p>代码没有对输入做判断，所以可以构造特殊的输入让程序陷入死循环。a &lt;= pow(b, i)时跳出，所以只需要让a&gt;pow(b, i)恒成立即可，例如，a取一个大于1的整数，b取0，pow的部分永远是1，这样程序就不会退出，于是有：</p>
 <p><img alt="1720430674452" src="../image/PwnLab1/1720430674452.png" /></p>
 <p>得到flag：AAA{pr0GraM_C4n_ea5ilY_crAsH}</p>
+<p>本题可以纯交互完成，所以没有附上代码。</p>
 <p><img alt="1720430900575" src="../image/PwnLab1/1720430900575.png" /></p>
 <h2 id="2-task-2">2. Task 2<a class="headerlink" href="#2-task-2" title="Permanent link">&para;</a></h2>
 <p>检查代码，这是一个登录程序，有两个用户，分别为"user"和"admin"，因此需要想办法找到密码，检查密码输入的逻辑，发现代码使用了 <code>read(STDIN_FILENO,buf,BUFFER_SIZE);</code>而最后输出的时候有 <code>printf("you input password as %s (len %d)\n",password,strlen(password));</code>，使用了strlen函数，而这个函数默认以第一个遇到的'/0'为结尾，如果没有遇到则会一直输出，直到遇到'/0'。而代码中变量定义是挨在一起的：</p>
@@ -884,6 +885,9 @@
 <p>从而完成此题目：</p>
 <p><img alt="1720491280934" src="../image/PwnLab1/1720491280934.png" /></p>
 <h2 id="5-bonus">5. Bonus<a class="headerlink" href="#5-bonus" title="Permanent link">&para;</a></h2>
+<p>这道题目比前面的几题都简单，题目已经给出服务器的架构是x86的32位系统，而且还直接开放了代码的运行权限，所以直接把shellcode发送过去然后在对应路径找到flag即可。</p>
+<p><img alt="1721305293711" src="../image/PwnLab1/1721305293711.png" /></p>
+<p>上图中的代码可以直接跳转到指定路径并输出flag的内容，即AAA{lgm_is_a_big_turtle_qq_qun_386796080}。</p>
 
 
 

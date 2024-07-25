@@ -626,18 +626,18 @@
 </code></pre></div></td></tr></table></div>
 <p>删除后重新用as生成就不会报错了，而且最后生成的可执行文件可以正常运行：</p>
 <p><img alt="1720418894195" src="../image/ReverseLab1/1720418894195.png" /></p>
-<p>我的猜测是：addrsig和.addrsig_sym是clang独有的，因此as无法理解，究其原因，尽管两者使用了同样的asm语法，但两者使用的汇编器并不是同一个。</p>
+<p>我的猜测是：addrsig和.addrsig_sym是clang独有的，因此as无法理解，究其原因，两者使用了同样的asm语法，但两者使用的汇编器并不是同一个，clang中大概是集成了属于自己的汇编器工具。</p>
 <h2 id="2-task-2">2. Task 2<a class="headerlink" href="#2-task-2" title="Permanent link">&para;</a></h2>
-<p>对文件进行逆向，观察main函数发现调用了一个用户自定义函数：</p>
+<p>在IDA中对文件进行逆向，观察main函数发现调用了一个用户自定义函数：</p>
 <p><img alt="1720424589251" src="../image/ReverseLab1/1720424589251.png" /></p>
 <p>转到该函数后可以发现又调用了一个函数：ooooooo</p>
 <p><img alt="1720424654214" src="../image/ReverseLab1/1720424654214.png" /></p>
 <p>转到下一个函数后发现一行带有字符的汇编代码：</p>
 <p><img alt="1720424933966" src="../image/ReverseLab1/1720424933966.png" /></p>
 <p><img alt="1720425167181" src="../image/ReverseLab1/1720425167181.png" /></p>
-<p>不断重复以上步骤，在每次调用的函数内找到一个字符，按顺序组合得到：AAA{hope_u_have_fun~}。</p>
+<p>不断重复以上步骤，在每次调用的函数内找到一个字符，按顺序组合得到：AAA{hope_u_have_fun~}，这就是需要找到的flag。</p>
 <h2 id="3-task-3">3. Task 3<a class="headerlink" href="#3-task-3" title="Permanent link">&para;</a></h2>
-<p>下载的文件不能直接逆向，先通过clang输出.o文件，再进行逆向得到：</p>
+<p>下载的文件不能直接逆向，需要先通过clang输出.o文件，再进行逆向得到：</p>
 <p><img alt="1720425250170" src="../image/ReverseLab1/1720425250170.png" /></p>
 <p>通过代码逻辑判断，需要输入的字符串应当全是数字（ASCII码值在48和57之间）。输入的数字会经过一个xcrc32的处理：以两位为单位输入函数，经过转换后输出到一个数组，全部数字转换完成之后将得到的数字与target数组中的数字一一比对，完全一致的情况下才会输出awesome。</p>
 <p>根据k的取值知道需要比对的次数是8，对应的输入数字长度应为16，现在需要找到xcrc32的转换逻辑。</p>
@@ -742,6 +742,55 @@
 <p><img alt="1720426892540" src="../image/ReverseLab1/1720426892540.png" /></p>
 <p>因此flag为AAA{2012102420240704}</p>
 <h2 id="4-bonus">4. Bonus<a class="headerlink" href="#4-bonus" title="Permanent link">&para;</a></h2>
+<p>对程序进行逆向，在内部找到了三个main函数，但其中只有一个是真正的main函数。</p>
+<p><img alt="1721302860527" src="../image/ReverseLab1/1721302860527.png" /></p>
+<p>其中一个假main函数使用了两次异或操作，并与数组中存的结果进行比对，用以下脚本进行恢复：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span>
+<span class="normal"><a href="#__codelineno-3-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">flag</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x72</span><span class="p">,</span> <span class="mh">0x71</span><span class="p">,</span> <span class="mh">0x65</span><span class="p">,</span> <span class="mh">0x76</span><span class="p">,</span> <span class="mh">0x4C</span><span class="p">,</span> <span class="mh">0x75</span><span class="p">,</span> <span class="mh">0x54</span><span class="p">,</span> <span class="mh">0x5A</span><span class="p">,</span> <span class="mh">0x64</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span> <span class="mh">0x56</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x58</span><span class="p">,</span> <span class="mh">0x54</span><span class="p">,</span> <span class="mh">0x52</span><span class="p">,</span> <span class="mh">0x47</span><span class="p">,</span> <span class="mh">0x7D</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0x79</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x56</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0x4F</span><span class="p">,</span> <span class="mh">0x76</span><span class="p">,</span> <span class="mh">0x4E</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span> <span class="mh">0x4F</span><span class="p">,</span> <span class="mh">0x4A</span><span class="p">,</span> <span class="mh">0x13</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flag</span><span class="p">)):</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x7f</span><span class="p">):</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">^</span> <span class="n">j</span> <span class="o">^</span> <span class="mh">0x33</span><span class="p">)</span> <span class="o">==</span> <span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>           <span class="n">original_value</span> <span class="o">=</span> <span class="n">i</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>           <span class="k">break</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">original_value</span><span class="p">))</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;flag=&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>运行后得到假flag：ACTF{Can_you_find_the_true_flag?}</p>
+<p>另外一个假main函数是对输入字符串进行base64加密，并与加密后的字符串比对。这里的base64用的顺序是自定义的，而且加密后还有一个根据序号进行移位的操作。根据以上得到以下脚本：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">encoded_str</span> <span class="o">=</span> <span class="s2">&quot;OSLSPlrSYBDxVxDxV0Dqa07dWT7EKErjV0XqWUb7&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">Base64list</span> <span class="o">=</span> <span class="s1">&#39;-*ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&#39;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">decoded_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">encoded_str</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="n">index</span> <span class="o">=</span> <span class="n">Base64list</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="n">new_index</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">Base64list</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="n">new_char</span> <span class="o">=</span> <span class="n">Base64list</span><span class="p">[</span><span class="n">new_index</span><span class="p">]</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="n">decoded_str</span> <span class="o">+=</span> <span class="n">new_char</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">decoded_str</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>这个代码输出的是恢复移位后的base64密文，使用cyberchef实现解密，得到：</p>
+<p><img alt="1721302986327" src="../image/ReverseLab1/1721302986327.png" /></p>
+<p>如上显示，这个flag依旧是一个假flag。</p>
+<p>最后一个main是真main，但也是最复杂的一个。</p>
+<p><img alt="1721303056310" src="../image/ReverseLab1/1721303056310.png" /></p>
+<p>encrypt函数内以12个字符为一组进行加密。加密过程中用了随机数生成器，但输入是确定的，可以得到值。然而里面用了很多的其他函数，如rho、theta，内部有许多移位操作。因此想彻底完成这道题的话，有相当大的工作量，所以没能全部完成。</p>
 
 
 
