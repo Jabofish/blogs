@@ -634,11 +634,11 @@
         <li class="md-nav__item">
   <a href="#sql" class="md-nav__link">
     <span class="md-ellipsis">
-      Sql注入
+      SQL注入
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sql注入">
+    <nav class="md-nav" aria-label="SQL注入">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1154,7 +1154,9 @@
 <a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>详细的教程还请查看：<a href="https://www.runoob.com/html/html-tutorial.html">HTML|菜鸟教程</a></p>
-<h2 id="sql">Sql注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
+<h2 id="sql">SQL注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
+<p>SQL注入（SQL Injection）是一种常见的网络安全漏洞，攻击者通过在输入字段中插入恶意的SQL代码，来操纵数据库查询，从而获取、修改或删除数据库中的数据。SQL注入攻击通常发生在应用程序没有正确处理用户输入的情况下。</p>
+<p>常用的工具有Burp Suite和Sqlmap，前者用于抓包，后者用于自动化注入。</p>
 <h3 id="_3">基础注入<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>根据网站功能猜测 Sql语句：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
@@ -1229,6 +1231,7 @@
 <p>语义匹配：嵌套注释</p>
 <p>其他：</p>
 <p><img alt="1720512454746" src="../image/Web/1720512454746.png" /></p>
+<p>大多数获取数据的语句都需要用到select关键词，如果select完全被屏蔽了可以试着使用table语句。（这个处理方法只支持MySQL8以上的版本）</p>
 <h3 id="_6">一些简单攻击<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <h4 id="git-leaks-file-leaks">Git leaks &amp; file leaks<a class="headerlink" href="#git-leaks-file-leaks" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1271,7 +1274,13 @@
 <h4 id="_8">变量覆盖<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p>创建新的同名变量可以覆盖原变量，如用extract()展开键值对。</p>
 <h4 id="_9">文件包含<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
-<p>日志文件，session文件，</p>
+<p>文件包含漏洞（File Inclusion Vulnerability）是一种常见的Web应用程序安全漏洞，攻击者可以通过操纵输入参数，使应用程序包含并执行任意文件。这种漏洞通常发生在PHP等支持文件包含功能的编程语言中，能造成文件泄露和代码注入。</p>
+<p>文件泄露可以用于读取服务器内容，代码注入可以向服务器上传木马。</p>
+<p>常用的技巧有PHP伪协议、包含session文件、包含临时文件、包含上传文件、包含本地文件等。</p>
+<p>以包含上传文件为例，可以用简单的一句话木马来实现代码注入：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?</span><span class="o">=</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<p>这个代码的eval函数能够让服务器执行POST请求中的a参数包含的代码，这样就能让服务器执行任意指令，然后就可以使用中国蚁剑来实现图形化控制远程服务器。</p>
 
 
 
