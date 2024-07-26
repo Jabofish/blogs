@@ -698,6 +698,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#elgamal" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElGamal
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -745,6 +754,7 @@
 <p>出题人给定一个有一定缺陷的加密算法，需要选手攻破该加密算法，得到解密后的文字，或者伪造加密信息</p>
 <p>密码学入门书籍：<a href="https://link.springer.com/book/10.1007/978-1-4939-1711-2">An introduction to mathematical cryptography</a></p>
 <p>概念：明文，密文，密码算法，密钥，对称加密（同一密钥），非对称加密（加密用公钥，解密用密钥），哈希函数（单向映射），数字签名。</p>
+<p><del>数学不太好，就简单写吧。</del></p>
 <h2 id="rsa">RSA<a class="headerlink" href="#rsa" title="Permanent link">&para;</a></h2>
 <p>RSA算法是一种非对称加密算法，其基于大数分解的数学难题，其安全性依赖于大整数分解的计算复杂性。</p>
 <h3 id="_2">代码示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -896,7 +906,11 @@
 <p><strong>密钥长度</strong> ：AES支持三种不同的密钥长度：128位、192位和256位。密钥长度越长，安全性越高，但加密和解密的速度也会稍慢。</p>
 <h3 id="aes_2">AES攻击手段<a class="headerlink" href="#aes_2" title="Permanent link">&para;</a></h3>
 <p>AES有多种加密模式，因此攻击手段也十分丰富。</p>
-<p>以CBC模式为例，常用的有Padding Oracle Attack和Bit-Flipping Attack。</p>
+<p>以CBC模式为例，常用的有Padding Oracle Attack（填充攻击）和Bit-Flipping Attack（字节反转攻击）。</p>
+<h2 id="elgamal">ElGamal<a class="headerlink" href="#elgamal" title="Permanent link">&para;</a></h2>
+<p>ElGamal 是一种基于离散对数问题（DLP）的公钥加密算法，广泛用于加密和数字签名。</p>
+<p>Wiki:<a href="https://zh.wikipedia.org/wiki/ElGamal%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"> ElGamal加密算法</a></p>
+<p>破解的有些方法思维和RSA比较相似，但解决离散对数问题用的算法不同：BSGS算法、pohlig-hellman算法。</p>
 
 
 
