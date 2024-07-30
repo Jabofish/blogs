@@ -614,6 +614,9 @@
 
 
 <h1 id="web-lab-2">Web Lab 2<a class="headerlink" href="#web-lab-2" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>:material-circle-edit-outline: 约 1641 个字 :fontawesome-solid-code: 38 行代码 :material-clock-time-two-outline: 预计阅读时间 6 分钟</p>
+</div>
 <h2 id="1-task-1">1. Task 1<a class="headerlink" href="#1-task-1" title="Permanent link">&para;</a></h2>
 <p>观察代码可以知道，代码对sql注入的防御措施可以说是完全没有。代码原本的意图是根据用户输入的 <code>passcode</code> 来查询特定的行，但是我们可以构造一个OR条件判断，让这部分恒真，就能让服务器输出全部的行，从而完成注入。直接使用最简单的1 = 1来控制OR为恒真，并使用'来控制语法，得到下面的注入语句：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="s1">&#39; OR &#39;</span><span class="mi">1</span><span class="s1">&#39;=&#39;</span><span class="mi">1</span>
