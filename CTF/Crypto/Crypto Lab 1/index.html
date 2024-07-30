@@ -614,9 +614,6 @@
 
 
 <h1 id="crypto-lab-1">Crypto Lab 1<a class="headerlink" href="#crypto-lab-1" title="Permanent link">&para;</a></h1>
-<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 1905 个字 :fontawesome-solid-code: 15 行代码 :material-clock-time-two-outline: 预计阅读时间 7 分钟</p>
-</div>
 <h2 id="1-task-1">1. Task 1<a class="headerlink" href="#1-task-1" title="Permanent link">&para;</a></h2>
 <p>这道题目是Vigenere密码的变式，这种密码是对凯撒密码的加强。区别在于：凯撒密码的偏移量是固定的，而Vigenere密码的偏移量周期是由密钥的长度决定的。这里的密钥实际上就是记录偏移量的数组，记数组长度为n，所以将密文等间隔分成n组后可以得到n组凯撒密码。</p>
 <p>但这道题目与一般的Vigenere密码有所不同：字符范围不止是26个字母，而是97个字符；加密方式不是简单的加法后取模，而是乘法取模，但由于97是一个质数，所以乘法取模后的值仍旧是比较分立的，事实上处理差不多。</p>
