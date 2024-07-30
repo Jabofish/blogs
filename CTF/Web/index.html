@@ -737,6 +737,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量覆盖
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件包含
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1264,47 +1282,14 @@
 <h4 id="_7">弱比较<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>=== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较（强比较）</p>
 <p>== 在进行比较的时候，会先将字符串类型转化成相同，再比较（弱比较）</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-9-10">10</a></span>
-<span class="normal"><a href="#__codelineno-9-11">11</a></span>
-<span class="normal"><a href="#__codelineno-9-12">12</a></span>
-<span class="normal"><a href="#__codelineno-9-13">13</a></span>
-<span class="normal"><a href="#__codelineno-9-14">14</a></span>
-<span class="normal"><a href="#__codelineno-9-15">15</a></span>
-<span class="normal"><a href="#__codelineno-9-16">16</a></span>
-<span class="normal"><a href="#__codelineno-9-17">17</a></span>
-<span class="normal"><a href="#__codelineno-9-18">18</a></span>
-<span class="normal"><a href="#__codelineno-9-19">19</a></span>
-<span class="normal"><a href="#__codelineno-9-20">20</a></span>
-<span class="normal"><a href="#__codelineno-9-21">21</a></span>
-<span class="normal"><a href="#__codelineno-9-22">22</a></span>
-<span class="normal"><a href="#__codelineno-9-23">23</a></span>
-<span class="normal"><a href="#__codelineno-9-24">24</a></span>
-<span class="normal"><a href="#__codelineno-9-25">25</a></span>
-<span class="normal"><a href="#__codelineno-9-26">26</a></span>
-<span class="normal"><a href="#__codelineno-9-27">27</a></span>
-<span class="normal"><a href="#__codelineno-9-28">28</a></span>
-<span class="normal"><a href="#__codelineno-9-29">29</a></span>
-<span class="normal"><a href="#__codelineno-9-30">30</a></span>
-<span class="normal"><a href="#__codelineno-9-31">31</a></span>
-<span class="normal"><a href="#__codelineno-9-32">32</a></span>
-<span class="normal"><a href="#__codelineno-9-33">33</a></span>
-<span class="normal"><a href="#__codelineno-9-34">34</a></span>
-<span class="normal"><a href="#__codelineno-9-35">35</a></span>
-<span class="normal"><a href="#__codelineno-9-36">36</a></span>
-<span class="normal"><a href="#__codelineno-9-37">37</a></span>
-<span class="normal"><a href="#__codelineno-9-38">38</a></span>
-<span class="normal"><a href="#__codelineno-9-39">39</a></span>
-<span class="normal"><a href="#__codelineno-9-40">40</a></span>
-<span class="normal"><a href="#__codelineno-9-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?php</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?php</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">//true</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;1a&quot;</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//true</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;a1&quot;</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//false</span>
@@ -1312,39 +1297,29 @@
 <a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;0e123456&quot;</span><span class="o">==</span><span class="s2">&quot;0e234567&quot;</span><span class="p">);</span> <span class="c1">//true</span>
 <a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nb">var_dump</span><span class="p">(</span><span class="mi">0</span><span class="o">==</span><span class="s2">&quot;1a&quot;</span><span class="p">);</span> <span class="c1">//false</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="cp">?&gt;</span><span class="x"> </span>
-<a id="__codelineno-9-9" name="__codelineno-9-9"></a>
-<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="x">??? note</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11"></a>
-<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="x">    ```</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="x">    1. `var_dump(&quot;a&quot;==0); //true`</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="x">        * 当字符串和数字进行比较时，字符串会被转换为数字。因为字符串 `&quot;a&quot;` 不以数字开始，所以它被转换为数字 `0`，因此 `0 == 0` 为 `true`。</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="x">    2. `var_dump(&quot;1a&quot;==1); //true`</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="x">        * 在这个例子中，字符串 `&quot;1a&quot;` 被转换为数字时，转换会在遇到非数字字符前停止，因此 `&quot;1a&quot;` 转换为数字 `1`，所以 `1 == 1` 为 `true`。</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="x">    3. `var_dump(&quot;a1&quot;==1); //false`</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="x">        * 由于 `&quot;a1&quot;` 以非数字字符开始，所以在转换为数字时整个字符串被视为 `0`，因此比较结果为 `0 == 1`，即 `false`。</span>
-<a id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="x">    4. `var_dump(&quot;a1&quot;==0); //true`</span>
-<a id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="x">        * 同上，`&quot;a1&quot;` 被转换为 `0`，所以 `0 == 0` 为 `true`。</span>
-<a id="__codelineno-9-21" name="__codelineno-9-21"></a><span class="x">    5. `var_dump(&quot;0e123456&quot;==&quot;0e234567&quot;); //true`</span>
-<a id="__codelineno-9-22" name="__codelineno-9-22"></a><span class="x">        * 这个例子涉及到 PHP 中的一个特殊情况，当字符串遵循科学记数法的格式时，它们会被转换为浮点数。然而，由于 `&quot;0e任何数&quot;` 都会被解释为 `0`（因为它相当于 `0` 乘以 `10` 的任何次方），所以两边都被转换为 `0`，因此比较结果为 `true`。</span>
-<a id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="x">    6. `var_dump(0==&quot;1a&quot;); //false`</span>
-<a id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="x">        * 这里 `&quot;1a&quot;` 被转换为数字 `1`（如之前解释的那样），因此比较结果为 `0 == 1`，即 `false`。</span>
-<a id="__codelineno-9-25" name="__codelineno-9-25"></a>
-<a id="__codelineno-9-26" name="__codelineno-9-26"></a><span class="x">#### 变量覆盖</span>
-<a id="__codelineno-9-27" name="__codelineno-9-27"></a>
-<a id="__codelineno-9-28" name="__codelineno-9-28"></a><span class="x">创建新的同名变量可以覆盖原变量，如用extract()展开键值对。</span>
-<a id="__codelineno-9-29" name="__codelineno-9-29"></a>
-<a id="__codelineno-9-30" name="__codelineno-9-30"></a><span class="x">#### 文件包含</span>
-<a id="__codelineno-9-31" name="__codelineno-9-31"></a>
-<a id="__codelineno-9-32" name="__codelineno-9-32"></a><span class="x">文件包含漏洞（File Inclusion Vulnerability）是一种常见的Web应用程序安全漏洞，攻击者可以通过操纵输入参数，使应用程序包含并执行任意文件。这种漏洞通常发生在PHP等支持文件包含功能的编程语言中，能造成文件泄露和代码注入。</span>
-<a id="__codelineno-9-33" name="__codelineno-9-33"></a>
-<a id="__codelineno-9-34" name="__codelineno-9-34"></a><span class="x">文件泄露可以用于读取服务器内容，代码注入可以向服务器上传木马。</span>
-<a id="__codelineno-9-35" name="__codelineno-9-35"></a>
-<a id="__codelineno-9-36" name="__codelineno-9-36"></a><span class="x">常用的技巧有PHP伪协议、包含session文件、包含临时文件、包含上传文件、包含本地文件等。</span>
-<a id="__codelineno-9-37" name="__codelineno-9-37"></a>
-<a id="__codelineno-9-38" name="__codelineno-9-38"></a><span class="x">以包含上传文件为例，可以用简单的一句话木马来实现代码注入：</span>
-<a id="__codelineno-9-39" name="__codelineno-9-39"></a>
-<a id="__codelineno-9-40" name="__codelineno-9-40"></a><span class="x">```php</span>
-<a id="__codelineno-9-41" name="__codelineno-9-41"></a><span class="cp">&lt;?</span><span class="o">=</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><code>var_dump("a"==0); //true</code></li>
+<li>当字符串和数字进行比较时，字符串会被转换为数字。因为字符串 <code>"a"</code> 不以数字开始，所以它被转换为数字 <code>0</code>，因此 <code>0 == 0</code> 为 <code>true</code>。</li>
+<li><code>var_dump("1a"==1); //true</code></li>
+<li>在这个例子中，字符串 <code>"1a"</code> 被转换为数字时，转换会在遇到非数字字符前停止，因此 <code>"1a"</code> 转换为数字 <code>1</code>，所以 <code>1 == 1</code> 为 <code>true</code>。</li>
+<li><code>var_dump("a1"==1); //false</code></li>
+<li>由于 <code>"a1"</code> 以非数字字符开始，所以在转换为数字时整个字符串被视为 <code>0</code>，因此比较结果为 <code>0 == 1</code>，即 <code>false</code>。</li>
+<li><code>var_dump("a1"==0); //true</code></li>
+<li>同上，<code>"a1"</code> 被转换为 <code>0</code>，所以 <code>0 == 0</code> 为 <code>true</code>。</li>
+<li><code>var_dump("0e123456"=="0e234567"); //true</code></li>
+<li>这个例子涉及到 PHP 中的一个特殊情况，当字符串遵循科学记数法的格式时，它们会被转换为浮点数。然而，由于 <code>"0e任何数"</code> 都会被解释为 <code>0</code>（因为它相当于 <code>0</code> 乘以 <code>10</code> 的任何次方），所以两边都被转换为 <code>0</code>，因此比较结果为 <code>true</code>。</li>
+<li><code>var_dump(0=="1a"); //false</code></li>
+<li>这里 <code>"1a"</code> 被转换为数字 <code>1</code>（如之前解释的那样），因此比较结果为 <code>0 == 1</code>，即 <code>false</code>。</li>
+</ol>
+<h4 id="_8">变量覆盖<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>创建新的同名变量可以覆盖原变量，如用extract()展开键值对。</p>
+<h4 id="_9">文件包含<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>文件包含漏洞（File Inclusion Vulnerability）是一种常见的Web应用程序安全漏洞，攻击者可以通过操纵输入参数，使应用程序包含并执行任意文件。这种漏洞通常发生在PHP等支持文件包含功能的编程语言中，能造成文件泄露和代码注入。</p>
+<p>文件泄露可以用于读取服务器内容，代码注入可以向服务器上传木马。</p>
+<p>常用的技巧有PHP伪协议、包含session文件、包含临时文件、包含上传文件、包含本地文件等。</p>
+<p>以包含上传文件为例，可以用简单的一句话木马来实现代码注入：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?</span><span class="o">=</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]);</span>
 </code></pre></div></td></tr></table></div>
 <p>这个代码的eval函数能够让服务器执行POST请求中的a参数包含的代码，这样就能让服务器执行任意指令，然后就可以使用中国蚁剑来实现图形化控制远程服务器。</p>
 
