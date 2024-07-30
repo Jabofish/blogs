@@ -1298,20 +1298,35 @@
 <a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nb">var_dump</span><span class="p">(</span><span class="mi">0</span><span class="o">==</span><span class="s2">&quot;1a&quot;</span><span class="p">);</span> <span class="c1">//false</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="cp">?&gt;</span><span class="x"> </span>
 </code></pre></div></td></tr></table></div>
+<details class="note">
+<summary>Note</summary>
 <ol>
-<li><code>var_dump("a"==0); //true</code></li>
+<li><code>var_dump("a"==0); //true</code><ul>
 <li>当字符串和数字进行比较时，字符串会被转换为数字。因为字符串 <code>"a"</code> 不以数字开始，所以它被转换为数字 <code>0</code>，因此 <code>0 == 0</code> 为 <code>true</code>。</li>
-<li><code>var_dump("1a"==1); //true</code></li>
+</ul>
+</li>
+<li><code>var_dump("1a"==1); //true</code><ul>
 <li>在这个例子中，字符串 <code>"1a"</code> 被转换为数字时，转换会在遇到非数字字符前停止，因此 <code>"1a"</code> 转换为数字 <code>1</code>，所以 <code>1 == 1</code> 为 <code>true</code>。</li>
-<li><code>var_dump("a1"==1); //false</code></li>
+</ul>
+</li>
+<li><code>var_dump("a1"==1); //false</code><ul>
 <li>由于 <code>"a1"</code> 以非数字字符开始，所以在转换为数字时整个字符串被视为 <code>0</code>，因此比较结果为 <code>0 == 1</code>，即 <code>false</code>。</li>
-<li><code>var_dump("a1"==0); //true</code></li>
+</ul>
+</li>
+<li><code>var_dump("a1"==0); //true</code><ul>
 <li>同上，<code>"a1"</code> 被转换为 <code>0</code>，所以 <code>0 == 0</code> 为 <code>true</code>。</li>
-<li><code>var_dump("0e123456"=="0e234567"); //true</code></li>
+</ul>
+</li>
+<li><code>var_dump("0e123456"=="0e234567"); //true</code><ul>
 <li>这个例子涉及到 PHP 中的一个特殊情况，当字符串遵循科学记数法的格式时，它们会被转换为浮点数。然而，由于 <code>"0e任何数"</code> 都会被解释为 <code>0</code>（因为它相当于 <code>0</code> 乘以 <code>10</code> 的任何次方），所以两边都被转换为 <code>0</code>，因此比较结果为 <code>true</code>。</li>
-<li><code>var_dump(0=="1a"); //false</code></li>
+</ul>
+</li>
+<li><code>var_dump(0=="1a"); //false</code><ul>
 <li>这里 <code>"1a"</code> 被转换为数字 <code>1</code>（如之前解释的那样），因此比较结果为 <code>0 == 1</code>，即 <code>false</code>。</li>
+</ul>
+</li>
 </ol>
+</details>
 <h4 id="_8">变量覆盖<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p>创建新的同名变量可以覆盖原变量，如用extract()展开键值对。</p>
 <h4 id="_9">文件包含<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
