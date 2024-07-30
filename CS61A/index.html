@@ -1832,12 +1832,34 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>try内是可能出错的块，except捕获特定错误，else块在无错误情况下运行，finally在任何情况下都运行。</p>
 <p>比较好的编程思路：把没有做错误处理的函数写好，再用另一个函数处理错误并封装，即：将核心逻辑和错误处理分离。</p>
 <h3 id="calculator">Calculator<a class="headerlink" href="#calculator" title="Permanent link">&para;</a></h3>
+<p>编程语言应该为某个特定问题领域和应用进行设计。解析器（interpreters）获取文本并返回表达式，这一过程称为Parsing。</p>
+<p>递归下降解析器是一种自顶向下的语法分析方法，通常用于解析上下文无关文法。它由一组递归函数组成，每个函数对应一个语法规则。</p>
+<p>在解析器的基础上我们可以设计一个计算器。如前序表达式可以经由一定的规则从前往后地完成所有的运算。</p>
+<p>计算器语言只需要两种表达式：primitive expression和call expression。用前者做叶子，用后者连接叶子，能够构建一个语法树。应用特定规则的函数就能实现加减乘除等运算。 </p>
+<p>对可能的expections要做好处理：值错误，语法错误，类型错误。</p>
 <h2 id="week-12">Week 12<a class="headerlink" href="#week-12" title="Permanent link">&para;</a></h2>
 <h3 id="interpreters">Interpreters<a class="headerlink" href="#interpreters" title="Permanent link">&para;</a></h3>
+<p>简单的解析器可以由评估部分和应用部分，由评估部分来分析语法来决定调用哪个应用部分的函数。应用部分也可以构造新的函数和空间供评估部分匹配。</p>
 <h3 id="declarative-programming">Declarative Programming<a class="headerlink" href="#declarative-programming" title="Permanent link">&para;</a></h3>
+<p>DBMS（数据库管理系统）是很重要的应用。一个数据库内可以有很多张表，每张表有一行或多行数据，每行数据有一列或多列的值。</p>
+<p>SQL（Structured Query Language）是一种用于管理和操作关系数据库的标准语言。它用于执行查询、插入、更新和删除数据库中的数据，以及创建和修改数据库结构。</p>
+<p>SQL语言是一种declarative language，这种语言的特点是：程序是一个特定结果的声明，解析器的目的是生成特定结果。而在其他像Python一样的编程语言中，程序是一系列的过程。</p>
+<p>SQL的语法比较简单，参考菜鸟教程简单了解即可：<a href="https://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a>。尽管SQL有很多种，它们的语法都大同小异，无非增删查改四大功能。只需具体了解一种就行，如MySQL。</p>
 <h2 id="week-13">Week 13<a class="headerlink" href="#week-13" title="Permanent link">&para;</a></h2>
 <h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h3>
+<p>表的一些进阶用法：</p>
+<p>在两个表内筛选特定条件的数据。</p>
+<p><img alt="1722359457984" src="image/index/1722359457984.png" /></p>
+<p><img alt="1722359611737" src="image/index/1722359611737.png" /></p>
+<p>&lt;是为了避免重复输出，让输出有一定的顺序。</p>
+<p><img alt="1722359777702" src="image/index/1722359777702.png" /></p>
+<p>数值表达式应用：where后可以使用特定的数值表达式来筛选特定行；也可以在构建新表的时候使用数值表达式来完成一定的公式运算。</p>
+<p>字符串表达式应用：用||拼接字符串，能够在输出的时候添加一些字符串部分，形成语义完整的输出。&lt;&gt;类似于!=的效果。</p>
 <h3 id="aggregation">Aggregation<a class="headerlink" href="#aggregation" title="Permanent link">&para;</a></h3>
+<p>聚合函数：count，sum，avg，max，min等，用于对一组值执行计算，并返回单一的结果。多个聚合函数可以一起使用。</p>
+<p>使用关键词distinct可以让语句只关注各不相同的值。</p>
+<p>group by可以按某一列或某几列的数值表达式来重新生成一个表。</p>
+<p>having有类似于where的筛选功能，但它还有使用聚合函数来筛选。</p>
 <h3 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h3>
 <h2 id="week-14">Week 14<a class="headerlink" href="#week-14" title="Permanent link">&para;</a></h2>
 <h3 id="tail-calls">Tail Calls<a class="headerlink" href="#tail-calls" title="Permanent link">&para;</a></h3>
