@@ -15,6 +15,8 @@
         <link rel="canonical" href="https://jabofish.github.io/blogs/CS61A/">
       
       
+        <link rel="prev" href="../CTF/Crypto/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -296,16 +298,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../CTF/overview/" class="md-tabs__link">
           
   
@@ -399,42 +405,57 @@
       
   
   
+    
   
   
+  
     
     
       
         
       
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
   <span class="md-ellipsis">
     笔记
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             笔记
@@ -467,10 +488,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -479,7 +503,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -629,6 +653,8 @@
     </li>
   
 
+              
+            
               
             
           </ul>
@@ -1908,7 +1934,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>尾递归的函数可以被优化成循环，从而降低空间复杂度。上面计算阶乘的例子只会使用常数空间复杂度。</p>
 <h2 id="week-15">Week 15<a class="headerlink" href="#week-15" title="Permanent link">&para;</a></h2>
 <h3 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h3>
-<p>Scheme具有强大的宏系统，允许程序员在编译时生成和操作代码。Scheme 中的宏通常使用 <code>define</code> 来定义。</p>
+<p>Scheme具有强大的宏系统，允许程序员在编译时生成和操作代码。Scheme 中的宏通常使用 <code>define-syntax</code> 和 <code>syntax-rules</code> 来定义。</p>
 
 
 
@@ -1962,6 +1988,28 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../CTF/Crypto/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Crypto">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Crypto
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
