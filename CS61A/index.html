@@ -1913,7 +1913,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>编程语言应该为某个特定问题领域和应用进行设计。解析器（interpreters）获取文本并返回表达式，这一过程称为Parsing。</p>
 <p>递归下降解析器是一种自顶向下的语法分析方法，通常用于解析上下文无关文法。它由一组递归函数组成，每个函数对应一个语法规则。</p>
 <p>在解析器的基础上我们可以设计一个计算器。如前序表达式可以经由一定的规则从前往后地完成所有的运算。</p>
-<p>计算器语言只需要两种表达式：primitive expression和call expression。用前者做叶子，用后者连接叶子，能够构建一个语法树。应用特定规则的函数就能实现加减乘除等运算。 </p>
+<p>计算器语言只需要两种表达式：primitive expression和call expression。用前者做叶子，用后者连接叶子，能够构建一个语法树。应用特定规则的函数就能实现加减乘除等运算。</p>
 <p>对可能的expections要做好处理：值错误，语法错误，类型错误。</p>
 <h2 id="week-12">Week 12<a class="headerlink" href="#week-12" title="Permanent link">&para;</a></h2>
 <h3 id="interpreters">Interpreters<a class="headerlink" href="#interpreters" title="Permanent link">&para;</a></h3>
@@ -1939,7 +1939,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>group by可以按某一列或某几列的数值表达式来重新生成一个表。</p>
 <p>having有类似于where的筛选功能，但它还有使用聚合函数来筛选。</p>
 <h3 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h3>
-<p>用Create和Drop来创建和删除表。 </p>
+<p>用Create和Drop来创建和删除表。</p>
 <p>用Insert来插入数据。用Delete来删除数据。</p>
 <p>使用Python可以连接SQL数据库。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span>
@@ -1986,7 +1986,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>尾递归的函数可以被优化成循环，从而降低空间复杂度。上面计算阶乘的例子只会使用常数空间复杂度。</p>
 <h2 id="week-15">Week 15<a class="headerlink" href="#week-15" title="Permanent link">&para;</a></h2>
 <h3 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h3>
-<p>Scheme具有强大的宏系统，允许程序员在编译时生成和操作代码。Scheme 中的宏通常使用 <code>define-syntax</code> 和 <code>syntax-rules</code> 来定义。</p>
+<p>Scheme具有强大的宏系统，允许程序员在编译时生成和操作代码。Scheme 中的宏通常使用 <code>define</code>来定义。</p>
 
 
 
