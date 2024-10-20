@@ -408,6 +408,8 @@
       
         
       
+        
+      
     
     
       
@@ -688,6 +690,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -713,11 +774,11 @@
   
 
 
-<h1 id="web-lab-1">Web Lab 1<a class="headerlink" href="#web-lab-1" title="Permanent link">&para;</a></h1>
-<h2 id="1-task-1dns">1. Task 1:DNS<a class="headerlink" href="#1-task-1dns" title="Permanent link">&para;</a></h2>
-<h3 id="11-dnsip">1.1. DNS服务器查询与IP地址访问<a class="headerlink" href="#11-dnsip" title="Permanent link">&para;</a></h3>
+<div><h1 id="web-lab-1">Web Lab 1<a class="headerlink" href="#web-lab-1" title="Permanent link">¶</a></h1>
+<h2 id="1-task-1dns">1. Task 1:DNS<a class="headerlink" href="#1-task-1dns" title="Permanent link">¶</a></h2>
+<h3 id="11-dnsip">1.1. DNS服务器查询与IP地址访问<a class="headerlink" href="#11-dnsip" title="Permanent link">¶</a></h3>
 <p>向DNS服务器查询指定域名 <code>cubicy.icu</code>的地址。</p>
-<p><img alt="1720169672555" src="../image/WebLab1/1720169672555.png" /></p>
+<p><img alt="1720169672555" src="../image/WebLab1/1720169672555.png"></p>
 <ol>
 <li>先使用 <code>nslookup cubicy.icu</code>来进行查询，得到的回复是来自 <code>dns1.zju.edu.cn</code>缓存的地址，属于非权威应答。</li>
 <li>为了得到储存 <code>cubicy.icu</code>地址的权威域名服务器，使用 <code>nslookup -qt=ns cubicy.icu</code>进行查询，得到两个nameserver：<code>itzel.ns.cloudflare.com</code>和 <code>sam.ns.cloudflare.com</code>。</li>
@@ -733,14 +794,14 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a>          172.67.179.244
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a>          104.21.31.206
 </code></pre></div></td></tr></table></div>
-<h3 id="12-dns-a">1.2. DNS A记录查询<a class="headerlink" href="#12-dns-a" title="Permanent link">&para;</a></h3>
+<h3 id="12-dns-a">1.2. DNS A记录查询<a class="headerlink" href="#12-dns-a" title="Permanent link">¶</a></h3>
 <p>直接使用 <code>nslookup -qt=a cubicy.icu</code>进行多次DNS A记录查询，得到以下两种结果：</p>
-<p><img alt="1720106197150" src="../image/WebLab1/1720106197150.png" /></p>
+<p><img alt="1720106197150" src="../image/WebLab1/1720106197150.png"></p>
 <p>相邻两次的查询记录是不一样的，出现了 <code>172.67.179.244</code>和 <code>104.21.31.206</code>两种地址，连续查询时两者的先后顺序会不断交换。</p>
 <p>这种现象是DNS轮询，可以实现负载均衡，将不同的用户请求分配到不同的服务器中，能够有效避免单一服务器的过载，有助于提高网站的稳定性、可用性和响应速度。</p>
-<h3 id="13-dns">1.3. DNS记录中的隐藏文本<a class="headerlink" href="#13-dns" title="Permanent link">&para;</a></h3>
+<h3 id="13-dns">1.3. DNS记录中的隐藏文本<a class="headerlink" href="#13-dns" title="Permanent link">¶</a></h3>
 <p>通过 <code>nslookup -qt=TXT cubicy.icu</code>对DNS记录中的文本进行查询，得到一段文本：</p>
-<p><img alt="1720106817403" src="../image/WebLab1/1720106817403.png" /></p>
+<p><img alt="1720106817403" src="../image/WebLab1/1720106817403.png"></p>
 <p>对文本进行Base64解码，得到一段文本：</p>
 <p>失恋ソング沢山聴いて
 泣いてばかりの私はもう
@@ -750,14 +811,14 @@
 忘れちゃうからね
 SUKISUKISUKISUKISUKI</p>
 <p>据查，这是番剧《夏日重现》ed的一段歌词。</p>
-<h3 id="14">1.4. 服务提供商提供的域名特点<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<h3 id="14">1.4. 服务提供商提供的域名特点<a class="headerlink" href="#14" title="Permanent link">¶</a></h3>
 <p>通过对 <code>cubicy.icu</code>、<code>www.cubicy.icu</code>和 <code>blog.cubicy.icu</code>的DNS A查询，得到其IPv4地址：</p>
-<p><img alt="1720107577622" src="../image/WebLab1/1720107577622.png" /></p>
+<p><img alt="1720107577622" src="../image/WebLab1/1720107577622.png"></p>
 <p>忽略顺序，三个域名的返回结果一致，这是因为网站可以拥有多个别名，可以定位到相同的IP地址。</p>
 <p>但直接访问这些域名会弹出：Direct IP access not allowed 的提示，是无法直接访问的，说明这些地址并不是服务器的真实地址。</p>
 <p>结合提示内容，说明服务器的内容挂载在了服务提供商的服务器上。在这个例子中，是采用了反向代理（内网穿透）的技术将内网的端口暴露到外网，此时Cloud Flare承担了请求转发的工作。</p>
-<h2 id="2-task-2http">2. Task 2:HTTP<a class="headerlink" href="#2-task-2http" title="Permanent link">&para;</a></h2>
-<h3 id="21-burpsuite">2.1. 使用BurpSuite抓包登录过程<a class="headerlink" href="#21-burpsuite" title="Permanent link">&para;</a></h3>
+<h2 id="2-task-2http">2. Task 2:HTTP<a class="headerlink" href="#2-task-2http" title="Permanent link">¶</a></h2>
+<h3 id="21-burpsuite">2.1. 使用BurpSuite抓包登录过程<a class="headerlink" href="#21-burpsuite" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -780,9 +841,9 @@ SUKISUKISUKISUKISUKI</p>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a>Host: courses.zju.edu.cn
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a>Cookie: _csrf=S8mwplVi9KWoF2WQ0TlCeFZeV2xFy%2BdjI3FlGlxzuw0%3D; _pv0=IwZUWEx3YE2nmeh5MIlsY3ajgl9Fn7n7k%2Fdb1ShJCiL%2F3Jy6THg2clQPwtw8dGHEmsC4xyDrdRm%2Ba0uTmGsFT133m1811njidHuQRLlJBu%2Bdk9HD3jGE4lXaIiJptVE6fNp%2BHWx8ElwgsgzHVjZ4BdYkYAiIjx8hnmVivGQgt7Rtp9ENzOH73BVy6QDBZA33wiUKl6dbLYkdvcbaQ%2FK%2BWYD%2FHEQqVSFV0HJ9sKW55WWdqUDQKY0bLcowtZON7PKoGHuEcrXueJv14DvpzivPfKW8H446%2FO0g6le7fT0LDtGdrWu8IYY5%2Bi9DmpNoZvjWjV%2FdDI4X6BBebOmRD8xRu490gUbqeEB7fHMGAdF9jAi%2Bh9jj7gg2tweDSx2NMkh3xbskOIkZdVIZkneNU7lGBpfslSH22%2FSjRqa0WX1NU8s%3D; _pf0=AZfKUK4GWWzuTUWyZ5EhwfBR2ioV%2ByaWKOjOnl2QV8g%3D; _pc0=reyDX%2Fn08sh6fTv3QaGeN1KrRQ8tGxxh3LO3sbs1a2BoL%2B259%2BAYIbJeJva8iww1; iPlanetDirectoryPro=%2FwZku8xUpLm%2Fs8sbGZ8cS9iY9IF9RTV5y8pLm1H0U9alvDHmGnp0k3LCCIxbZPulK9PyNao2t5KopNuuLCbui%2FaB3%2F6ZdxCuDQ0K3l1mvz066PkO4KFavWswfdWv7RZBC0JEb5pkf6RfOtrZ7HN9UkymnjEgCT36pNaVSDliEw0B%2B9AeSPVmpLrOf%2FifY6ZmBhVALA6hAIN4kHLpTzWbH7fOt6cOwclruM3tXJR6SN5lRbBdL1s28hyLKSzNknAjkJ7OltoscHjFczc0gURhsobmitA0mpDPZKxvE5TO0JWgIbh0uGgwb1lkWdQpz2E4oDj0O3zXO0moQ9CrJLUm8TWdRrQTAkBOSh%2FuftCPsLM%3D; _ga=GA1.3.2001545788.1720141747; _gat=1; session=V2-1-1076ad44-38c5-4277-86f8-ed6be81bf4e3.MjQyNjU5.1720228148518.Njnw3ixrhey_4RAMlVWrJ7utxfE
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a>Cache-Control: max-age=0
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>Sec-Ch-Ua: &quot;Not/A)Brand&quot;;v=&quot;8&quot;, &quot;Chromium&quot;;v=&quot;126&quot;
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>Sec-Ch-Ua: "Not/A)Brand";v="8", "Chromium";v="126"
 <a id="__codelineno-1-6" name="__codelineno-1-6"></a>Sec-Ch-Ua-Mobile: ?0
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>Sec-Ch-Ua-Platform: &quot;Windows&quot;
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>Sec-Ch-Ua-Platform: "Windows"
 <a id="__codelineno-1-8" name="__codelineno-1-8"></a>Accept-Language: zh-CN
 <a id="__codelineno-1-9" name="__codelineno-1-9"></a>Upgrade-Insecure-Requests: 1
 <a id="__codelineno-1-10" name="__codelineno-1-10"></a>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.127 Safari/537.36
@@ -808,21 +869,21 @@ SUKISUKISUKISUKISUKI</p>
 <li><code>Connection</code>: 控制不同HTTP请求/响应之间的连接策略，<code>keep-alive</code>表示持久连接。</li>
 </ul>
 <p>网页保存用户数据的方法是Cookies，在用户登录过学在浙大后就会从服务器获得一段cookie，之后每次访问都会向服务器发送这段cookie，从而让服务器识别到用户，完成自动登录之类的操作。</p>
-<h3 id="22-http">2.2. HTTP区分不同包的原理<a class="headerlink" href="#22-http" title="Permanent link">&para;</a></h3>
+<h3 id="22-http">2.2. HTTP区分不同包的原理<a class="headerlink" href="#22-http" title="Permanent link">¶</a></h3>
 <p>HTTP虽然工作在无边界的TCP协议上，但是通过对<strong>数据格式</strong>和<strong>传输规则</strong>加以约束后，能够区分不同的请求和响应，如上面提到的请求行、请求头以及其组成部分都对请求的不同部分做了约束，就像是课堂上提到的摩斯电码的规范一样。如HTTP定义了一系列的方法（如GET、POST、PUT、DELETE等），以指示对资源的不同操作；请求和响应都包含头部信息，提供了关于请求或响应的元数据。</p>
-<h3 id="23-ip">2.3. 通过IP直接访问服务器<a class="headerlink" href="#23-ip" title="Permanent link">&para;</a></h3>
+<h3 id="23-ip">2.3. 通过IP直接访问服务器<a class="headerlink" href="#23-ip" title="Permanent link">¶</a></h3>
 <p>尝试直接访问 <code>cubicy.icu</code> 的源服务器地址 <code>101.132.222.48</code>返回了403错误，无法直接访问。</p>
 <p>通过对比直接访问IP和用域名访问所使用的HTTP报文，将前者的报文拦截并修改为后者的报文进行访问，得到以下情形：</p>
-<p><img alt="1720147101357" src="../image/WebLab1/1720147101357.png" /></p>
+<p><img alt="1720147101357" src="../image/WebLab1/1720147101357.png"></p>
 <p>猜测可能的原因是：直接域名访问的话，在做DNS解析的时候会定向到Cloud Flare的域名服务器，能够返回正确的结果。而直接IP访问时，Cloud Flare并不会对这个做域名解析，但是这个服务器只在cloudflare的cdn服务上有记录，在国内的备案平台上没有记录，因此在DNS解析失败后会自动转到备案平台，默认提示访问了一个未经备案的网站。</p>
-<h2 id="3-task-3">3. Task 3:预习<a class="headerlink" href="#3-task-3" title="Permanent link">&para;</a></h2>
-<h3 id="31">3.1. 了解基础知识<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<h2 id="3-task-3">3. Task 3:预习<a class="headerlink" href="#3-task-3" title="Permanent link">¶</a></h2>
+<h3 id="31">3.1. 了解基础知识<a class="headerlink" href="#31" title="Permanent link">¶</a></h3>
 <p>PHP、SQL：使用PHP Study配置本地运行环境。</p>
 <p>Javascript：使用Node.js配置本地运行环境。</p>
 <p>在了解相关知识的基础上，使用PHP Study搭建了本地服务器，并在服务器上连接了MySql进行基本的操作：</p>
-<p><img alt="1720157627720" src="../image/WebLab1/1720157627720.png" /></p>
+<p><img alt="1720157627720" src="../image/WebLab1/1720157627720.png"></p>
 <p>Javascript相关内容也在与浏览器开发者工具Console中得到了实践。</p>
-<h3 id="32-python">3.2. 用Python抓取成绩<a class="headerlink" href="#32-python" title="Permanent link">&para;</a></h3>
+<h3 id="32-python">3.2. 用Python抓取成绩<a class="headerlink" href="#32-python" title="Permanent link">¶</a></h3>
 <p>已知有三个地方可以查到自己成绩：教务网（zdbk），eta，钉钉的成绩查询。在完成作业时发现只有前面两个是可以正常查询的，而且页面的数据似乎都是JavaScript动态加载的，源代码中没有成绩数据，但页面元素中有，仅使用requests库没想到该如何完成。结合自己之前的项目完成方式，决定改用Selenium库来完成。</p>
 <p>思路：在代码内储存账号密码，向登录界面发送登录请求；完成登录后进入教务网的成绩查询页面，使用教务网自带的“打印”功能输出PDF文档。</p>
 <p>遇到的困难：登录发送后会报错，但通过重新刷新一次能够正常登录；浏览器的安全功能禁用了自动化脚本的下载操作，即使关闭了安全功能仍旧无法下载，因此改用 <code>save_screenshot</code>方法来获取页面，保存到指定路径。</p>
@@ -867,51 +928,51 @@ SUKISUKISUKISUKISUKI</p>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="kn">import</span> <span class="nn">time</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a>
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">opt</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">opt</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--headless&#39;</span><span class="p">)</span>  <span class="c1"># 设置为无头</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">opt</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--disable-gpu&#39;</span><span class="p">)</span>  <span class="c1"># 设置没有使用gpu</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">opt</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;download.prompt_for_download=false&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">opt</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--headless'</span><span class="p">)</span>  <span class="c1"># 设置为无头</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">opt</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--disable-gpu'</span><span class="p">)</span>  <span class="c1"># 设置没有使用gpu</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">opt</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"download.prompt_for_download=false"</span><span class="p">)</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">opt</span><span class="p">)</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="c1"># 打开登录页面</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://zjuam.zju.edu.cn/cas/login?service=http%3A</span><span class="si">%2F%2F</span><span class="s1">zdbk.zju.edu.cn</span><span class="si">%2F</span><span class="s1">jwglxt</span><span class="si">%2F</span><span class="s1">xtgl</span><span class="si">%2F</span><span class="s1">login_ssologin.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://zjuam.zju.edu.cn/cas/login?service=http%3A</span><span class="si">%2F%2F</span><span class="s1">zdbk.zju.edu.cn</span><span class="si">%2F</span><span class="s1">jwglxt</span><span class="si">%2F</span><span class="s1">xtgl</span><span class="si">%2F</span><span class="s1">login_ssologin.html'</span><span class="p">)</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># 根据实际情况调整等待时间</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="c1"># 填写登录信息并提交</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;3230105060&#39;</span><span class="p">)</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;*********&#39;</span><span class="p">)</span> <span class="c1">#密码已略去</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">'username'</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">'3230105060'</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">'*********'</span><span class="p">)</span> <span class="c1">#密码已略去</span>
 <a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;dl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">'dl'</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://zjuam.zju.edu.cn/cas/login?service=http%3A</span><span class="si">%2F%2F</span><span class="s1">zdbk.zju.edu.cn</span><span class="si">%2F</span><span class="s1">jwglxt</span><span class="si">%2F</span><span class="s1">xtgl</span><span class="si">%2F</span><span class="s1">login_ssologin.html&#39;</span><span class="p">)</span> <span class="c1">#二次访问</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://zjuam.zju.edu.cn/cas/login?service=http%3A</span><span class="si">%2F%2F</span><span class="s1">zdbk.zju.edu.cn</span><span class="si">%2F</span><span class="s1">jwglxt</span><span class="si">%2F</span><span class="s1">xtgl</span><span class="si">%2F</span><span class="s1">login_ssologin.html'</span><span class="p">)</span> <span class="c1">#二次访问</span>
 <a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="c1"># 访问成绩页面</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://zdbk.zju.edu.cn/jwglxt/cxdy/xscjcx_cxXscjIndex.html?gnmkdm=N5083&amp;layout=default&#39;</span><span class="p">)</span> <span class="c1">#成绩页面</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'http://zdbk.zju.edu.cn/jwglxt/cxdy/xscjcx_cxXscjIndex.html?gnmkdm=N5083&amp;layout=default'</span><span class="p">)</span> <span class="c1">#成绩页面</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="c1"># 等待成绩页面加载</span>
 <a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 根据实际情况调整等待时间</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;btn_dc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span> <span class="c1">#点击打印键</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">'btn_dc'</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span> <span class="c1">#点击打印键</span>
 <a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="n">windows</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">window_handles</span>
 <a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="n">driver</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">windows</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#转到弹出的新窗口</span>
 <a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s2">&quot;document.body.style.zoom=&#39;70%&#39;&quot;</span><span class="p">)</span> <span class="c1">#选择合适的缩放比例</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="c1">#driver.find_element(By.ID, &#39;download&#39;).click()</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s2">"document.body.style.zoom='70%'"</span><span class="p">)</span> <span class="c1">#选择合适的缩放比例</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="c1">#driver.find_element(By.ID, 'download').click()</span>
 <a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="n">driver</span><span class="o">.</span><span class="n">save_screenshot</span><span class="p">(</span><span class="s1">&#39;C:/Users/Direwolf/Desktop/grades_page.png&#39;</span><span class="p">)</span> <span class="c1">#保存截图，根据自己电脑的情况修改路径</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="n">driver</span><span class="o">.</span><span class="n">save_screenshot</span><span class="p">(</span><span class="s1">'C:/Users/Direwolf/Desktop/grades_page.png'</span><span class="p">)</span> <span class="c1">#保存截图，根据自己电脑的情况修改路径</span>
 <a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="c1"># 关闭浏览器</span>
 <a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>得到的截图示例如下：</p>
-<p><img alt="1720169049747" src="../image/WebLab1/1720169049747.png" /></p>
+<p><img alt="1720169049747" src="../image/WebLab1/1720169049747.png"></p>
 <p>（做了个人信息的打码处理）</p>
-<h2 id="4-bonus">4. Bonus<a class="headerlink" href="#4-bonus" title="Permanent link">&para;</a></h2>
-<h3 id="41-http3">4.1. HTTP/3<a class="headerlink" href="#41-http3" title="Permanent link">&para;</a></h3>
+<h2 id="4-bonus">4. Bonus<a class="headerlink" href="#4-bonus" title="Permanent link">¶</a></h2>
+<h3 id="41-http3">4.1. HTTP/3<a class="headerlink" href="#41-http3" title="Permanent link">¶</a></h3>
 <p>我认为HTTP/3出现的最根本的原因就是：随着HTTP协议的不断发展，TCP协议对性能的限制因素变得越来越突出，即使是给TCP协议加上再多拓展，也还会有新的问题出现。而UDP协议相比于TCP协议来说限制更少，有更强的可拓展性，因此HTTP/3是在UDP协议的基础上重新建立一套协议，彻底解决了多次握手带来的效率低下问题和TCP顺序传输带来的头阻塞问题。</p>
-<h3 id="42-ssrf">4.2. SSRF<a class="headerlink" href="#42-ssrf" title="Permanent link">&para;</a></h3>
+<h3 id="42-ssrf">4.2. SSRF<a class="headerlink" href="#42-ssrf" title="Permanent link">¶</a></h3>
 <p>DNS Rebinding的原理是通过恶意钓鱼的权威域名服务器来在第二次请求域名解析时返回一个内网地址来绕过同源策略检查，从而实现攻击内网。</p>
 <p>基本思路是先实现一个域名服务器，第一次访问的时候返回的是正确值，第二次则返回类似于127.0.0.1的内网地址，这样就能绕过同源策略了。</p>
 <p>在Github上找了一个脚本，在本地运行，然后用nslookup检查域名服务器，然而显示的域名服务器很奇怪：
-<img alt="1721145714071" src="../image/WebLab1/1721145714071.png" /></p>
+<img alt="1721145714071" src="../image/WebLab1/1721145714071.png"></p>
 <p>初步排除后发现是 Easy Connect的问题，只要我挂上学校的vpn就会变成127.0.0.1。</p>
 <p>因此尝试使用linux来做，先后解决了端口冲突和端口权限问题之后，还是返回了一些不太理想的成果：</p>
-<p><img alt="1721145899398" src="../image/WebLab1/1721145899398.png" /></p>
-<p>最终也没搞懂原因是什么。</p>
+<p><img alt="1721145899398" src="../image/WebLab1/1721145899398.png"></p>
+<p>最终也没搞懂原因是什么。</p></div>
 
 
 

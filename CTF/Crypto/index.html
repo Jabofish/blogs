@@ -418,6 +418,8 @@
       
         
       
+        
+      
     
     
       
@@ -823,6 +825,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -848,15 +909,15 @@
   
 
 
-<h1 id="crypto">Crypto<a class="headerlink" href="#crypto" title="Permanent link">&para;</a></h1>
-<h2 id="_1">介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div><h1 id="crypto">Crypto<a class="headerlink" href="#crypto" title="Permanent link">¶</a></h1>
+<h2 id="_1">介绍<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>出题人给定一个有一定缺陷的加密算法，需要选手攻破该加密算法，得到解密后的文字，或者伪造加密信息</p>
 <p>密码学入门书籍：<a href="https://link.springer.com/book/10.1007/978-1-4939-1711-2">An introduction to mathematical cryptography</a></p>
 <p>概念：明文，密文，密码算法，密钥，对称加密（同一密钥），非对称加密（加密用公钥，解密用密钥），哈希函数（单向映射），数字签名。</p>
 <p><del>数学不太好，就简单写吧。</del></p>
-<h2 id="rsa">RSA<a class="headerlink" href="#rsa" title="Permanent link">&para;</a></h2>
+<h2 id="rsa">RSA<a class="headerlink" href="#rsa" title="Permanent link">¶</a></h2>
 <p>RSA算法是一种非对称加密算法，其基于大数分解的数学难题，其安全性依赖于大整数分解的计算复杂性。</p>
-<h3 id="_2">代码示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_2">代码示例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -960,7 +1021,7 @@
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="n">e</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">public_key</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>
 <a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="c1"># 将明文转换为整数 m</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">plaintext</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="s1">&#39;big&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">plaintext</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="s1">'big'</span><span class="p">)</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="c1"># 计算密文 c = m^e mod n</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="n">c</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -975,13 +1036,13 @@
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">m</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="c1"># 将整数 m 转换回明文</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">plaintext</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">//</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">plaintext</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">//</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'big'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">return</span> <span class="n">plaintext</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="c1"># 示例使用</span>
 <a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="n">public_key</span><span class="p">,</span> <span class="n">private_key</span> <span class="o">=</span> <span class="n">generate_keys</span><span class="p">()</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="n">plaintext</span> <span class="o">=</span> <span class="s2">&quot;Hello, RSA!&quot;</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="n">plaintext</span> <span class="o">=</span> <span class="s2">"Hello, RSA!"</span>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="c1"># 使用公钥加密明文</span>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="n">ciphertext</span> <span class="o">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">public_key</span><span class="p">,</span> <span class="n">plaintext</span><span class="p">)</span>
@@ -989,27 +1050,27 @@
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="c1"># 使用私钥解密密文</span>
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="n">decrypted_text</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">private_key</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">)</span>
 <a id="__codelineno-0-65" name="__codelineno-0-65"></a>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原文:&quot;</span><span class="p">,</span> <span class="n">plaintext</span><span class="p">)</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;密文:&quot;</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">)</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;解密后:&quot;</span><span class="p">,</span> <span class="n">decrypted_text</span><span class="p">)</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"原文:"</span><span class="p">,</span> <span class="n">plaintext</span><span class="p">)</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"密文:"</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">)</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"解密后:"</span><span class="p">,</span> <span class="n">decrypted_text</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="rsa_1">RSA攻击手段<a class="headerlink" href="#rsa_1" title="Permanent link">&para;</a></h3>
+<h3 id="rsa_1">RSA攻击手段<a class="headerlink" href="#rsa_1" title="Permanent link">¶</a></h3>
 <p>最容易想到的攻击手段是素数因子分解攻击，然而大多数情况下都不可能分解出一个特别大的n。</p>
 <p>除此以外还有低加密指数攻击（e比较小时），共模攻击（密钥用了相同的n，不同的e），选择明密文攻击（能够使用已知明文加密，或能随意解密密文）等等。</p>
 <p>RSA数字签名和一般的RSA略有不同，因为签名是使用私钥加密，用公钥解密，但依旧可以用以上手段攻击。</p>
-<h2 id="aes">AES<a class="headerlink" href="#aes" title="Permanent link">&para;</a></h2>
+<h2 id="aes">AES<a class="headerlink" href="#aes" title="Permanent link">¶</a></h2>
 <p>AES（Advanced Encryption Standard，高级加密标准）是一种对称加密算法，用于保护电子数据。</p>
-<h3 id="aes_1">AES的基本特性<a class="headerlink" href="#aes_1" title="Permanent link">&para;</a></h3>
+<h3 id="aes_1">AES的基本特性<a class="headerlink" href="#aes_1" title="Permanent link">¶</a></h3>
 <p><strong>对称加密</strong> ：AES使用相同的密钥进行加密和解密，这意味着加密和解密双方必须共享同一个密钥。</p>
 <p><strong>分组加密</strong> ：AES是一种分组加密算法，它将数据分成固定长度的块进行加密。常见的块大小为128位（16字节）。</p>
 <p><strong>密钥长度</strong> ：AES支持三种不同的密钥长度：128位、192位和256位。密钥长度越长，安全性越高，但加密和解密的速度也会稍慢。</p>
-<h3 id="aes_2">AES攻击手段<a class="headerlink" href="#aes_2" title="Permanent link">&para;</a></h3>
+<h3 id="aes_2">AES攻击手段<a class="headerlink" href="#aes_2" title="Permanent link">¶</a></h3>
 <p>AES有多种加密模式，因此攻击手段也十分丰富。</p>
 <p>以CBC模式为例，常用的有Padding Oracle Attack（填充攻击）和Bit-Flipping Attack（字节反转攻击）。</p>
-<h2 id="elgamal">ElGamal<a class="headerlink" href="#elgamal" title="Permanent link">&para;</a></h2>
+<h2 id="elgamal">ElGamal<a class="headerlink" href="#elgamal" title="Permanent link">¶</a></h2>
 <p>ElGamal 是一种基于离散对数问题（DLP）的公钥加密算法，广泛用于加密和数字签名。</p>
 <p>Wiki:<a href="https://zh.wikipedia.org/wiki/ElGamal%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"> ElGamal加密算法</a></p>
-<p>破解的有些方法思维和RSA比较相似，但解决离散对数问题用的算法不同：BSGS算法、pohlig-hellman算法。</p>
+<p>破解的有些方法思维和RSA比较相似，但解决离散对数问题用的算法不同：BSGS算法、pohlig-hellman算法。</p></div>
 
 
 

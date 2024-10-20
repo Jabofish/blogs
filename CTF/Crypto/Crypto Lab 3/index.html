@@ -408,6 +408,8 @@
       
         
       
+        
+      
     
     
       
@@ -688,6 +690,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -713,20 +774,20 @@
   
 
 
-<h1 id="crypto-lab-3">Crypto Lab 3<a class="headerlink" href="#crypto-lab-3" title="Permanent link">&para;</a></h1>
-<h2 id="1-babydlp">1. BabyDLP<a class="headerlink" href="#1-babydlp" title="Permanent link">&para;</a></h2>
-<h3 id="11">1.1. 题目分析<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<div><h1 id="crypto-lab-3">Crypto Lab 3<a class="headerlink" href="#crypto-lab-3" title="Permanent link">¶</a></h1>
+<h2 id="1-babydlp">1. BabyDLP<a class="headerlink" href="#1-babydlp" title="Permanent link">¶</a></h2>
+<h3 id="11">1.1. 题目分析<a class="headerlink" href="#11" title="Permanent link">¶</a></h3>
 <p>题目给出了一个根据<strong>ElGamal加密算法</strong>进行加密的脚本，给出的p，c，g的量级都在150余位。给出了flag的格式，但只对{}内的内容进行加密。</p>
 <p>从量级来看，这道题即便是使用<strong>BSGS</strong>算法也有着很高的复杂度，故尝试采用<strong>pohlig-hellman算法</strong>来求解这道题，这个算法将一个大的离散对数问题分解成多个小的离散对数问题，在针对群阶因子不是很大的情况下有着优异的时间复杂度，是做这个题目的最佳手段。</p>
-<h3 id="12">1.2. 思路<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h3 id="12">1.2. 思路<a class="headerlink" href="#12" title="Permanent link">¶</a></h3>
 <p>此题要求解出g^x = c (mod p)中的x。</p>
 <p>p是一个质数，所以modp的循环群的阶是p-1，先试着对p-1尝试做质因数分解：</p>
-<p><img alt="1721897191120" src="../image/CryptoLab3/1721897191120.png" /></p>
+<p><img alt="1721897191120" src="../image/CryptoLab3/1721897191120.png"></p>
 <p>可以看出p-1有多个因数，除了最后一个77位的数，其他几个因数都比较小，使用pohlig-hellman算法能有较好的时间复杂度。想要避免过于繁杂的运算，我们可以试着抛弃最后一个数，只用前面的数来实现算法。不可否认的是，这么做有一定的风险性，有可能得不到正确的结果。</p>
 <p>题目中已经给出了g，不过这个g不是严格意义上的生成元，因为它只能生成这个群的一个子群，因此它的阶不是n-1，需要先找到实际的阶来简化运算。</p>
 <p>利用子群的阶能被原来的群整除的性质，遍历 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>p-1</code></a> 的所有质因子并检查 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>g</code></a> 的幂取模后是否为 1 来找到真正的阶，然后用真正的阶进行质因数分解，对每一个质因子（除了最后一个）都使用Sagemath中的discrete_log函数来计算离散对数，得到系列的子结果。</p>
 <p>最后用一次中国剩余定理来合并这些结果，得到最终的x，这个x值就是我们需要的离散对数，加上格式就能组合出Flag了。</p>
-<h3 id="13">1.3. 实现<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<h3 id="13">1.3. 实现<a class="headerlink" href="#13" title="Permanent link">¶</a></h3>
 <p>将以上思路转换成sagemath的脚本：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -772,15 +833,15 @@
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="n">dlogs</span> <span class="o">+=</span> <span class="p">[</span><span class="n">discrete_log</span><span class="p">(</span><span class="n">ci</span><span class="p">,</span><span class="n">gi</span><span class="p">)]</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="n">x</span> <span class="o">=</span> <span class="n">crt</span><span class="p">(</span><span class="n">dlogs</span><span class="p">,</span><span class="n">primes</span><span class="p">)</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;ZJUCTF{&#39;</span> <span class="o">+</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;}&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">'ZJUCTF{'</span> <span class="o">+</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">'}'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>上面的代码定义了reduce_order函数，用给定的质因数列表来减小生成元 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>g</code></a> 的阶。它遍历每个质因数，检查 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>g</code></a> 的 <code>(p-1) // fac</code> 次幂是否等于 1（模 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>p</code></a>），如果是，就通过该质因数减小阶。</p>
 <p>主要的计算部分对每个质因数（除了最后一个）计算 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>c</code></a> 和 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>g</code></a> 的 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>t</code></a> 次幂（模 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>p</code></a>），其中 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>t</code></a> 是 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>order</code></a> 除以质因数的值。然后，使用 <code>discrete_log</code> 函数计算这些幂的离散对数，并将结果添加到 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>dlogs</code></a> 列表中。</p>
 <p>使用 <code>crt</code> 函数将所有的离散对数结果合并成一个整数 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>x</code></a>，这个 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>x</code></a> 就是满足 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>g^x ≡ c (mod p)</code></a> 的解。将 <a href="vscode-file://vscode-app/c:/Users/Direwolf/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html" title="BabyDLP.sage"><code>x</code></a> 转换为字节串，并附加到字符串 <code>'ZJUCTF{'</code> 和 <code>'}'</code> 之间，以形成最终的Flag。</p>
 <p>这个代码运行大约需要一分钟时间，在运行完成后可以直接输出正确的flag，即：</p>
-<p><img alt="1721900388702" src="../image/CryptoLab3/1721900388702.png" /></p>
+<p><img alt="1721900388702" src="../image/CryptoLab3/1721900388702.png"></p>
 <p>到校巴上验证通过：</p>
-<p><img alt="1721901492152" src="../image/CryptoLab3/1721901492152.png" /></p>
+<p><img alt="1721901492152" src="../image/CryptoLab3/1721901492152.png"></p></div>
 
 
 

@@ -18,6 +18,8 @@
         <link rel="prev" href="../CTF/Crypto/">
       
       
+        <link rel="next" href="../ADS/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
@@ -416,6 +418,8 @@
       
         
       
+        
+      
     
     
       
@@ -697,6 +701,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -722,12 +785,12 @@
   
 
 
-<h1 id="cs61a">CS61A<a class="headerlink" href="#cs61a" title="Permanent link">&para;</a></h1>
+<div><h1 id="cs61a">CS61A<a class="headerlink" href="#cs61a" title="Permanent link">¶</a></h1>
 <p>本笔记基于CS61A 2020 Fall课程内容整理。</p>
 <p>本来是打算把作业都做完的，但是后来填坑的时候人家学校对往年资源做了访问限制，后面的就简单看看课程好了。（<del>其实就是因为我懒</del>）</p>
-<h2 id="week-1">Week 1<a class="headerlink" href="#week-1" title="Permanent link">&para;</a></h2>
+<h2 id="week-1">Week 1<a class="headerlink" href="#week-1" title="Permanent link">¶</a></h2>
 <p>Computer Science is the study ofwhat problems can be solved using computation,how to solve those problems, and what techniques lead to effective solutions.</p>
-<h3 id="lab-00">Lab 00<a class="headerlink" href="#lab-00" title="Permanent link">&para;</a></h3>
+<h3 id="lab-00">Lab 00<a class="headerlink" href="#lab-00" title="Permanent link">¶</a></h3>
 <p>课程作业的提交涉及到Git的安装与使用，需要给电脑安装Git，并掌握基本的git命令。</p>
 <p>使用方法：</p>
 <p>1.打开Git Bash</p>
@@ -746,7 +809,7 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">python</span> <span class="n">ok</span> <span class="o">-</span><span class="n">q</span> <span class="n">python</span><span class="o">-</span><span class="n">basics</span> <span class="o">-</span><span class="n">u</span> <span class="o">--</span><span class="n">local</span> <span class="n">运行测试</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">python</span> <span class="n">ok</span> <span class="o">--</span><span class="n">local</span> <span class="n">代码测试</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h3>
+<h3 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">¶</a></h3>
 <p>表达式的分析顺序：先看操作符（或对应的函数），再看操作数（也可以是一个基元表达式）。</p>
 <p>赋值语句的执行顺序：1.等号右侧从左到右计算。2.将右侧的结果赋值到左侧。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
@@ -759,7 +822,7 @@
 </code></pre></div></td></tr></table></div>
 <p>以上代码将会输出2 3</p>
 <p>赋值和函数定义都是一种抽象方式，后者更为强大。找声明时优先在本地框架找，找不到再去全局框架找。</p>
-<h3 id="hw-01">HW 01<a class="headerlink" href="#hw-01" title="Permanent link">&para;</a></h3>
+<h3 id="hw-01">HW 01<a class="headerlink" href="#hw-01" title="Permanent link">¶</a></h3>
 <p>需了解operator库里的常见函数：加法 a + b add(a, b)  减法 a - b sub(a, b)。</p>
 <p>并初步理解函数的抽象性；了解min和max的运用。</p>
 <p>关于git的上传的重要补充：</p>
@@ -789,7 +852,7 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">git</span> <span class="n">add</span> <span class="n">xxx</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9"></a>
 <a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1">#描述信息</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;注释&quot;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">"注释"</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a>
 <a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1">#推送到远程</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
@@ -798,8 +861,8 @@
 </code></pre></div></td></tr></table></div>
 <p>如果开了代理还是提交失败，可能是git未使用代理，需设置代理：
 git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口）。在vsc中提供了git的可视化操作，极大降低了对命令行的要求，可以考虑使用。</p>
-<h2 id="week-2">Week 2<a class="headerlink" href="#week-2" title="Permanent link">&para;</a></h2>
-<h3 id="control">Control<a class="headerlink" href="#control" title="Permanent link">&para;</a></h3>
+<h2 id="week-2">Week 2<a class="headerlink" href="#week-2" title="Permanent link">¶</a></h2>
+<h3 id="control">Control<a class="headerlink" href="#control" title="Permanent link">¶</a></h3>
 <p>Python中每个函数都有返回值，当没有明确返回值时将会返回默认的None（None表示空，是隐性的）。</p>
 <p>纯函数只有返回值，非纯函数会产生别的效果（如打印值，即display value）。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
@@ -864,9 +927,9 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 </code></pre></div></td></tr></table></div>
 <p>这个例子的绝妙之处在于，通过循环实现了类似于递归的效果。</p>
 <p>可以先把一个大功能划分成若干个小功能，再逐一实现。</p>
-<h3 id="lab-01">Lab 01<a class="headerlink" href="#lab-01" title="Permanent link">&para;</a></h3>
+<h3 id="lab-01">Lab 01<a class="headerlink" href="#lab-01" title="Permanent link">¶</a></h3>
 <p>要学会使用把数字转成字符串，然后用for遍历每个数字的办法。</p>
-<h3 id="higher-order-functions">Higher-order Functions<a class="headerlink" href="#higher-order-functions" title="Permanent link">&para;</a></h3>
+<h3 id="higher-order-functions">Higher-order Functions<a class="headerlink" href="#higher-order-functions" title="Permanent link">¶</a></h3>
 <p>以斐波那契数列为例：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
@@ -876,7 +939,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <span class="normal"><a href="#__codelineno-7-6">6</a></span>
 <span class="normal"><a href="#__codelineno-7-7">7</a></span>
 <span class="normal"><a href="#__codelineno-7-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the nth Fibonacci number, for N &gt;= 1.&quot;&quot;&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="sd">"""Compute the nth Fibonacci number, for N &gt;= 1."""</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="n">pred</span><span class="p">,</span> <span class="n">curr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>  <span class="c1"># 0th and 1st Fibonacci numbers</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># curr is the kth Fibonacci number</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span> 
@@ -887,9 +950,9 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>assert语句的运用：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>    <span class="k">assert</span> <span class="n">exp</span><span class="p">,</span><span class="s1">&#39;Hint&#39;</span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>    <span class="k">assert</span> <span class="n">exp</span><span class="p">,</span><span class="s1">'Hint'</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="c1">#Do nothing if exp is True</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="c1">#Return an ERROR and &#39;Hint&#39; if exp is False</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="c1">#Return an ERROR and 'Hint' if exp is False</span>
 </code></pre></div></td></tr></table></div>
 <p>对函数划分的精妙运用：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
@@ -905,8 +968,8 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <span class="normal"><a href="#__codelineno-9-11">11</a></span>
 <span class="normal"><a href="#__codelineno-9-12">12</a></span>
 <span class="normal"><a href="#__codelineno-9-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">shape_constant</span><span class="p">):</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the area of a shape from length measurement R.&quot;&quot;&quot;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="k">assert</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;A length must be positive&#39;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="sd">"""Return the area of a shape from length measurement R."""</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="k">assert</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'A length must be positive'</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="k">return</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">shape_constant</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5"></a>
 <a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="k">def</span> <span class="nf">area_square</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
@@ -934,13 +997,13 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-10-2" name="__codelineno-10-2"></a>        <span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3"></a>            <span class="k">return</span> <span class="n">k</span> <span class="o">+</span> <span class="n">n</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4"></a>        <span class="k">return</span> <span class="n">adder</span> 
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="sd">'''</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="sd">在上例中，n作为形式参数在adder的定义中起了作用。</span>
 <a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="sd">当n=2时，返回的adder函数中所定义的return语句是：return k + 2。</span>
 <a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="sd">所以make_adder(1)(2)的值为3，</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="sd">此时make_adder(1)(2)等效于adder(2)，</span>
 <a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="sd">且这里的adder返回语句为：return k + 1。</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="sd">'''</span>
 </code></pre></div></td></tr></table></div>
 <p>函数可以作为参数，把函数入口作为返回值，可以在全局框架中被调用。这就是高阶函数的应用。</p>
 <p>lambda表达式：（匿名函数的使用）1.square = lambda x: x * x（参数:表达式）</p>
@@ -977,12 +1040,12 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-12-2" name="__codelineno-12-2"></a>    <span class="c1">#条件表达式，如果if后为真，执行前面的语句，否则执行else后的语句，例子如下</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3"></a>    <span class="mi">1</span><span class="o">/</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="o">!=</span><span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="hog">Hog<a class="headerlink" href="#hog" title="Permanent link">&para;</a></h3>
+<h3 id="hog">Hog<a class="headerlink" href="#hog" title="Permanent link">¶</a></h3>
 <p>这是一个很有意思的项目，不过中间遇到了一些问题。</p>
 <p>1.在problem6中写错了函数的位置，但是意外通过了测试点，导致后面在写problem7的时候始终没找到bug，要十分小心。(后来发现其实是测试文件还没解锁，自己没仔细看以为是通过了，难绷)</p>
 <p>2.problem7中以高阶函数的形式修改了原函数参数的默认值，非常巧妙。</p>
 <p>3.高阶函数使用时给参数赋值的顺序也很有讲究，会影响逻辑结构。</p>
-<h3 id="environments">Environments<a class="headerlink" href="#environments" title="Permanent link">&para;</a></h3>
+<h3 id="environments">Environments<a class="headerlink" href="#environments" title="Permanent link">¶</a></h3>
 <p>高阶函数的特点：以函数作为参数，或返回函数，后者用到嵌套定义。（子框架中用到的未定义参数会到父框架中找值）</p>
 <p>在已有一个函数的情况下，仅用该函数作为参数来定义函数，使用多层嵌套来返回被定义的函数时可以实现一个效果：新定义的函数可以通过多次赋值来逐层解开嵌套。如定义一个以f0为参数的f1，然后在f1中定义f2，f2中定义f3，并且f3返回占位赋值后的f0的结果（事实上还未赋值，只是用参数先占住了位置），f2返回f3，f1返回f2，并用fun1来存储最后这个返回值。先调用fun，将f0代入，接下来，调用fun1，代入的参数会补全f2的空缺部分，然后返回f3（此时的f3和前面的f3已有不同），并用fun储存这个返回值。继续调用fun，代入的参数将同前面的参数一起补全f0所需的参数，完成f0的完全调用，并返回f0的结果。</p>
 <p>这是currying的应用。柯里化（Currying）是一种处理多元函数的方法。</p>
@@ -998,25 +1061,25 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <span class="normal"><a href="#__codelineno-13-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>    <span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f0</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">f0</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2"></a>    <span class="c1">#或者</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="k">def</span> <span class="nf">curry2</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a curried version of the given two-argument function.&quot;&quot;&quot;</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">        </span><span class="sd">"""Return a curried version of the given two-argument function."""</span>
 <a id="__codelineno-13-5" name="__codelineno-13-5"></a>        <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6"></a>            <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
 <a id="__codelineno-13-7" name="__codelineno-13-7"></a>                <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8"></a>            <span class="k">return</span> <span class="n">h</span>
 <a id="__codelineno-13-9" name="__codelineno-13-9"></a>        <span class="k">return</span> <span class="n">g</span>  
 </code></pre></div></td></tr></table></div>
-<h3 id="lab-02">Lab 02<a class="headerlink" href="#lab-02" title="Permanent link">&para;</a></h3>
+<h3 id="lab-02">Lab 02<a class="headerlink" href="#lab-02" title="Permanent link">¶</a></h3>
 <p>简单的高阶函数运用。</p>
-<h2 id="week-3">Week 3<a class="headerlink" href="#week-3" title="Permanent link">&para;</a></h2>
-<h3 id="design">Design<a class="headerlink" href="#design" title="Permanent link">&para;</a></h3>
+<h2 id="week-3">Week 3<a class="headerlink" href="#week-3" title="Permanent link">¶</a></h2>
+<h3 id="design">Design<a class="headerlink" href="#design" title="Permanent link">¶</a></h3>
 <p>函数命名最好能反映其效果、行为、返回值，见名知义。给重复使用的表达式或过程进行命名。</p>
-<h3 id="functions-example">Functions Example<a class="headerlink" href="#functions-example" title="Permanent link">&para;</a></h3>
+<h3 id="functions-example">Functions Example<a class="headerlink" href="#functions-example" title="Permanent link">¶</a></h3>
 <p>一些实例，用于应付考试。通过代入特定的值来理顺程序的执行内容。</p>
-<h2 id="week-4">Week 4<a class="headerlink" href="#week-4" title="Permanent link">&para;</a></h2>
-<h3 id="recursion">Recursion<a class="headerlink" href="#recursion" title="Permanent link">&para;</a></h3>
+<h2 id="week-4">Week 4<a class="headerlink" href="#week-4" title="Permanent link">¶</a></h2>
+<h3 id="recursion">Recursion<a class="headerlink" href="#recursion" title="Permanent link">¶</a></h3>
 <p>递归函数：直接或间接地调用自己的函数。通常从判断基本情况开始，基本情况的判断是不需要递归的；更复杂的情况则会通过调用自己来一步步地化简到基本情况。基本情况可以不止一种。递归可以理解为数学归纳法的实际应用。因此可以用数学归纳法来设计和检验递归函数。</p>
 <p>当有奇偶数区分时可以设计两个递归函数分别调用对方。递归和迭代（循环）往往可以相互转化，但递归往往更简单。</p>
-<h3 id="tree-recursion">Tree Recursion<a class="headerlink" href="#tree-recursion" title="Permanent link">&para;</a></h3>
+<h3 id="tree-recursion">Tree Recursion<a class="headerlink" href="#tree-recursion" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
@@ -1078,11 +1141,11 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <span class="normal"><a href="#__codelineno-16-22">22</a></span>
 <span class="normal"><a href="#__codelineno-16-23">23</a></span>
 <span class="normal"><a href="#__codelineno-16-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">def</span> <span class="nf">print_move</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Print instructions to move a disk.&quot;&quot;&quot;</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Move the top disk from rod&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="s2">&quot;to rod&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="sd">"""Print instructions to move a disk."""</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Move the top disk from rod"</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="s2">"to rod"</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4"></a>
 <a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="k">def</span> <span class="nf">move_stack</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the moves required to move n disks on the start pole to the end</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="sd">"""Print the moves required to move n disks on the start pole to the end</span>
 <a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="sd">    pole without violating the rules of Towers of Hanoi.</span>
 <a id="__codelineno-16-8" name="__codelineno-16-8"></a>
 <a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="sd">    n -- number of disks</span>
@@ -1092,8 +1155,8 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="sd">    There are exactly three poles, and start and end must be different. Assume</span>
 <a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="sd">    that the start pole has at least n disks of increasing size, and the end</span>
 <a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="sd">    pole is either empty or has a top disk larger than the top n start disks.</span>
-<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-16-17" name="__codelineno-16-17"></a>    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">end</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span><span class="p">,</span> <span class="s2">&quot;Bad start/end&quot;</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="sd">    """</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a>    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">end</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span><span class="p">,</span> <span class="s2">"Bad start/end"</span>
 <a id="__codelineno-16-18" name="__codelineno-16-18"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
 <a id="__codelineno-16-19" name="__codelineno-16-19"></a>        <span class="n">print_move</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 <a id="__codelineno-16-20" name="__codelineno-16-20"></a>    <span class="k">else</span><span class="p">:</span>
@@ -1102,7 +1165,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-16-23" name="__codelineno-16-23"></a>        <span class="n">print_move</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 <a id="__codelineno-16-24" name="__codelineno-16-24"></a>        <span class="n">move_stack</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spare_peg</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="hw-02">HW 02<a class="headerlink" href="#hw-02" title="Permanent link">&para;</a></h3>
+<h3 id="hw-02">HW 02<a class="headerlink" href="#hw-02" title="Permanent link">¶</a></h3>
 <p>递归函数也可以越递归参数越大，只需要写一个高阶函数再调用，就可以实现和while语句相近的效果。</p>
 <p>在没有函数名的情况下也可以通过lambda语句实施递归操作，但是需要将函数自身作为参数传递到每一次的调用之中。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
@@ -1118,19 +1181,19 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <span class="normal"><a href="#__codelineno-17-11">11</a></span>
 <span class="normal"><a href="#__codelineno-17-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>    <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">sub</span><span class="p">,</span> <span class="n">mul</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2"></a>    <span class="k">def</span> <span class="nf">make_anonymous_factorial</span><span class="p">():</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the value of an expression that computes factorial.</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="sd">"""Return the value of an expression that computes factorial.</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4"></a>
 <a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="sd">    &gt;&gt;&gt; make_anonymous_factorial()(5)</span>
 <a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="sd">    120</span>
 <a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="sd">    &gt;&gt;&gt; from construct_check import check</span>
 <a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="sd">    &gt;&gt;&gt; # ban any assignments or recursion</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="sd">    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#39;make_anonymous_factorial&#39;, [&#39;Assign&#39;, &#39;AugAssign&#39;, &#39;FunctionDef&#39;, &#39;Recursion&#39;])</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="sd">    &gt;&gt;&gt; check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign', 'FunctionDef', 'Recursion'])</span>
 <a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="sd">    True</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="sd">    """</span>
 <a id="__codelineno-17-12" name="__codelineno-17-12"></a>    <span class="k">return</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span><span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">n</span><span class="p">))(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">,</span><span class="n">n</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">mul</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">sub</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="week-5">Week 5<a class="headerlink" href="#week-5" title="Permanent link">&para;</a></h2>
-<h3 id="containers">Containers<a class="headerlink" href="#containers" title="Permanent link">&para;</a></h3>
+<h2 id="week-5">Week 5<a class="headerlink" href="#week-5" title="Permanent link">¶</a></h2>
+<h3 id="containers">Containers<a class="headerlink" href="#containers" title="Permanent link">¶</a></h3>
 <p>lists:列表，[]:列表之间可以直接相加和相乘。可以用in和not in判断某个元素是否在列表中。</p>
 <p>用'for element in list：'来遍历列表。（element可以是多个参数，用于读取嵌套列表中的元素）</p>
 <p>range(start,end)前闭后开，用list(range(start,end))可以构造列表，只含区间内的整数。</p>
@@ -1139,9 +1202,9 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>strings:字符串，' ' " "。</p>
 <p>用exec可以执行字符串中的表达式，用序号取字符串的元素得到的还是字符串。</p>
 <p>用in表达式可以判断某个单词或某个部分是否在字符串中出现。</p>
-<h3 id="lab-04">Lab 04<a class="headerlink" href="#lab-04" title="Permanent link">&para;</a></h3>
+<h3 id="lab-04">Lab 04<a class="headerlink" href="#lab-04" title="Permanent link">¶</a></h3>
 <p>对整数进行逐位递归处理时可以先从第一个开始，也可以先从最后一个开始。</p>
-<h3 id="data-abstraction">Data Abstraction<a class="headerlink" href="#data-abstraction" title="Permanent link">&para;</a></h3>
+<h3 id="data-abstraction">Data Abstraction<a class="headerlink" href="#data-abstraction" title="Permanent link">¶</a></h3>
 <p>分数可以看成是由分子和分母构成的复合数据，计算时可以分别得到分子和分母，以保证精确度，如分数的加减法。要保证代码块的抽象化，需要使用函数来封装功能，避免出现难以理解的数字和实质。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
@@ -1162,30 +1225,30 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <span class="normal"><a href="#__codelineno-18-17">17</a></span>
 <span class="normal"><a href="#__codelineno-18-18">18</a></span>
 <span class="normal"><a href="#__codelineno-18-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">def</span> <span class="nf">rational</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;A representation of the rational number N/D.&quot;&quot;&quot;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="sd">"""A representation of the rational number N/D."""</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3"></a>    <span class="n">g</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4"></a>    <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">n</span><span class="o">//</span><span class="n">g</span><span class="p">,</span> <span class="n">d</span><span class="o">//</span><span class="n">g</span>
 <a id="__codelineno-18-5" name="__codelineno-18-5"></a>    <span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6"></a>        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'n'</span><span class="p">:</span>
 <a id="__codelineno-18-7" name="__codelineno-18-7"></a>            <span class="k">return</span> <span class="n">n</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8"></a>        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a>        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'d'</span><span class="p">:</span>
 <a id="__codelineno-18-9" name="__codelineno-18-9"></a>            <span class="k">return</span> <span class="n">d</span>
 <a id="__codelineno-18-10" name="__codelineno-18-10"></a>    <span class="k">return</span> <span class="n">select</span>
 <a id="__codelineno-18-11" name="__codelineno-18-11"></a>
 <a id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="k">def</span> <span class="nf">numer</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the numerator of rational number X in lowest terms and having</span>
-<a id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="sd">    the sign of X.&quot;&quot;&quot;</span>
-<a id="__codelineno-18-15" name="__codelineno-18-15"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="w">    </span><span class="sd">"""Return the numerator of rational number X in lowest terms and having</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="sd">    the sign of X."""</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
 <a id="__codelineno-18-16" name="__codelineno-18-16"></a>
 <a id="__codelineno-18-17" name="__codelineno-18-17"></a><span class="k">def</span> <span class="nf">denom</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the denominator of rational number X in lowest terms and positive.&quot;&quot;&quot;</span>
-<a id="__codelineno-18-19" name="__codelineno-18-19"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="w">    </span><span class="sd">"""Return the denominator of rational number X in lowest terms and positive."""</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">(</span><span class="s1">'d'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>在不使用列表的情况下实现对分子分母的返回（涉及高阶函数）。</p>
 <p>dictionaries:{key:value}，字典，无序。用keys/values/items来取出所有的元素（键/值/对）。</p>
 <p>dict.get(key,0)可以返回对应的键，找不到则默认返回后面的0。</p>
 <p>[key:expression for element in range]可以快速构建字典。</p>
-<h3 id="cats">Cats<a class="headerlink" href="#cats" title="Permanent link">&para;</a></h3>
+<h3 id="cats">Cats<a class="headerlink" href="#cats" title="Permanent link">¶</a></h3>
 <p>写一个打字练习器。里面有一个关于递归的处理很巧妙：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
 <span class="normal"><a href="#__codelineno-19-2">2</a></span>
@@ -1196,7 +1259,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-19-4" name="__codelineno-19-4"></a>        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">add_diff</span><span class="p">,</span><span class="n">remove_diff</span><span class="p">,</span><span class="n">substitute_diff</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>形成像树一样的分支结构。</p>
-<h3 id="trees">Trees<a class="headerlink" href="#trees" title="Permanent link">&para;</a></h3>
+<h3 id="trees">Trees<a class="headerlink" href="#trees" title="Permanent link">¶</a></h3>
 <p>框-指针表示法：可用于表示树结构。嵌套列表是一种典型的树结构。</p>
 <p>切片：[start\:end\:step]前闭后开。</p>
 <p>序列内置了sum/max/all函数，可以直接使用。</p>
@@ -1223,7 +1286,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <span class="normal"><a href="#__codelineno-20-20">20</a></span>
 <span class="normal"><a href="#__codelineno-20-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">def</span> <span class="nf">tree</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">branches</span><span class="o">=</span><span class="p">[]):</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2"></a>    <span class="k">for</span> <span class="n">branch</span> <span class="ow">in</span> <span class="n">branches</span><span class="p">:</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a>        <span class="k">assert</span> <span class="n">is_tree</span><span class="p">(</span><span class="n">branch</span><span class="p">),</span> <span class="s1">&#39;branches must be trees&#39;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>        <span class="k">assert</span> <span class="n">is_tree</span><span class="p">(</span><span class="n">branch</span><span class="p">),</span> <span class="s1">'branches must be trees'</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
 <a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="c1">#树的拼接</span>
 <a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
@@ -1243,11 +1306,11 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="k">def</span> <span class="nf">is_leaf</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
 <a id="__codelineno-20-21" name="__codelineno-20-21"></a>    <span class="k">return</span> <span class="ow">not</span> <span class="n">branches</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="week-6">Week 6<a class="headerlink" href="#week-6" title="Permanent link">&para;</a></h2>
-<h3 id="binary-numbers">Binary Numbers<a class="headerlink" href="#binary-numbers" title="Permanent link">&para;</a></h3>
+<h2 id="week-6">Week 6<a class="headerlink" href="#week-6" title="Permanent link">¶</a></h2>
+<h3 id="binary-numbers">Binary Numbers<a class="headerlink" href="#binary-numbers" title="Permanent link">¶</a></h3>
 <p>二进制数在计算机中存储比其他进制的稳定。负数以补码形式参与计算。补码的补码是原码。100的补码还是100，从而避免了-0的出现。</p>
 <p>布尔逻辑：and/or/not。通过串联和并联分别构建and和or。另开一条带电阻的通路可以构建not。</p>
-<h3 id="lab-05">Lab 05<a class="headerlink" href="#lab-05" title="Permanent link">&para;</a></h3>
+<h3 id="lab-05">Lab 05<a class="headerlink" href="#lab-05" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
 <span class="normal"><a href="#__codelineno-21-2">2</a></span>
 <span class="normal"><a href="#__codelineno-21-3">3</a></span>
@@ -1256,13 +1319,13 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-21-3" name="__codelineno-21-3"></a>    <span class="k">return</span> <span class="p">[[</span><span class="n">num</span><span class="p">,</span><span class="n">fn</span><span class="p">(</span><span class="n">num</span><span class="p">)]</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">seq</span> <span class="k">if</span> <span class="n">fn</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">lower</span> <span class="ow">and</span> <span class="n">fn</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">upper</span><span class="p">]</span>
 <a id="__codelineno-21-4" name="__codelineno-21-4"></a>    <span class="c1">#筛选</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="circuits">Circuits<a class="headerlink" href="#circuits" title="Permanent link">&para;</a></h3>
+<h3 id="circuits">Circuits<a class="headerlink" href="#circuits" title="Permanent link">¶</a></h3>
 <p>设计电路：1.列真值表。2.为每个输出列的每一种情况写逻辑表达式（这个逻辑表达式必须保证只有一种输入才能得到该情况下的输出，即形成充分必要条件，只看输出为1的情况即可）。</p>
 <p>3.组合每列所有情况来得到适用整个列的表达式。4，画电路图。</p>
 <p>通过层层抽象来在简单结构的基础上构建更复杂的结构，但是简单抽象后的电路未必是资源优化最好的。</p>
 <p>加法器：需要处理加法与进位，三进二出。</p>
 <p>卡诺图化简法（Karnaugh maps）：用二维的方格图来简化逻辑（电路），尽量保证图表的坐标轴上相邻两个输入有一位及以上的相同位，可以更好地找到更有代表性地逻辑表达式。</p>
-<h3 id="mutable-values">Mutable Values<a class="headerlink" href="#mutable-values" title="Permanent link">&para;</a></h3>
+<h3 id="mutable-values">Mutable Values<a class="headerlink" href="#mutable-values" title="Permanent link">¶</a></h3>
 <p>对象：含有绑定在变量和函数的属性（数据和行为）。对象储存在类中。</p>
 <p>用点表达式来访问对象的属性或方法。 对象的类型是class（类）。Python中的每一个值都是对象。</p>
 <p>如：字符串是一种对象，含有大小写切换等方法（upper/lower/swapcase）。</p>
@@ -1307,13 +1370,13 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-23-7" name="__codelineno-23-7"></a>    <span class="c1">#t=[[1,2,[[3,4]]],[3,4]]</span>
 </code></pre></div></td></tr></table></div>
 <p>可变的函数默认参数是危险的，因为在函数内修改参数会影响到下一次的调用。</p>
-<h2 id="week-7">Week 7<a class="headerlink" href="#week-7" title="Permanent link">&para;</a></h2>
-<h3 id="mutable-functions">Mutable Functions<a class="headerlink" href="#mutable-functions" title="Permanent link">&para;</a></h3>
+<h2 id="week-7">Week 7<a class="headerlink" href="#week-7" title="Permanent link">¶</a></h2>
+<h3 id="mutable-functions">Mutable Functions<a class="headerlink" href="#mutable-functions" title="Permanent link">¶</a></h3>
 <p>在 Python 中，可变对象（如列表、字典等）可以在函数中被修改。这种特性使得函数可以直接改变传入的可变对象，而不需要返回新的对象。</p>
 <p>子框架中用到的父框架里的参数（没有在参数表里的）要用<strong>nonlocal</strong>标明参数（此时该参数是一个全局变量）。</p>
 <p>这个全局变量可以是嵌套函数中的父函数的参数，而未必一定在全局中声明。</p>
 <p>由于list是mutable，可以使用父框架中的列表来实现类似的可变函数中的全局变量，这样可以不使用nonlocal关键词。</p>
-<h3 id="iterators">Iterators<a class="headerlink" href="#iterators" title="Permanent link">&para;</a></h3>
+<h3 id="iterators">Iterators<a class="headerlink" href="#iterators" title="Permanent link">¶</a></h3>
 <p>迭代器是 Python 中用于遍历容器（如列表、元组等）的一种对象。迭代器对象实现了迭代协议，包括 <code>__iter__()</code> 和 <code>__next__()</code> 方法。前者返回一个迭代器，后者返回迭代器中的下一个元素。</p>
 <p>例如，在列表中，使用iter()和next()可以使用迭代器的功能，使用list()能用迭代器中列表剩余的元素生成一个新的列表。</p>
 <p>以下是一个简单的迭代器示例：</p>
@@ -1391,7 +1454,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 </code></pre></div></td></tr></table></div>
 <p>在使用字典的迭代器的过程中修改字典会导致原有的迭代器失效。</p>
 <p>一些内置的序列函数：</p>
-<p><img alt="1722173901055" src="image/index/1722173901055.png" /></p>
+<p><img alt="1722173901055" src="image/index/1722173901055.png"></p>
 <p>map()函数返回一个迭代器，这个迭代器在每次调用next()将iterable中的参数传入func，运行func后将其返回值返回。</p>
 <p>不要将迭代器和列表做比较。</p>
 <p>生成器（Generators），是创建迭代器的一种简便方法，使用 <code>yield</code> 关键字。生成器函数在每次调用 <code>yield</code> 时返回一个值，并在下一次调用时从上次离开的地方继续执行。</p>
@@ -1424,9 +1487,9 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-25-13" name="__codelineno-25-13"></a>
 <a id="__codelineno-25-14" name="__codelineno-25-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p><img alt="1722174505511" src="image/index/1722174505511.png" /></p>
+<p><img alt="1722174505511" src="image/index/1722174505511.png"></p>
 <p><code>yield from</code>可以将生成器中的函数返回值作为next的值输出，类似于递归。</p>
-<h3 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">&para;</a></h3>
+<h3 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">¶</a></h3>
 <p>对象是类的一个实例化，类充当了一种类型的所有对象的模板。</p>
 <p>构造函数可以用输入的参数值来构造并返回一个新对象。</p>
 <p>OOP（Object-Oriented Programming）：面向对象编程。</p>
@@ -1460,12 +1523,12 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-26-9" name="__codelineno-26-9"></a>
 <a id="__codelineno-26-10" name="__codelineno-26-10"></a>    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-26-11" name="__codelineno-26-11"></a>
-<a id="__codelineno-26-12" name="__codelineno-26-12"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is barking.&quot;</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is barking."</span>
 <a id="__codelineno-26-13" name="__codelineno-26-13"></a>
 <a id="__codelineno-26-14" name="__codelineno-26-14"></a>
 <a id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="c1"># 创建类的实例</span>
 <a id="__codelineno-26-16" name="__codelineno-26-16"></a>
-<a id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">"Buddy"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <a id="__codelineno-26-18" name="__codelineno-26-18"></a>
 <a id="__codelineno-26-19" name="__codelineno-26-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">my_dog</span><span class="o">.</span><span class="n">bark</span><span class="p">())</span>  <span class="c1"># 输出: Buddy is barking.</span>
 </code></pre></div></td></tr></table></div>
@@ -1474,8 +1537,8 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>在本对象内引用自己需要使用self，一般而言方法内都会使用self作为参数。</p>
 <p>Python有一个内置函数可以访问对象内的属性：getattr(object , 'name')。</p>
 <p>类内也可以有通用的属性，例如所有银行用户都是使用同一个利率，就可以把这个参数写在类里，这就是类属性。类属性同样可以用点表达式来访问和修改，即class.name。如果只用object.name的话只会修改一个对象的类属性。</p>
-<h2 id="week-8">Week 8<a class="headerlink" href="#week-8" title="Permanent link">&para;</a></h2>
-<h3 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h3>
+<h2 id="week-8">Week 8<a class="headerlink" href="#week-8" title="Permanent link">¶</a></h2>
+<h3 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">¶</a></h3>
 <p>继承能将多个类联系在一起，是面向对象编程的重要特性，它允许一个类继承另一个类的属性和方法。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
@@ -1501,27 +1564,27 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-27-3" name="__codelineno-27-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
 <a id="__codelineno-27-4" name="__codelineno-27-4"></a>
 <a id="__codelineno-27-5" name="__codelineno-27-5"></a>    <span class="k">def</span> <span class="nf">make_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-27-6" name="__codelineno-27-6"></a>        <span class="k">return</span> <span class="s2">&quot;Some generic sound&quot;</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>        <span class="k">return</span> <span class="s2">"Some generic sound"</span>
 <a id="__codelineno-27-7" name="__codelineno-27-7"></a>
 <a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
 <a id="__codelineno-27-9" name="__codelineno-27-9"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-<a id="__codelineno-27-10" name="__codelineno-27-10"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;Dog&quot;</span><span class="p">)</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">"Dog"</span><span class="p">)</span>
 <a id="__codelineno-27-11" name="__codelineno-27-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 <a id="__codelineno-27-12" name="__codelineno-27-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
 <a id="__codelineno-27-13" name="__codelineno-27-13"></a>
 <a id="__codelineno-27-14" name="__codelineno-27-14"></a>    <span class="k">def</span> <span class="nf">make_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-27-15" name="__codelineno-27-15"></a>        <span class="k">return</span> <span class="s2">&quot;Bark&quot;</span>
+<a id="__codelineno-27-15" name="__codelineno-27-15"></a>        <span class="k">return</span> <span class="s2">"Bark"</span>
 <a id="__codelineno-27-16" name="__codelineno-27-16"></a>
 <a id="__codelineno-27-17" name="__codelineno-27-17"></a><span class="c1"># 创建类的实例</span>
-<a id="__codelineno-27-18" name="__codelineno-27-18"></a><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-27-18" name="__codelineno-27-18"></a><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">"Buddy"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <a id="__codelineno-27-19" name="__codelineno-27-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">my_dog</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>  <span class="c1"># 输出: Dog</span>
 <a id="__codelineno-27-20" name="__codelineno-27-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">my_dog</span><span class="o">.</span><span class="n">make_sound</span><span class="p">())</span>  <span class="c1"># 输出: Bark</span>
 </code></pre></div></td></tr></table></div>
 <p>在这个示例中，<code>Dog</code> 类继承了 <code>Animal</code> 类，并重写了 <code>make_sound</code> 方法。基类属性不会进入子类。</p>
-<p><img alt="1722237679345" src="image/index/1722237679345.png" /></p>
+<p><img alt="1722237679345" src="image/index/1722237679345.png"></p>
 <p>多重继承，个类可以继承多个父类，从而获得多个父类的属性和方法。</p>
 <p>不要在实际工作中使用过于复杂的继承。</p>
-<h3 id="representation">Representation<a class="headerlink" href="#representation" title="Permanent link">&para;</a></h3>
+<h3 id="representation">Representation<a class="headerlink" href="#representation" title="Permanent link">¶</a></h3>
 <p>在 Python 中，<code>str</code> 和 <code>repr</code> 是两个用于生成对象字符串表示的方法。它们有不同的用途和目标。</p>
 <p><code>repr</code></p>
 <p>-<strong>用途</strong>：提供对象的官方字符串表示，主要用于调试和开发。</p>
@@ -1535,7 +1598,7 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <p>直接使用对象时调用repr，但在print的时候使用str。</p>
 <p>特殊方法（Special Methods）往往以两个下划线作为命名的开头和结尾，其命名方式是固定的。</p>
 <p>如，使用__add__来做加法，使用__float__来做类型转换。</p>
-<h3 id="composition">Composition<a class="headerlink" href="#composition" title="Permanent link">&para;</a></h3>
+<h3 id="composition">Composition<a class="headerlink" href="#composition" title="Permanent link">¶</a></h3>
 <p>以下的一些内容在数据结构课中有进一步将结合实现。</p>
 <p>链表是一种数据结构，其中每个元素（称为节点）包含一个数据部分和一个指向下一个节点的引用。链表的主要类型有单链表、双链表和循环链表。</p>
 <p>在C语言中，我们以结构体的方式实现了链表；而在Python中，用类来实现链表是更好的做法。</p>
@@ -1633,9 +1696,9 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-28-37" name="__codelineno-28-37"></a>    <span class="k">def</span> <span class="nf">print_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-28-38" name="__codelineno-28-38"></a>        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
 <a id="__codelineno-28-39" name="__codelineno-28-39"></a>        <span class="k">while</span> <span class="n">current_node</span><span class="p">:</span>
-<a id="__codelineno-28-40" name="__codelineno-28-40"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">current_node</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; -&gt; &quot;</span><span class="p">)</span>
+<a id="__codelineno-28-40" name="__codelineno-28-40"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">current_node</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" -&gt; "</span><span class="p">)</span>
 <a id="__codelineno-28-41" name="__codelineno-28-41"></a>            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>
-<a id="__codelineno-28-42" name="__codelineno-28-42"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;None&quot;</span><span class="p">)</span>
+<a id="__codelineno-28-42" name="__codelineno-28-42"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"None"</span><span class="p">)</span>
 <a id="__codelineno-28-43" name="__codelineno-28-43"></a>
 <a id="__codelineno-28-44" name="__codelineno-28-44"></a><span class="c1"># 创建链表并添加元素</span>
 <a id="__codelineno-28-45" name="__codelineno-28-45"></a><span class="n">ll</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
@@ -1772,8 +1835,8 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-29-59" name="__codelineno-29-59"></a>            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <a id="__codelineno-29-60" name="__codelineno-29-60"></a>        <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="week-9">Week 9<a class="headerlink" href="#week-9" title="Permanent link">&para;</a></h2>
-<h3 id="efficiency">Efficiency<a class="headerlink" href="#efficiency" title="Permanent link">&para;</a></h3>
+<h2 id="week-9">Week 9<a class="headerlink" href="#week-9" title="Permanent link">¶</a></h2>
+<h3 id="efficiency">Efficiency<a class="headerlink" href="#efficiency" title="Permanent link">¶</a></h3>
 <p>记忆化（Memoization）是一种优化技术，通过存储函数调用的结果来避免重复计算，从而提高程序的性能。</p>
 <p>可以使用一个字典来储存已经计算的值，可以避免一些重复运算。</p>
 <p>幂运算是一个常见的运算，在幂运算时可以修改逻辑来实现更快的计算（快速幂算法）。</p>
@@ -1812,15 +1875,15 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 </ul>
 <p>快速幂可以将幂运算的时间复杂度缩减到对数复杂度。</p>
 <p>我们一般用时间复杂度（算法运行时间随输入变化而变化的趋势）来衡量一个算法的效率。复杂度分析与表示在数据结构课程中有深入介绍，这里不再重复。与时间复杂度相对的还有空间复杂度。</p>
-<h3 id="decomposition">Decomposition<a class="headerlink" href="#decomposition" title="Permanent link">&para;</a></h3>
+<h3 id="decomposition">Decomposition<a class="headerlink" href="#decomposition" title="Permanent link">¶</a></h3>
 <p>模块化编程是一种软件设计技术，通过将程序划分为独立的、可重用的模块来提高代码的可维护性和可扩展性。每个模块通常实现特定的功能，并且可以独立开发、测试和维护。</p>
 <p>分解是一种将复杂问题拆分为更小、更易管理的子问题的技术。通过分解，可以逐步解决每个子问题，从而解决整个问题。分解在模块化编程中尤为重要，因为它有助于提高代码的可读性、可维护性和可重用性。</p>
 <p>集合 (Set) 是一种数据结构，用于存储一组不重复的元素，没有顺序，通常用于去重、集合运算（如并集、交集和差集）等操作。</p>
-<h3 id="data-examples">Data Examples<a class="headerlink" href="#data-examples" title="Permanent link">&para;</a></h3>
+<h3 id="data-examples">Data Examples<a class="headerlink" href="#data-examples" title="Permanent link">¶</a></h3>
 <p>只是一些例子。</p>
-<p><img alt="1722247459831" src="image/index/1722247459831.png" /></p>
-<h2 id="week-10">Week 10<a class="headerlink" href="#week-10" title="Permanent link">&para;</a></h2>
-<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h3>
+<p><img alt="1722247459831" src="image/index/1722247459831.png"></p>
+<h2 id="week-10">Week 10<a class="headerlink" href="#week-10" title="Permanent link">¶</a></h2>
+<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">¶</a></h3>
 <p>用户界面设计 (UI Design) 是指设计软件应用程序的视觉和交互元素，以便用户能够高效、愉快地使用软件。</p>
 <p>线框图示例：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1"> 1</a></span>
@@ -1849,19 +1912,19 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-31-12" name="__codelineno-31-12"></a>
 <a id="__codelineno-31-13" name="__codelineno-31-13"></a>+---------------------------+
 </code></pre></div></td></tr></table></div>
-<h3 id="ethical-ai-data">Ethical AI &amp; Data<a class="headerlink" href="#ethical-ai-data" title="Permanent link">&para;</a></h3>
+<h3 id="ethical-ai-data">Ethical AI &amp; Data<a class="headerlink" href="#ethical-ai-data" title="Permanent link">¶</a></h3>
 <p>推荐算法、筛选算法的应用涉及AI和数据。然而算法本身可能带有偏见，在设计和使用的时候都要尤其注意。</p>
 <p>寻找相关变量，据此设计算法。</p>
 <p>线性判别分析 (LDA) 通过寻找能够最大化类间方差和最小化类内方差的线性组合来实现数据的降维和分类。如在二维坐标系上找一条直线，把坐标系上的两类点尽可能地分开。</p>
 <p>用非线性来划分也是可行的，但难度更大，</p>
-<h2 id="week-11">Week 11<a class="headerlink" href="#week-11" title="Permanent link">&para;</a></h2>
-<h3 id="scheme">Scheme<a class="headerlink" href="#scheme" title="Permanent link">&para;</a></h3>
+<h2 id="week-11">Week 11<a class="headerlink" href="#week-11" title="Permanent link">¶</a></h2>
+<h3 id="scheme">Scheme<a class="headerlink" href="#scheme" title="Permanent link">¶</a></h3>
 <p>本课程学习一门新的语言：Scheme，这是一门更古老的语言。Scheme是python的老祖宗，在python中可以设计实现scheme的解释器。</p>
 <p>调用表达式会更像一个组合，如用(quotient 10 2)计算10/2的结果，别的运算只需要把前面的运算符换成+-等符号。(* 2 2 2 2 2)可以实现多个乘法。(number? 3)来询问3是否是数字。</p>
 <p>基本特点就是会把操作符放在最开头，如if、and、or、define等关键词作为运算符放在表达式开头。</p>
 <p>scheme中也有lambda表达式。</p>
 <p>由于这门语言如今已经没有什么应用场景了，我决定只做简单了解。</p>
-<h3 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h3>
+<h3 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">¶</a></h3>
 <p>代码有时会遇到错误，我们需要提前预判可能的错误并予以处理。</p>
 <p>异常机制是一种处理程序运行时错误的方式。它允许程序在遇到错误时中断正常的执行流程，并转移到专门的错误处理代码。</p>
 <p>assert关键词能够在后面语句为假时终止程序运行。</p>
@@ -1884,49 +1947,49 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-32-2" name="__codelineno-32-2"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-32-3" name="__codelineno-32-3"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 <a id="__codelineno-32-4" name="__codelineno-32-4"></a>    <span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-32-5" name="__codelineno-32-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-32-6" name="__codelineno-32-6"></a>        <span class="k">return</span> <span class="kc">None</span>
 <a id="__codelineno-32-7" name="__codelineno-32-7"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-32-8" name="__codelineno-32-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division successful&quot;</span><span class="p">)</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Division successful"</span><span class="p">)</span>
 <a id="__codelineno-32-9" name="__codelineno-32-9"></a>        <span class="k">return</span> <span class="n">result</span>
 <a id="__codelineno-32-10" name="__codelineno-32-10"></a>    <span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-32-11" name="__codelineno-32-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execution completed&quot;</span><span class="p">)</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Execution completed"</span><span class="p">)</span>
 <a id="__codelineno-32-12" name="__codelineno-32-12"></a><span class="c1"># 测试代码</span>
 <a id="__codelineno-32-13" name="__codelineno-32-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># 正常情况</span>
 <a id="__codelineno-32-14" name="__codelineno-32-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># 异常情况</span>
 </code></pre></div></td></tr></table></div>
 <p>try内是可能出错的块，except捕获特定错误，else块在无错误情况下运行，finally在任何情况下都运行。</p>
 <p>比较好的编程思路：把没有做错误处理的函数写好，再用另一个函数处理错误并封装，即：将核心逻辑和错误处理分离。</p>
-<h3 id="calculator">Calculator<a class="headerlink" href="#calculator" title="Permanent link">&para;</a></h3>
+<h3 id="calculator">Calculator<a class="headerlink" href="#calculator" title="Permanent link">¶</a></h3>
 <p>编程语言应该为某个特定问题领域和应用进行设计。解析器（interpreters）获取文本并返回表达式，这一过程称为Parsing。</p>
 <p>递归下降解析器是一种自顶向下的语法分析方法，通常用于解析上下文无关文法。它由一组递归函数组成，每个函数对应一个语法规则。</p>
 <p>在解析器的基础上我们可以设计一个计算器。如前序表达式可以经由一定的规则从前往后地完成所有的运算。</p>
 <p>计算器语言只需要两种表达式：primitive expression和call expression。用前者做叶子，用后者连接叶子，能够构建一个语法树。应用特定规则的函数就能实现加减乘除等运算。</p>
 <p>对可能的expections要做好处理：值错误，语法错误，类型错误。</p>
-<h2 id="week-12">Week 12<a class="headerlink" href="#week-12" title="Permanent link">&para;</a></h2>
-<h3 id="interpreters">Interpreters<a class="headerlink" href="#interpreters" title="Permanent link">&para;</a></h3>
+<h2 id="week-12">Week 12<a class="headerlink" href="#week-12" title="Permanent link">¶</a></h2>
+<h3 id="interpreters">Interpreters<a class="headerlink" href="#interpreters" title="Permanent link">¶</a></h3>
 <p>简单的解析器可以由评估部分和应用部分，由评估部分来分析语法来决定调用哪个应用部分的函数。应用部分也可以构造新的函数和空间供评估部分匹配。</p>
-<h3 id="declarative-programming">Declarative Programming<a class="headerlink" href="#declarative-programming" title="Permanent link">&para;</a></h3>
+<h3 id="declarative-programming">Declarative Programming<a class="headerlink" href="#declarative-programming" title="Permanent link">¶</a></h3>
 <p>DBMS（数据库管理系统）是很重要的应用。一个数据库内可以有很多张表，每张表有一行或多行数据，每行数据有一列或多列的值。</p>
 <p>SQL（Structured Query Language）是一种用于管理和操作关系数据库的标准语言。它用于执行查询、插入、更新和删除数据库中的数据，以及创建和修改数据库结构。</p>
 <p>SQL语言是一种declarative language，这种语言的特点是：程序是一个特定结果的声明，解析器的目的是生成特定结果。而在其他像Python一样的编程语言中，程序是一系列的过程。</p>
 <p>SQL的语法比较简单，参考菜鸟教程简单了解即可：<a href="https://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a>。尽管SQL有很多种，它们的语法都大同小异，无非增删查改四大功能。只需具体了解一种就行，如MySQL。</p>
-<h2 id="week-13">Week 13<a class="headerlink" href="#week-13" title="Permanent link">&para;</a></h2>
-<h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h3>
+<h2 id="week-13">Week 13<a class="headerlink" href="#week-13" title="Permanent link">¶</a></h2>
+<h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">¶</a></h3>
 <p>表的一些进阶用法：</p>
 <p>在两个表内筛选特定条件的数据。</p>
-<p><img alt="1722359457984" src="image/index/1722359457984.png" /></p>
-<p><img alt="1722359611737" src="image/index/1722359611737.png" /></p>
+<p><img alt="1722359457984" src="image/index/1722359457984.png"></p>
+<p><img alt="1722359611737" src="image/index/1722359611737.png"></p>
 <p>&lt;是为了避免重复输出，让输出有一定的顺序。</p>
-<p><img alt="1722359777702" src="image/index/1722359777702.png" /></p>
+<p><img alt="1722359777702" src="image/index/1722359777702.png"></p>
 <p>数值表达式应用：where后可以使用特定的数值表达式来筛选特定行；也可以在构建新表的时候使用数值表达式来完成一定的公式运算。</p>
 <p>字符串表达式应用：用||拼接字符串，能够在输出的时候添加一些字符串部分，形成语义完整的输出。&lt;&gt;类似于!=的效果。</p>
-<h3 id="aggregation">Aggregation<a class="headerlink" href="#aggregation" title="Permanent link">&para;</a></h3>
+<h3 id="aggregation">Aggregation<a class="headerlink" href="#aggregation" title="Permanent link">¶</a></h3>
 <p>聚合函数：count，sum，avg，max，min等，用于对一组值执行计算，并返回单一的结果。多个聚合函数可以一起使用。</p>
 <p>使用关键词distinct可以让语句只关注各不相同的值。</p>
 <p>group by可以按某一列或某几列的数值表达式来重新生成一个表。</p>
 <p>having有类似于where的筛选功能，但它还有使用聚合函数来筛选。</p>
-<h3 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h3>
+<h3 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">¶</a></h3>
 <p>用Create和Drop来创建和删除表。</p>
 <p>用Insert来插入数据。用Delete来删除数据。</p>
 <p>使用Python可以连接SQL数据库。</p>
@@ -1941,19 +2004,19 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <span class="normal"><a href="#__codelineno-33-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="o">//</span><span class="n">pip</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
 <a id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kn">import</span> <span class="nn">mysql.connector</span>
 <a id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="n">mydb</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-<a id="__codelineno-33-4" name="__codelineno-33-4"></a>  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-<a id="__codelineno-33-5" name="__codelineno-33-5"></a>  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;yourusername&quot;</span><span class="p">,</span>
-<a id="__codelineno-33-6" name="__codelineno-33-6"></a>  <span class="n">password</span><span class="o">=</span><span class="s2">&quot;yourpassword&quot;</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a>  <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a>  <span class="n">user</span><span class="o">=</span><span class="s2">"yourusername"</span><span class="p">,</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a>  <span class="n">password</span><span class="o">=</span><span class="s2">"yourpassword"</span>
 <a id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="p">)</span>
 <a id="__codelineno-33-8" name="__codelineno-33-8"></a>
 <a id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">mydb</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>然后使用execute来执行语句即可。</p>
 <p>为了防止Sql注入，使用更加安全的形式执行代码：</p>
-<p><img alt="1722440816173" src="image/index/1722440816173.png" /></p>
+<p><img alt="1722440816173" src="image/index/1722440816173.png"></p>
 <p>多个不同的连接请求可以同时访问同一个数据库并修改数据。</p>
-<h2 id="week-14">Week 14<a class="headerlink" href="#week-14" title="Permanent link">&para;</a></h2>
-<h3 id="tail-calls">Tail Calls<a class="headerlink" href="#tail-calls" title="Permanent link">&para;</a></h3>
+<h2 id="week-14">Week 14<a class="headerlink" href="#week-14" title="Permanent link">¶</a></h2>
+<h3 id="tail-calls">Tail Calls<a class="headerlink" href="#tail-calls" title="Permanent link">¶</a></h3>
 <p>尾递归是一种特殊的递归形式，其中递归调用是函数中的最后一个操作。尾递归的好处在于，编译器或解释器可以优化递归调用，避免增加调用栈的深度，从而提高性能。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
 <span class="normal"><a href="#__codelineno-34-2">2</a></span>
@@ -1972,9 +2035,9 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
 <a id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># 输出 120</span>
 </code></pre></div></td></tr></table></div>
 <p>尾递归的函数可以被优化成循环，从而降低空间复杂度。上面计算阶乘的例子只会使用常数空间复杂度。</p>
-<h2 id="week-15">Week 15<a class="headerlink" href="#week-15" title="Permanent link">&para;</a></h2>
-<h3 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h3>
-<p>Scheme具有强大的宏系统，允许程序员在编译时生成和操作代码。Scheme 中的宏通常使用 <code>define</code>来定义。</p>
+<h2 id="week-15">Week 15<a class="headerlink" href="#week-15" title="Permanent link">¶</a></h2>
+<h3 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">¶</a></h3>
+<p>Scheme具有强大的宏系统，允许程序员在编译时生成和操作代码。Scheme 中的宏通常使用 <code>define</code>来定义。</p></div>
 
 
 
@@ -2048,6 +2111,22 @@ git config --global http.proxy 127.0.0.1:7890（从系统设置查看IP和端口
             </div>
           </a>
         
+        
+          
+          <a href="../ADS/" class="md-footer__link md-footer__link--next" aria-label="Next: ADS">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ADS
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

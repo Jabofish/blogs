@@ -418,6 +418,8 @@
       
         
       
+        
+      
     
     
       
@@ -748,6 +750,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -773,14 +834,14 @@
   
 
 
-<h1 id="pwn">Pwn<a class="headerlink" href="#pwn" title="Permanent link">&para;</a></h1>
+<div><h1 id="pwn">Pwn<a class="headerlink" href="#pwn" title="Permanent link">¶</a></h1>
 <p>在CTF中，"pwn"指的是通过利用软件的漏洞或配置错误等手段，获得对系统、网络或设备的控制权。当一个攻击者成功"pwn"了一个系统时，他们可以执行任意代码，访问敏感数据，或者将该系统用于进一步的恶意活动。</p>
 <p>在有源代码的情况下，我们可以观察代码中存在的漏洞，构造特殊的输入来得到一些非预期结果，例如缓冲区溢出、栈溢出等。但更多时候，源代码是无法获得的，只有程序的二进制文件，这时需要使用IDA等反编译工具得到代码。此时得到的代码往往不怎么直观，变量的命名难懂、数组数据都在堆栈里、有较多的位操作。</p>
 <p>和Reverse相似，这个专题也需要很熟悉汇编语言，而且以实操为主，多数能力需要在做题中领悟。</p>
-<h2 id="_1">代码注入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">代码注入<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>有时候程序或服务器会允许用户执行自己的代码语句，或者存在可执行的内存溢出段。在这种情况下，用户可以将代码注入到内存中，并试图让程序跳转到恶意代码，就像是给一辆行驶的火车换轨。</p>
 <p>Shellcode是一段能让程序打开shell的机器码，在pwn中很常用。在不同架构的机器和系统上，shellcode一般是不同的，需要根据情况选取特定的shellcode。可以自己编译代码得到 shellcode，但更多时候可以在网络上查询专门的Shellcode Database（<a href="http://shell-storm.org/shellcode/index.html">Shellcodes database for study cases (shell-storm.org)</a>）来找到特定的代码。</p>
-<p>大多数情况下，程序不会直接执行我们注入的代码。但在程序的其他位置存在溢出漏洞，例如在调用gets函数时。这个时候我们可以用溢出的数据覆盖掉函数的返回地址，用注入代码的开头地址来代替，这样程序就会跳转到注入代码的开头执行了。</p>
+<p>大多数情况下，程序不会直接执行我们注入的代码。但在程序的其他位置存在溢出漏洞，例如在调用gets函数时。这个时候我们可以用溢出的数据覆盖掉函数的返回地址，用注入代码的开头地址来代替，这样程序就会跳转到注入代码的开头执行了。</p></div>
 
 
 

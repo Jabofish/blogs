@@ -418,6 +418,8 @@
       
         
       
+        
+      
     
     
       
@@ -814,6 +816,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -839,16 +900,16 @@
   
 
 
-<h1 id="reserve">Reserve<a class="headerlink" href="#reserve" title="Permanent link">&para;</a></h1>
-<h2 id="_1">语言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div><h1 id="reserve">Reserve<a class="headerlink" href="#reserve" title="Permanent link">¶</a></h1>
+<h2 id="_1">语言<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>高级语言-汇编语言-指令，分别经过编译和汇编操作。</p>
-<p><img alt="1720324377456" src="../image/Reverse/1720324377456.png" /></p>
+<p><img alt="1720324377456" src="../image/Reverse/1720324377456.png"></p>
 <ul>
 <li>编译执行：上述通过编译器 (compiler) 将代码转化为机器指令格式的程序，进而执行</li>
 <li>解释执行：通过解释器 (interpreter) 将代码转化为 VM 格式的程序（如字节码），进而在 VM上执行</li>
 </ul>
-<h2 id="elf">ELF<a class="headerlink" href="#elf" title="Permanent link">&para;</a></h2>
-<h3 id="elf_1">ELF 的编译、链接<a class="headerlink" href="#elf_1" title="Permanent link">&para;</a></h3>
+<h2 id="elf">ELF<a class="headerlink" href="#elf" title="Permanent link">¶</a></h2>
+<h3 id="elf_1">ELF 的编译、链接<a class="headerlink" href="#elf_1" title="Permanent link">¶</a></h3>
 <ul>
 <li>编译（汇编）：从源代码到目标文件</li>
 <li>链接：从目标文件到可执行文件</li>
@@ -857,11 +918,11 @@
 </code></pre></div></td></tr></table></div>
 <p>gcc的详细操作可看：<a href="https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html">https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html</a></p>
 <p>两种实现路径：</p>
-<p><img alt="1720324699575" src="../image/Reverse/1720324699575.png" /></p>
+<p><img alt="1720324699575" src="../image/Reverse/1720324699575.png"></p>
 <p>静态链接和动态链接：</p>
-<p><img alt="1720324775557" src="../image/Reverse/1720324775557.png" /></p>
+<p><img alt="1720324775557" src="../image/Reverse/1720324775557.png"></p>
 <p>许多程序需要访问相同的系统库，有两种方法可以做到这一点。一种解决方案是 <strong>静态链接</strong> ，其中每个程序在编译时都会获得其可执行文件中包含的库的自己的副本。另一种方法是 <strong>动态链接</strong> ，其中系统库的一个副本在每个程序之间共享，它们在运行时调用它，由操作系统提供便利。</p>
-<h3 id="elf_2">ELF 的装载和运行<a class="headerlink" href="#elf_2" title="Permanent link">&para;</a></h3>
+<h3 id="elf_2">ELF 的装载和运行<a class="headerlink" href="#elf_2" title="Permanent link">¶</a></h3>
 <ul>
 <li>可执行程序 (Program) 是静态，文件的概念</li>
 <li>进程 (Process) 是动态、系统运行时的概念（线程 ：Thread）</li>
@@ -873,14 +934,14 @@
 <p>内核以 interpreter 文件的 e_entry 位置作为起点</p>
 <p><a href="https://elixir.bootlin.com/linux/latest/source/fs/binfmt_elf.c#L1200">https://elixir.bootlin.com/linux/latest/source/fs/binfmt_elf.c#L1200</a></p>
 <p>loader 负责解析和装载其他符号，进而再跳转到给定可执行文件的 _start</p>
-<h3 id="elf_3">ELF 程序的交互、调试<a class="headerlink" href="#elf_3" title="Permanent link">&para;</a></h3>
+<h3 id="elf_3">ELF 程序的交互、调试<a class="headerlink" href="#elf_3" title="Permanent link">¶</a></h3>
 <p>通过命令行人工与程序交互：绝对路径 / 相对路径；通过虚拟机或者沙箱进行交互</p>
 <p><a href="https://fifirejail.wordpress.com/">https://fifirejail.wordpress.com/</a></p>
 <p><a href="https://github.com/google/nsjail">https://github.com/google/nsjail</a></p>
 <p>通过编程与程序交互：重定向构建特殊字符作为输入、C 管道编程、python subprocess 库、python pwntools 库。</p>
-<h3 id="elf_4">ELF 程序的逆向<a class="headerlink" href="#elf_4" title="Permanent link">&para;</a></h3>
-<p><img alt="1720325266251" src="../image/Reverse/1720325266251.png" /></p>
-<h4 id="elf_5">ELF 的静态逆向: 反汇编器与反编译器<a class="headerlink" href="#elf_5" title="Permanent link">&para;</a></h4>
+<h3 id="elf_4">ELF 程序的逆向<a class="headerlink" href="#elf_4" title="Permanent link">¶</a></h3>
+<p><img alt="1720325266251" src="../image/Reverse/1720325266251.png"></p>
+<h4 id="elf_5">ELF 的静态逆向: 反汇编器与反编译器<a class="headerlink" href="#elf_5" title="Permanent link">¶</a></h4>
 <p>反汇编：机器指令 =&gt; 汇编指令（查表、准确）objdump</p>
 <p>反编译：汇编指令 =&gt; 编程语言（分析/特征匹配/启发式 … 、往往不准确）</p>
 <p>IDA Pro (<a href="https://hex-rays.com/ida-pro/">https://hex-rays.com/ida-pro/</a> )</p>
@@ -898,7 +959,7 @@
 <p>关注分支、比较指令</p>
 </li>
 <li>关注可能涉及加密解密的特殊运算（位运算、异或、取余）</li>
-</ul>
+</ul></div>
 
 
 

