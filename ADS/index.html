@@ -786,18 +786,26 @@
 <div><h1 id="ads">ADS<a class="headerlink" href="#ads" title="Permanent link">¶</a></h1>
 <p>只是随便写写</p>
 <h2 id="exercise-and-homework">Exercise and Homework<a class="headerlink" href="#exercise-and-homework" title="Permanent link">¶</a></h2>
-<p><strong>1.假设有势函数Φ，使得对所有的i都有Φ(Di)&gt;=Φ(D0)，但是Φ(D0)≠0。证明：存在一个势函数Φ'使得Φ'(D0)=0，Φ'(Di)&gt;=0，对所有i&gt;=1，且用Φ'表示的平摊代价与用Φ表示的平摊代价相同。</strong></p>
-<p>解法：令Φ'(Di)=Φ(Di)-Φ(D0)即可。</p>
-<p>势能方法：势函数Φ将每个数据结构Di映射为一个实数Φ(Di)，即与数据结构Di相联系的势。第i个操作的平摊代价<span class="arithmatex">\(c'_i=c_i+Φ(D_i)-Φ(D_{i-1})\)</span></p>
-<p>n个操作总的平摊代价为∑c'i=∑ci+Φ(Dn)-Φ(D0)</p>
-<p>如果定义一个势函数使得Φ(Dn)&gt;=Φ(D0)，则总的平摊代价∑c'i就是总的实际代价∑ci的一个上界。</p>
-<p>通常定义Φ(D0)为0，证明对所有的i，有Φ(Di)&gt;=0。</p>
-<p><strong>2.AVL树高上下界推导（同节点数目）。</strong></p>
+<p><strong>1.假设有势函数Φ，使得对所有的i都有<span class="arithmatex">\(Φ(D_i)&gt;=Φ(D_0)\)</span>，但是<span class="arithmatex">\(Φ(D_0)≠0\)</span>。证明：存在一个势函数Φ'使得<span class="arithmatex">\(Φ'(D_0)=0\)</span>，<span class="arithmatex">\(Φ'(D_i)&gt;=0\)</span>，对所有i&gt;=1，且用Φ'表示的平摊代价与用Φ表示的平摊代价相同。</strong></p>
+<p>解法：令<span class="arithmatex">\(Φ'(D_i)=Φ(D_i)-Φ(D_0)\)</span>即可。</p>
+<p>势能方法：势函数Φ将每个数据结构Di映射为一个实数<span class="arithmatex">\(Φ(D_i)\)</span>，即与数据结构Di相联系的势。第i个操作的平摊代价<span class="arithmatex">\(c'_i=c_i+Φ(D_i)-Φ(D_{i-1})\)</span></p>
+<p>n个操作总的平摊代价为<span class="arithmatex">\(∑c'_i=∑c_i+Φ(D_n)-Φ(D_0)\)</span></p>
+<p>想要证明一个算法的平摊代价是常数时间复杂度，选取的势能函数要保证每次操作的平摊代价为一个常数。</p>
+<p>如果定义一个势函数使得<span class="arithmatex">\(Φ(D_n)&gt;=Φ(D_0)\)</span>，则总的平摊代价<span class="arithmatex">\(∑c'_i\)</span>就是总的实际代价<span class="arithmatex">\(∑c_i\)</span>的一个上界。</p>
+<p>通常定义<span class="arithmatex">\(Φ(D_0)\)</span>为0，证明对所有的i，有<span class="arithmatex">\(Φ(D_i)&gt;=0\)</span>。</p>
+<p><strong>2.AVL树高上下界的推导（同节点数目）。</strong></p>
 <p>最小树高：满二叉树，<span class="arithmatex">\(n=2^{h+1}−1\)</span></p>
 <p>最大树高：此时左子树的树高为n-1，右子树的树高为n-2，递推关系为<span class="arithmatex">\(A_n=A_{n-1}+A_{n-2}+1\)</span>，其中<span class="arithmatex">\(A_0=1,A_1=2\)</span></p>
 <p>1,2,4,7,12,20,33</p>
 <p>如30个节点的AVL树的树高可以是5。</p>
-<p><strong>3.Splaying not only moves the accessed node to the root, but also roughly halves the depth of most nodes on the path.</strong></p></div>
+<p><strong>3.Splaying not only moves the accessed node to the root, but also roughly halves the depth of most nodes on the path.</strong></p>
+<p><strong>4.The root of B+ tree is not always has between 2 and M children.</strong></p>
+<p>因为如果根同时是叶子的话就没有children了。（文字游戏~）</p>
+<p><strong>5.Term-partitioned index按单词分区，Document-partitioned index按文档分区。</strong></p>
+<ul>
+<li>Data Retrieval Performance Evaluation: 包括响应时间、索引空间</li>
+<li>Information Retrieval Performance Evaluation: 包括结果的相关性（the relevancy of the answer set）</li>
+</ul></div>
 
 
 
