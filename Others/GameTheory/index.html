@@ -854,7 +854,7 @@
 <tr>
 <th></th>
 <th></th>
-<th>A</th>
+<th>B</th>
 <th></th>
 </tr>
 </thead>
@@ -866,7 +866,7 @@
 <td>R</td>
 </tr>
 <tr>
-<td><strong>B</strong></td>
+<td><strong>A</strong></td>
 <td>U</td>
 <td>(a,b)</td>
 <td>(c,d)</td>
@@ -881,16 +881,366 @@
 </table>
 <ul>
 <li><span class="arithmatex">\(a,b,c,d,e,f,g,h\)</span> 为博弈的收益矩阵</li>
-<li><span class="arithmatex">\(L,R\)</span> 为玩家1的选择</li>
-<li><span class="arithmatex">\(A,D\)</span> 为玩家2的选择</li>
+<li><span class="arithmatex">\(U,D\)</span> 为玩家A的选择</li>
+<li><span class="arithmatex">\(L,R\)</span> 为玩家B的选择</li>
 </ul>
-<p>不同的参数大小比较会决定不同的博弈模型，并且给每种博弈都给出一个实例和对实例的均衡结果的简要说明。</p>
+<p>不同的参数大小比较会决定不同的博弈模型，并且我会给每种博弈都给出实例和对实例的均衡结果的简要说明。</p>
 <h2 id="_3">智猪博弈<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<h2 id="_4">斗鸡博弈<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<h2 id="_5">囚徒困境<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<h2 id="_6">性别战<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<h2 id="_7">监督博弈<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<h2 id="_8">猎鹿博弈<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2></div>
+<p>智猪博弈往往出现在双方的实力严重不对等的情况下，一方实力强大，另一方实力较弱，此时存在一个“搭便车”的现象。智猪博弈的收益矩阵如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>B</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>行动</td>
+<td>等待</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>行动</td>
+<td>(a,b)</td>
+<td>(c,d)</td>
+</tr>
+<tr>
+<td></td>
+<td>等待</td>
+<td>(e,f)</td>
+<td>(g,h)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">智猪博弈的参数条件<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>在这里不妨假设A是大猪，B是小猪。</p>
+<p>对B（小猪）来说，其参数条件是：<span class="arithmatex">\(b&lt;d\)</span>，<span class="arithmatex">\(f&lt;h\)</span>。此时对B来说，无论A（大猪）选择行动还是等待，B都会选择等待，即等待是小猪的占优策略。</p>
+<p>对A（大猪）来说，其参数条件是：<span class="arithmatex">\(a&lt;e\)</span>，<span class="arithmatex">\(c&gt;g\)</span>。此时对A来说，它知道小猪无论如何都会选择等待，所以A会选择行动，即行动是大猪的占优策略。</p>
+<p>如果上述的参数条件都满足，那么智猪博弈的纳什均衡是A选择行动，B选择等待。但如果参数条件不满足，那么智猪博弈的纳什均衡就可能是双方都选择等待或者双方都选择行动。</p>
+<h3 id="_5">智猪博弈的实例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<h4 id="_6">智猪博弈的实例背景<a class="headerlink" href="#_6" title="Permanent link">¶</a></h4>
+<p>实例一：大企业和小企业研发新的产品，可以为企业带来巨大的收益。按下按钮就好比是投入研发，等待就好比是模仿新产品的技术创新，推出廉价产品来占据市场份额。</p>
+<p>实例二：在股市中，大资金和小资金之间的博弈。大资金可以通过大量的资金操作来影响股市，而小资金往往无法影响股市，只能选择跟随大资金的操作。</p>
+<h4 id="_7">智猪博弈的实例分析<a class="headerlink" href="#_7" title="Permanent link">¶</a></h4>
+<p>实例一：在这种情况下，小企业无力支付研发费用，只能等待大企业研发新产品，然后模仿大企业的新产品，推出廉价产品来占据市场份额。大企业知道小企业无力支付研发费用，所以大企业会选择研发新产品。</p>
+<p>在这种情况下，大企业选择研发新产品，小企业选择等待是最优选择，此时为纳什均衡。</p>
+<p>实例二：在这种情况下，大资金可以通过大量的资金操作来影响股市，而小资金往往无法影响股市，只能选择跟随大资金的操作。大资金知道小资金无法影响股市，所以大资金会选择操作股市。在这种情况下，大资金选择操作股市，小资金选择等待是最优选择，此时为纳什均衡。</p>
+<p>所以散户在股市中往往会选择跟随大资金的操作，搭上市场主力的便车，可以达到最大的收益，。但有的时候，大资金不会心甘情愿地去“按下按钮”，而是选择“等待”，并且欺骗小资金，例如事先发布虚假利空消息，然后在小资金恐慌抛售的时候，大资金再进场买入，从而获得更大的收益。</p>
+<h2 id="_8">斗鸡博弈<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<p>斗鸡博弈又称懦夫博弈和胆小鬼博弈，是一种博弈论中的经典博弈模型。斗鸡博弈的收益矩阵如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>B</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>强硬</td>
+<td>让步</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>强硬</td>
+<td>(a,b)</td>
+<td>(c,d)</td>
+</tr>
+<tr>
+<td></td>
+<td>让步</td>
+<td>(e,f)</td>
+<td>(g,h)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">斗鸡博弈的参数条件<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<p>通常情况下，斗鸡博弈的参数条件为：<span class="arithmatex">\(a&lt;e\)</span>，<span class="arithmatex">\(c&gt;g\)</span>，<span class="arithmatex">\(b&lt;d\)</span>，<span class="arithmatex">\(f&gt;h\)</span>，且<span class="arithmatex">\(a&lt;g\)</span>，<span class="arithmatex">\(b&lt;h\)</span>。</p>
+<p>此时，当双方都选择强硬时，双方都得到最大的损失；当其中一方选择让步时，另一方选择强硬时，选择强硬的一方会得到最大的收益；当双方都选择让步时，双方都会得到较少的损失。</p>
+<p>在纯策略的情况下，斗鸡博弈的纳什均衡是一方选择强硬，另一方选择让步。如果纳入混合策略，那么可以计算出双方的均衡策略。</p>
+<h3 id="_10">斗鸡博弈的实例<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<h4 id="_11">斗鸡博弈的实例背景<a class="headerlink" href="#_11" title="Permanent link">¶</a></h4>
+<p>实例一：两个国家同时发现了一块有价值的领土，两国都想要这块领土。如果两国同时派兵进入这块领土，那么两国都会损失一定的资源。如果一国派兵进入这块领土，另一国不派兵进入，那么派兵的一国会获得这块领土，而不派兵的一国不会损失资源。如果两国都不派兵进入这块领土，那么两国都不会损失资源。</p>
+<p>实例二：收债人和债务人之间的博弈，即收债人要求债务人还钱。如果双方都选择强硬，那么双方爆发暴力冲突，双方都会受伤，需要额外付出医疗费用，双方都损失；如果收债人选择强硬，债务人选择让步，那么收债人会获得债务人的钱、；如果收债人选择让步，债务人选择强硬，那么收债人不会获得债务人的钱；如果双方都选择让步（合作达成妥协），那么收债人少量减免债务，债务人还的钱少一点。</p>
+<h4 id="_12">斗鸡博弈的实例分析<a class="headerlink" href="#_12" title="Permanent link">¶</a></h4>
+<p>实例一：这种情况可以看成一种对称场景，同时选择强硬时，双方都会损失资源；一方让步、一方强硬时，一方会获得资源，另一方不会损失资源；双方都让步时，双方都不会损失资源。在这种情况下，双方都希望对方让步，自己获得资源，所以双方都会选择强硬，或者试图向对方表明自己的强硬立场，以期对方让步。</p>
+<p>最理想的均衡情况是一方让步，另一方强硬，这样另一方会获得资源，而让步的一方不会损失资源。但现实中，由于双方的国力对比、政策倾向等因素，可能会导致双方都选择强硬，最终导致双方都损失资源。</p>
+<p>实例二：这种情况是一种不对称的场景，收债人希望债务人还钱，债务人希望减免债务。这种情况下双方都希望对方让步，从而让自己获得最大利益。均衡情况是其中一方选择让步，另一方选择强硬。</p>
+<p>在现实生活中往往是收债人强硬，债务人让步，也可能是双方各自让步。</p>
+<h2 id="_13">囚徒困境<a class="headerlink" href="#_13" title="Permanent link">¶</a></h2>
+<p>囚徒困境的经典预设是两个囚犯被捕，被分开审讯，都面临着两个选择：坦白和抗拒。以下是囚徒困境的收益矩阵：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>B</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>坦白</td>
+<td>抗拒</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>坦白</td>
+<td>(a,b)</td>
+<td>(c,d)</td>
+</tr>
+<tr>
+<td></td>
+<td>抗拒</td>
+<td>(e,f)</td>
+<td>(g,h)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_14">囚徒困境的参数条件<a class="headerlink" href="#_14" title="Permanent link">¶</a></h3>
+<p>通常情况下，囚徒困境的参数条件为：<span class="arithmatex">\(a&gt;e\)</span>，<span class="arithmatex">\(c&gt;g\)</span>，<span class="arithmatex">\(b&gt;d\)</span>，<span class="arithmatex">\(f&gt;h\)</span>，<span class="arithmatex">\(a&lt;g\)</span>，<span class="arithmatex">\(b&lt;h\)</span>。</p>
+<p>此时双方都有占优策略。其中，A会因为<span class="arithmatex">\(a&gt;e\)</span>，<span class="arithmatex">\(c&gt;g\)</span>而发现坦白是最优选择，B也会因为<span class="arithmatex">\(b&gt;d\)</span>，<span class="arithmatex">\(f&gt;h\)</span>而发现坦白是最优选择，这样就会导致两个人都选择坦白，最终导致两个人都会被判刑。</p>
+<p>但是，如果两个人都选择抗拒，那么两个人的收益都会比选择坦白的时候要高，即<span class="arithmatex">\(a&lt;g\)</span>，<span class="arithmatex">\(b&lt;h\)</span>。</p>
+<p>囚徒困境的纳什均衡结果为双方都选择坦白，但是双方都选择抗拒的时候，双方的收益会更高。</p>
+<h4 id="_15">特殊对称条件下的囚徒困境<a class="headerlink" href="#_15" title="Permanent link">¶</a></h4>
+<p>如果囚徒困境的参数条件为：<span class="arithmatex">\(a=b=P\)</span>，<span class="arithmatex">\(c=f=T\)</span>，<span class="arithmatex">\(d=e=S\)</span>，<span class="arithmatex">\(g=h=R\)</span>，此时囚徒困境的收益矩阵为：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>B</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>坦白</td>
+<td>抗拒</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>坦白</td>
+<td>(P,P)</td>
+<td>(T,S)</td>
+</tr>
+<tr>
+<td></td>
+<td>抗拒</td>
+<td>(S,T)</td>
+<td>(R,R)</td>
+</tr>
+</tbody>
+</table>
+<p>此时条件为：<span class="arithmatex">\(T&gt;R&gt;P&gt;S\)</span>，在<span class="arithmatex">\(2R&gt;T+S\)</span>的条件下，囚徒困境的纳什均衡结果为双方都受到惩罚P。</p>
+<h3 id="_16">囚徒困境的实例<a class="headerlink" href="#_16" title="Permanent link">¶</a></h3>
+<h4 id="_17">囚徒困境的实例背景<a class="headerlink" href="#_17" title="Permanent link">¶</a></h4>
+<p>两个竞争公司（甲、乙）正在考虑是否共同开发一项新技术。如果双方合作（合作状态），每个公司将获得10万的收益。如果任何一方单方面背叛合作协议，背叛方将独享12万，而合作方只能获得3万。而如果双方都背叛，双方只能获得5万的收益。</p>
+<h4 id="_18">囚徒困境的实例分析<a class="headerlink" href="#_18" title="Permanent link">¶</a></h4>
+<p>收益矩阵为：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>乙</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>合作</td>
+<td>背叛</td>
+</tr>
+<tr>
+<td><strong>甲</strong></td>
+<td>合作</td>
+<td>(10,10)</td>
+<td>(3,12)</td>
+</tr>
+<tr>
+<td></td>
+<td>背叛</td>
+<td>(12,3)</td>
+<td>(5,5)</td>
+</tr>
+</tbody>
+</table>
+<p>在这个例子中，甲乙双方的情况是对称的，根据<span class="arithmatex">\(12&gt;10&gt;5&gt;3\)</span>，且<span class="arithmatex">\(2*10&gt;12+3\)</span>，所以这个例子符合对称囚徒困境的条件。在这个例子中，双方都选择背叛是最优选择，此时双方获得的收益为5万，但是如果双方都选择合作，双方获得的收益是最高的，为10万。</p>
+<p>这个案例中，纳什均衡的位置位于矩阵的右下角，即双方都选择背叛。</p>
+<h2 id="_19">性别战<a class="headerlink" href="#_19" title="Permanent link">¶</a></h2>
+<p>性别战是一种非竞争的博弈，是一种合作博弈。性别战的收益矩阵如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>妻子</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>球赛</td>
+<td>韩剧</td>
+</tr>
+<tr>
+<td><strong>丈夫</strong></td>
+<td>球赛</td>
+<td>(a,b)</td>
+<td>(c,d)</td>
+</tr>
+<tr>
+<td></td>
+<td>韩剧</td>
+<td>(e,f)</td>
+<td>(g,h)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_20">性别战的参数条件<a class="headerlink" href="#_20" title="Permanent link">¶</a></h3>
+<p>这里假定丈夫喜欢看球赛，妻子喜欢看韩剧。通常情况下，性别战的参数条件为：<span class="arithmatex">\(a&gt;e\)</span>, <span class="arithmatex">\(c&lt;g\)</span>, <span class="arithmatex">\(b&gt;d\)</span>, <span class="arithmatex">\(f&lt;h\)</span>。</p>
+<p>在这种情况下，双方都看自己不喜欢的节目是最糟糕的选择。但在合适的沟通和协商下，双方可以达成妥协，即一起看球赛或者一起看韩剧，这样双方都可以获得较大收益，此时为纳什均衡。</p>
+<p>和别的博弈不同的是，性别战是一种合作博弈，双方都可以通过合作达到最优的收益，而且博弈有两个纳什均衡点，且双方各自偏爱一个均衡点。</p>
+<h3 id="_21">性别战的实例<a class="headerlink" href="#_21" title="Permanent link">¶</a></h3>
+<h4 id="_22">性别战的实例背景<a class="headerlink" href="#_22" title="Permanent link">¶</a></h4>
+<p>假设在乒乓球双打比赛中，甲乙两名队员组成一对，甲喜欢对攻，乙喜欢对旋。每一次接球，甲乙都可以选择对攻或者对旋。</p>
+<h4 id="_23">性别战的实例分析<a class="headerlink" href="#_23" title="Permanent link">¶</a></h4>
+<p>由于比赛中前一次接球会影响到后一次接球，所以甲乙两名队员需要合作才能达到最优的效果。如果甲乙两名队员都选择对攻，或都选择对旋，那么尽管两个队友中有一个不喜欢这种方式，但是有另一个队友的支持，往往能赢下比赛，这样双方都能获得较大的收益。</p>
+<p>如果甲乙两名队员各自选择自己喜欢的方式，那么往往会导致比赛失败，双方都会受到损失。此时的纳什均衡是双方都选择合作，即甲乙两名队员都选择对攻或者对旋。</p>
+<h2 id="_24">监督博弈<a class="headerlink" href="#_24" title="Permanent link">¶</a></h2>
+<p>监督博弈是因为雇员和雇主之间利益的冲突而产生的博弈。监督博弈的收益矩阵如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>雇员</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>偷懒</td>
+<td>不偷懒</td>
+</tr>
+<tr>
+<td><strong>雇主</strong></td>
+<td>检查</td>
+<td>(a,b)</td>
+<td>(c,d)</td>
+</tr>
+<tr>
+<td></td>
+<td>不检查</td>
+<td>(e,f)</td>
+<td>(g,h)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_25">监督博弈的参数条件<a class="headerlink" href="#_25" title="Permanent link">¶</a></h3>
+<p>为了更加直观地理解监督博弈的参数条件，在此重新定义参数，假设V是雇员的贡献，H是雇员的付出，W是雇员的工资，C是雇主检查的成本，此时的收益矩阵如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>雇员</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>偷懒</td>
+<td>不偷懒</td>
+</tr>
+<tr>
+<td><strong>雇主</strong></td>
+<td>检查</td>
+<td>(-C,0)</td>
+<td>(V-W-C,W-H)</td>
+</tr>
+<tr>
+<td></td>
+<td>不检查</td>
+<td>(-W,W)</td>
+<td>(V-W,W-H)</td>
+</tr>
+</tbody>
+</table>
+<p>通常情况下，监督博弈的参数条件为：<span class="arithmatex">\(H&lt;W&lt;V\)</span>，<span class="arithmatex">\(C&lt;W\)</span>。此时能够保证雇员的工资小于雇员的贡献，雇员的付出小于雇员的工资，雇主的检查成本小于雇员的工资，分别保证了雇主会雇佣雇员，雇员会付出努力，雇主会检查雇员的工作。</p>
+<p>对于雇主来说，最好在雇员不偷懒的情况下不检查，这样雇主可以节省检查成本，而且雇员也会付出努力，这样雇主可以获得最大的收益；但需要在雇员偷懒的情况下检查，这样雇主可以发现雇员的偷懒行为，从而减少损失。</p>
+<p>对于雇员来说，最好在雇主检查的情况下不偷懒，这样雇员可以获得工资，而且不会受到惩罚；但需要在雇主不检查的情况下偷懒，这样雇员可以获得工资，而且不会付出努力。
+从上面的分析来看，监督博弈并没有一个明确的纳什均衡，而是需要根据具体的情况来选择合适的策略。</p>
+<h3 id="_26">监督博弈的实例<a class="headerlink" href="#_26" title="Permanent link">¶</a></h3>
+<h4 id="_27">监督博弈的实例背景<a class="headerlink" href="#_27" title="Permanent link">¶</a></h4>
+<p>假设有一间工厂和环境监管部门，工厂会想办法降低生产成本，此时他们会选择不使用高昂的环境保护设备，而环境监管部门会想办法监督工厂的生产，以保护环境。这样就形成了一种监督博弈。</p>
+<h4 id="_28">监督博弈的实例分析<a class="headerlink" href="#_28" title="Permanent link">¶</a></h4>
+<p>工厂会在环境监管部门不检查的情况下不使用环境保护设备，这样工厂可以节省成本，但是会对环境造成污染；而当工厂知道环境监管部门要检查，工厂会选择使用环境保护设备，这样工厂可以避免受到处罚。</p>
+<p>环境监管部门会在工厂不使用环境保护设备的情况下检查，这样环境监管部门可以发现工厂的违规行为，从而保护环境；而当工厂确实使用环境保护设备，环境监管部门就不需要检查，这样环境监管部门可以节省检查的成本。</p>
+<p>最好的情况下，工厂和环境监管部门都会选择合作，即工厂使用环境保护设备，环境监管部门不检查，这样双方都可以获得最大的收益。为此往往需要制定合适的政策和法律来规范工厂的生产行为，从而保护环境，并且环境监管部门需要让工厂知道自己的检查力度，从而让工厂选择合作。</p>
+<h2 id="_29">猎鹿博弈<a class="headerlink" href="#_29" title="Permanent link">¶</a></h2>
+<p>猎鹿博弈是一种经典的博弈模型，收益矩阵如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>猎人B</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>猎鹿</td>
+<td>不猎鹿</td>
+</tr>
+<tr>
+<td><strong>猎人A</strong></td>
+<td>猎鹿</td>
+<td>(a,b)</td>
+<td>(c,d)</td>
+</tr>
+<tr>
+<td></td>
+<td>不猎鹿</td>
+<td>(e,f)</td>
+<td>(g,h)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_30">猎鹿博弈的参数条件<a class="headerlink" href="#_30" title="Permanent link">¶</a></h3>
+<p>通常情况下，猎鹿博弈的参数条件为：<span class="arithmatex">\(a&gt;e\)</span>，<span class="arithmatex">\(a&gt;g\)</span>，<span class="arithmatex">\(b&gt;h\)</span>，<span class="arithmatex">\(b&gt;d\)</span>，且<span class="arithmatex">\(g&gt;c\)</span>，<span class="arithmatex">\(h&gt;f\)</span>。
+此时可能的纳什均衡点有两个，一个是双方都选择猎鹿，一个是双方都选择不猎鹿。</p>
+<h3 id="_31">猎鹿博弈的实例<a class="headerlink" href="#_31" title="Permanent link">¶</a></h3>
+<h4 id="_32">猎鹿博弈的实例背景<a class="headerlink" href="#_32" title="Permanent link">¶</a></h4>
+<p>社区居民可以选择联合起来关注社区安全（如组建社区守望组织）或只关注自己家（即单独行动）。</p>
+<h4 id="_33">猎鹿博弈的实例分析<a class="headerlink" href="#_33" title="Permanent link">¶</a></h4>
+<p>如果所有邻居都投入社区守望，社区的整体安全性提升，每个居民的财产和人身安全都会得到保障。如果个别居民选择不参与社区守望，只关注自己家，他们可能会从他人的守望中受益，但社区整体安全性不佳，其他参与社区守望的居民可能会因此受到损失。</p>
+<p>如果大家都选择不参与社区守望，社区整体安全性会下降，每个居民尽管都可以自己保护自己家，但整体安全性不佳。在这种情况下，最好的选择是大家都参与社区守望，这样每个居民都可以得到最大的安全保障。但是这种情况需要居民都信任其他居民会参与社区守望，否则很可能会出现大家都不参与社区守望的情况。</p></div>
 
 
 
@@ -911,7 +1261,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 27, 2024</span>
   </span>
 
     
