@@ -1007,7 +1007,8 @@ C = wL + rK
 </ul>
 <h4 id="_5">成本既定条件下的产量最大化<a class="headerlink" href="#_5" title="Permanent link">¶</a></h4>
 <p>成本既定条件下产量最大化的要素最优组合条件：</p>
-<div class="arithmatex">\[ \left\{
+<div class="arithmatex">\[
+\left\{
 \begin{aligned}
 MRTS_{L,K} &amp; = &amp; \frac{W}{r} \\
 WL + rK &amp; = &amp; C
@@ -1021,7 +1022,8 @@ WL + rK &amp; = &amp; C
 <li><span class="arithmatex">\(C\)</span> 是总成本</li>
 </ul>
 <p>将<span class="arithmatex">\(MRTS_{L,K}\)</span>的公式带入以上式子可以化简为：</p>
-<div class="arithmatex">\[ \left\{
+<div class="arithmatex">\[
+\left\{
 \begin{aligned}
 \frac{MP_L}{MP_K} &amp; = &amp; \frac{W}{r} \\
 WL + rK &amp; = &amp; C
@@ -1087,7 +1089,133 @@ C = FC + VC
 <li><strong>不变规模报酬</strong>：所有投入增加相同比例时，产出增加比例相同。</li>
 <li><strong>递减规模报酬</strong>：所有投入增加相同比例时，产出增加比例更小。</li>
 </ul>
-<h2 id="_6">总结常见的名词<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<h2 id="_6">完全竞争市场<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<h3 id="_7">完全竞争市场的特征<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<h4 id="_8">市场结构及划分依据<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">市场类型</th>
+<th style="text-align: center;">买卖双方人数</th>
+<th style="text-align: center;">产品差异</th>
+<th style="text-align: center;">市场进出难易程度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">完全竞争</td>
+<td style="text-align: center;">极多</td>
+<td style="text-align: center;">无</td>
+<td style="text-align: center;">容易</td>
+</tr>
+<tr>
+<td style="text-align: center;">完全垄断</td>
+<td style="text-align: center;">一个</td>
+<td style="text-align: center;">无</td>
+<td style="text-align: center;">无法</td>
+</tr>
+<tr>
+<td style="text-align: center;">寡头垄断</td>
+<td style="text-align: center;">少数几个</td>
+<td style="text-align: center;">或有或无</td>
+<td style="text-align: center;">较难</td>
+</tr>
+<tr>
+<td style="text-align: center;">垄断竞争</td>
+<td style="text-align: center;">很多</td>
+<td style="text-align: center;">有</td>
+<td style="text-align: center;">较易</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_9">完全竞争市场基本特征<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
+<ul>
+<li>存在大量的买者与卖者（price taker）</li>
+<li>产品是同质的（Homogeneous, perfect substitutes）</li>
+<li>无进入和退出障碍（No barriers to entry or exit ）</li>
+<li>信息完全（Perfect information）</li>
+</ul>
+<h3 id="_10">收益函数<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<p>收益函数表示在不同价格水平下，生产者的总收益。一般形式为：</p>
+<div class="arithmatex">\[
+R = P \cdot Q = P(Q) \cdot Q
+\]</div>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(R\)</span> 是总收益</li>
+<li><span class="arithmatex">\(P\)</span> 是价格</li>
+<li><span class="arithmatex">\(Q\)</span> 是产出量</li>
+</ul>
+<p>在完全竞争市场上，单个企业是价格的被动接受者，其需求函数为一条水平线，价格为 <span class="arithmatex">\(P\)</span>。</p>
+<p>平均收益（Average Revenue）和边际收益（Marginal Revenue）分别为：</p>
+<div class="arithmatex">\[
+AR = \frac{R}{Q}
+\]</div>
+<div class="arithmatex">\[
+MR = \frac{\partial R}{\partial Q}
+\]</div>
+<h3 id="_11">利润函数<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
+<p>利润函数表示在不同价格水平下，生产者的总利润。一般形式为：</p>
+<div class="arithmatex">\[
+\pi = R - C = P \cdot Q - C \\
+OR \\
+\pi(Q) = R(Q) - C(Q)
+\]</div>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(\pi\)</span> 是总利润</li>
+<li><span class="arithmatex">\(R\)</span> 是总收益</li>
+<li><span class="arithmatex">\(C\)</span> 是总成本</li>
+<li><span class="arithmatex">\(P\)</span> 是价格</li>
+<li><span class="arithmatex">\(Q\)</span> 是产出量</li>
+</ul>
+<h4 id="_12">利润最大化函数<a class="headerlink" href="#_12" title="Permanent link">¶</a></h4>
+<p>利润最大化函数表示生产者在不同产出量下的最大利润。一般形式为：</p>
+<div class="arithmatex">\[
+\pi'(Q) = MR(Q) - MC(Q) = 0 \\
+OR \\
+MR(Q) = MC(Q)
+\]</div>
+<p>利润最大化的条件是边际收益等于边际成本。在完全竞争市场上，价格等于边际成本。</p>
+<h3 id="_13">企业规模的调整<a class="headerlink" href="#_13" title="Permanent link">¶</a></h3>
+<h4 id="_14">长期调整<a class="headerlink" href="#_14" title="Permanent link">¶</a></h4>
+<p>长期的规模调整，或长期的利润最大化，就是在所有的短期均衡中选择一个“最优”的短期均衡。</p>
+<p>完全竞争企业要在长期实现利润最大化，需要满足：</p>
+<div class="arithmatex">\[
+P = LMC
+\]</div>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(P\)</span> 是价格</li>
+<li><span class="arithmatex">\(LMC\)</span> 是长期边际成本</li>
+</ul>
+<p>完全竞争企业要实现规模最优，需要满足：</p>
+<div class="arithmatex">\[
+SAC = LAC
+\]</div>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(SAC\)</span> 是短期平均成本</li>
+<li><span class="arithmatex">\(LAC\)</span> 是长期平均成本</li>
+</ul>
+<p>完全竞争市场长期均衡的条件是：</p>
+<div class="arithmatex">\[
+MR=AR=LMC=LAC=SMC=SAC
+\]</div>
+<p>完全竞争企业的长期均衡条件是价格等于长期边际成本，且等于长期平均成本。根据长期边际成本和长期平均成本的关系，该条件又意味着，价格总是等于长期平均成本曲线的最低点。</p>
+<p>例题：</p>
+<p><img alt="1730121016151" src="image/index/1730121016151.png"></p>
+<details class="note">
+<summary>解析</summary>
+<div class="arithmatex">\[
+(1) LAC = \frac{LTC}{q} = 0.1 \cdot q^2 -1.2 \cdot q + 11.1\\
+    \frac{dLAC}{dq} = 0.2q - 1.2 = 0 \Rightarrow q = 6\\
+    P = LAC = 0.1 \cdot 6^2 - 1.2 \cdot 6 + 11.1 = 7.5\\
+(2) Q = 6000 - 200 \cdot 7.5 = 4500\\
+(3) company = \frac{Q}{q} = \frac{4500}{6} = 750
+\]</div>
+</details>
+<h2 id="_15">总结常见的名词<a class="headerlink" href="#_15" title="Permanent link">¶</a></h2>
 <ul>
 <li>A：Average，平均</li>
 <li>M：Marginal，边际</li>
@@ -1102,6 +1230,7 @@ C = FC + VC
 <li>E：Elasticity，弹性</li>
 <li>S：Supply，供给</li>
 <li>D：Demand，需求</li>
+<li>R：Revenue，收益</li>
 </ul></div>
 
 
@@ -1123,7 +1252,7 @@ C = FC + VC
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 27, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 28, 2024</span>
   </span>
 
     
