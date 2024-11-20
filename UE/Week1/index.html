@@ -1110,7 +1110,14 @@
 </ul>
 <p>完成后整体项目大小约200GB，编译时间约1小时。</p>
 <h3 id="ue_4">UE项目打包示例<a class="headerlink" href="#ue_4" title="Permanent link">¶</a></h3>
-<p>本次示例中要求打包Android项目，首先需要在UE中设置Android SDK和NDK的路径，然后在File-&gt;Package Project-&gt;Android-&gt;Android(ATC)进行打包。</p></div>
+<p>本次示例中要求打包Android项目，需要配置Android开发工具。在平台-&gt;Android中下载SDK，会自动开始下载Android Studio，安装AS后在AS内下载sdk和ndk，注意版本要在UE5支持范围内。完成后重启，打开一个项目进行编译。首次编译十分缓慢，可能要1个小时。</p>
+<p>过程中可能会遇到许多问题，可以上网搜。在这里只列出本人遇到的问题和解决手段：</p>
+<ul>
+<li>AS未使用默认路径安装：卸载重装，改回默认位置。</li>
+<li>无法检测到SDK和NDK文件位置，未检测到jdr位置：在设置中手动修改Android的sdk和ndk路径，修改jdr路径。</li>
+<li>gradle下载失败：去官网自行下载对应版本的压缩包放到指定路径（网上能找到路径）。</li>
+<li>打包突然停滞，CPU没有占用，但也没有报错：换了ETC2来打包，又等待了一个小时之后才打包成功。</li>
+</ul></div>
 
 
 
