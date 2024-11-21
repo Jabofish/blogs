@@ -1100,8 +1100,11 @@
 </ul>
 <p>学习编辑器的使用和基本功能，都可以到以上学习资料中查找，尤其上官方社区文档，是最权威的学习资料。到官方的Github文档中学习规范的命名方式。</p>
 <h2 id="ue_3">UE源码编译流程<a class="headerlink" href="#ue_3" title="Permanent link">¶</a></h2>
+<p>本次编译版本：5.5.0</p>
+<p>系统：Win11</p>
+<p>编译环境：VS2022</p>
 <ul>
-<li>绑定Epic和Github账号：在Epic官网绑定账号，过程需要科学上网。</li>
+<li>绑定Epic和Github账号：在Epic官网绑定账号，过程可能需要科学上网，点击邮件中链接完成绑定。</li>
 <li>下载源码：在github上下载源码，或者使用git clone命令。（后者需要安装git）</li>
 <li>运行Setup.bat，下载依赖文件。（约20GB，需要耐心等待）</li>
 <li>运行GenerateProjectFiles.bat，生成项目文件。（如果报错，会在控制台中提示，可自行解决）</li>
@@ -1109,8 +1112,17 @@
 <li>编译完成后，可以在UE源码目录下的Engine/Binaries/Win64目录下找到UnrealEditor.exe，双击运行，第一次运行会自动生成着色缓存，需要等待一段时间。</li>
 </ul>
 <p>完成后整体项目大小约200GB，编译时间约1小时。</p>
+<p>编译完成后UE5工程文件目录如下：</p>
+<p><img alt="1732175818716" src="../image/Week1/1732175818716.png"></p>
+<p>除了可以直接打开..\Engine\Binaries\Win64\UnrealEditor.exe，也能在VS中右键UE5项目-&gt;调试-&gt;启动新实例来打开并调试。</p>
 <h3 id="ue_4">UE项目打包示例<a class="headerlink" href="#ue_4" title="Permanent link">¶</a></h3>
-<p>本次示例中要求打包Android项目，需要配置Android开发工具。在平台-&gt;Android中下载SDK，会自动开始下载Android Studio，安装AS后在AS内下载sdk和ndk，注意版本要在UE5支持范围内。完成后重启，打开一个项目进行编译。首次编译十分缓慢，可能要1个小时。</p>
+<p>本次示例中要求打包Android项目，需要配置Android开发工具。在平台-&gt;Android中下载SDK，会自动开始下载Android Studio，安装AS后在AS内下载sdk和ndk，注意版本要在UE5支持范围内。</p>
+<p>全部完成后重启，打开一个非空的项目进行编译打包。首次编译打包十分缓慢，可能要1个小时。</p>
+<p>本次使用了引擎提供的示例项目进行打包，使用ETC2纹理压缩进行打包，在设置中选择打包到.apk（不启用的话会打包成Google play分发的格式），首次编译用时约1小时。</p>
+<p><img alt="1732176064906" src="../image/Week1/1732176064906.png"></p>
+<p>编译完成后将打包的APK文件传输到手机进行调试：</p>
+<p><img alt="1732176227659" src="../image/Week1/1732176227659.png"></p>
+<p>游戏成功在安卓平台上运行，打包成功。</p>
 <p>过程中可能会遇到许多问题，可以上网搜。在这里只列出本人遇到的问题和解决手段：</p>
 <ul>
 <li>AS未使用默认路径安装：卸载重装，改回默认位置。</li>
@@ -1138,7 +1150,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 20, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 21, 2024</span>
   </span>
 
     
