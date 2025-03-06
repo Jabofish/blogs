@@ -12,28 +12,24 @@
         <meta name="author" content="Jabofish">
       
       
-        <link rel="canonical" href="https://jabofish.github.io/blogs/UE/Week7/">
+        <link rel="canonical" href="https://jabofish.github.io/blogs/IS/CS%20489698/handout-2/">
       
       
-        <link rel="prev" href="../Week6/">
       
       
-        <link rel="next" href="../Week8/">
-      
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
-        <title>Week7 - Jabofish's Blogs</title>
+        <title>Data Races - Jabofish's Blogs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -93,7 +89,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -129,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week7" class="md-skip">
+        <a href="#data-races" class="md-skip">
           Skip to content
         </a>
       
@@ -145,7 +141,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Jabofish&#39;s Blogs" class="md-header__button md-logo" aria-label="Jabofish's Blogs" data-md-component="logo">
+    <a href="../../.." title="Jabofish&#39;s Blogs" class="md-header__button md-logo" aria-label="Jabofish's Blogs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -165,7 +161,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week7
+              Data Races
             
           </span>
         </div>
@@ -283,7 +279,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -308,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../CTF/overview/" class="md-tabs__link">
+        <a href="../../../CTF/overview/" class="md-tabs__link">
           
   
     
@@ -343,7 +339,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../IS/CS489698/handout-1.md" class="md-tabs__link">
+        <a href="../../CS489698/handout-1.md" class="md-tabs__link">
           
   
     
@@ -365,21 +361,17 @@
         
   
   
-    
-  
   
     
     
       
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../UE/" class="md-tabs__link">
           
   
     
@@ -402,7 +394,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Others/" class="md-tabs__link">
+        <a href="../../../Others/" class="md-tabs__link">
           
   
     
@@ -445,7 +437,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Jabofish&#39;s Blogs" class="md-nav__button md-logo" aria-label="Jabofish's Blogs" data-md-component="logo">
+    <a href="../../.." title="Jabofish&#39;s Blogs" class="md-nav__button md-logo" aria-label="Jabofish's Blogs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -475,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/overview/" class="md-nav__link">
+      <a href="../../../CTF/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/Web/" class="md-nav__link">
+      <a href="../../../CTF/Web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/Misc/" class="md-nav__link">
+      <a href="../../../CTF/Misc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/Reverse/" class="md-nav__link">
+      <a href="../../../CTF/Reverse/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/Pwn/" class="md-nav__link">
+      <a href="../../../CTF/Pwn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/Crypto/" class="md-nav__link">
+      <a href="../../../CTF/Crypto/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -756,7 +748,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../CS61A/" class="md-nav__link ">
+            <a href="../../../CS61A/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -815,7 +807,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../ADS/" class="md-nav__link ">
+            <a href="../../../ADS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -945,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Database/CMU/Lecture1/" class="md-nav__link">
+      <a href="../../../Database/CMU/Lecture1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -966,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Database/CMU/Lecture2/" class="md-nav__link">
+      <a href="../../../Database/CMU/Lecture2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -987,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Database/CMU/Lecture3/" class="md-nav__link">
+      <a href="../../../Database/CMU/Lecture3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1008,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Database/CMU/Lecture4/" class="md-nav__link">
+      <a href="../../../Database/CMU/Lecture4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1188,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IS/CS489698/handout-1.md" class="md-nav__link">
+      <a href="../../CS489698/handout-1.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1209,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IS/CS489698/handout-9.md" class="md-nav__link">
+      <a href="../../CS489698/handout-9.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1284,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/CVE/A%20note%20of%20CVE-2022-20186%20write-up/" class="md-nav__link">
+      <a href="../../../CTF/CVE/A%20note%20of%20CVE-2022-20186%20write-up/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1305,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/CVE/A%20note%20of%20CVE-2022-38181%20write-up/" class="md-nav__link">
+      <a href="../../../CTF/CVE/A%20note%20of%20CVE-2022-38181%20write-up/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1346,10 +1338,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -1358,20 +1348,19 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1382,7 +1371,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             杂项
@@ -1393,8 +1382,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1428,16 +1415,18 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../UE/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1454,7 +1443,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             UE
@@ -1470,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Week1/" class="md-nav__link">
+      <a href="../../../UE/Week1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1491,7 +1480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Week2/" class="md-nav__link">
+      <a href="../../../UE/Week2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1512,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Week3/" class="md-nav__link">
+      <a href="../../../UE/Week3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1533,7 +1522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Week4/" class="md-nav__link">
+      <a href="../../../UE/Week4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1554,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Week5/" class="md-nav__link">
+      <a href="../../../UE/Week5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1575,7 +1564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Week6/" class="md-nav__link">
+      <a href="../../../UE/Week6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1593,30 +1582,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Week7
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../UE/Week7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1625,128 +1594,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      渲染
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="渲染">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      图形管线
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      GPU硬件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      模型和纹理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="模型和纹理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      纹理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      光照
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      阴影
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      后处理
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      渲染调试
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1759,7 +1606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Week8/" class="md-nav__link">
+      <a href="../../../UE/Week8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1780,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Week9/" class="md-nav__link">
+      <a href="../../../UE/Week9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1847,7 +1694,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Others/" class="md-nav__link ">
+            <a href="../../../Others/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1880,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Others/Economics/" class="md-nav__link">
+      <a href="../../../Others/Economics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1901,7 +1748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Others/GameTheory/" class="md-nav__link">
+      <a href="../../../Others/GameTheory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1937,7 +1784,7 @@
                   
 
   
-    <a href="https://github.com/Jabofish/blogs/edit/main/docs/UE/Week7.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/Jabofish/blogs/edit/main/docs/IS/CS 489698/handout-2.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1946,72 +1793,82 @@
     
       
     
-    <a href="https://github.com/Jabofish/blogs/raw/main/docs/UE/Week7.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/Jabofish/blogs/raw/main/docs/IS/CS 489698/handout-2.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<div><h1 id="week7">Week7<a class="headerlink" href="#week7" title="Permanent link">¶</a></h1>
-<h2 id="_1">渲染<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<h3 id="_2">图形管线<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<ul>
-<li>GPU管线（光栅化管线）</li>
-<li>光线追踪管线</li>
-</ul>
-<p>工作原理：</p>
-<ul>
-<li>顶点着色器：将顶点坐标从模型空间转换到裁剪空间</li>
-<li>细分着色器：将顶点细分为更多的顶点</li>
-<li>几何着色器：将顶点转换为图元</li>
-<li>投影：将图元投影到屏幕空间，分为正交投影和透视投影</li>
-<li>裁剪：将超出视锥体的部分裁剪掉</li>
-<li>屏幕映射：将图元映射到屏幕上</li>
-<li>光栅化：将图元转换为像素</li>
-<li>片段着色器：计算像素的颜色</li>
-<li>像素操作：深度测试、模板测试、混合等</li>
-</ul>
-<h3 id="gpu">GPU硬件<a class="headerlink" href="#gpu" title="Permanent link">¶</a></h3>
-<p>NVIDIA Fermi架构是NVIDIA公司推出的一种GPU架构。架构包含：</p>
-<ul>
-<li>多处理器：每个多处理器包含多个CUDA核心</li>
-<li>共享内存：每个多处理器包含共享内存</li>
-<li>寄存器文件：每个多处理器包含寄存器文件</li>
-</ul>
-<p>移动端硬件特殊性：</p>
-<ul>
-<li>Tile Based Rendering：先将图元渲染到Tile中，再将Tile渲染到屏幕，减少内存的访问带宽</li>
-<li>Dual-pass Vertex Shading：做两遍顶点着色，尽量减少不可见的顶点的计算</li>
-</ul>
-<h3 id="_3">模型和纹理<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<h4 id="_4">模型<a class="headerlink" href="#_4" title="Permanent link">¶</a></h4>
-<p>模型是由顶点和索引组成的。顶点包含位置、法线、纹理坐标等信息。索引是顶点的索引。</p>
-<h4 id="_5">纹理<a class="headerlink" href="#_5" title="Permanent link">¶</a></h4>
-<p>纹理是一种二维数组，包含颜色信息。纹理坐标是纹理上的坐标。</p>
-<p>LOD(level of detail)：距离越远，模型越粗略</p>
-<p>SDF：根据与边缘距离来确定，存储每个点到图形的最近距离，即将模型划出一个表面，在模型表面外侧的点数值大于0，在模型表面内侧的点数值小于0</p>
-<p>Nanite：虚拟化几何体、Cluster（group、VBH）、Sub-linear scaling、软光栅小三角形（VisBuffer）</p>
-<h4 id="_6">光照<a class="headerlink" href="#_6" title="Permanent link">¶</a></h4>
-<ul>
-<li>环境光：所有方向的光照</li>
-<li>漫反射光：光线与表面法线的夹角越大，光照越弱</li>
-<li>镜面反射光：光线与视线的夹角越小，光照越强</li>
-</ul>
-<h4 id="_7">阴影<a class="headerlink" href="#_7" title="Permanent link">¶</a></h4>
-<p>Shadow Map：将场景从光源视角渲染到纹理中，然后在渲染场景时，将纹理中的深度值与当前像素的深度值进行比较，判断当前像素是否在阴影中</p>
-<h4 id="_8">后处理<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
-<ul>
-<li>bloom：高亮部分扩散</li>
-<li>Gaussian Kernel：高斯核</li>
-<li>Tone Mapping：色调映射</li>
-<li>Gamma Correction：伽马校正</li>
-</ul>
-<h3 id="_9">渲染调试<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
-<ul>
-<li>可视化：显示法线、深度、纹理坐标等信息</li>
-<li>统计命令：显示帧率、三角形数量等信息</li>
-</ul></div>
+<div><h1 id="data-races">Data Races<a class="headerlink" href="#data-races" title="Permanent link">¶</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
+<p>Data Race是指在多线程程序中，两个或多个线程同时访问同一个共享变量，且至少有一个线程是写操作。</p>
+<p>Data Race并不是某个编程语言的特性，而是Concurrent Execution的特性。</p>
+<p>在数据库中也会出现数据竞争的问题，比如两个事务同时对同一个数据进行操作。解决办法是使用Transaction(事务)。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">COMMIT</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">COMMIT</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>数据竞争很常见，但只出现在并行模型中，如多线程、分布式系统等。</p>
+<p>数据竞争可能导致内存问题，假设p是一个被初始化为NULL的全局指针，那么下面的代码可能会导致错误：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">thread1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">thread2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>执行这段代码的可能结果是：两边前后分配了不同大小的内存，但后续释放时却只释放了一次，导致内存泄漏；两边同时释放了同一块内存，导致double free；一边已经置空了p，另一边却又释放了p指向的内存，触发未定义行为。</p>
+<p>并行程序中的数据竞争问题很难调试，重复运行可能会得到不同的结果。</p>
+<h2 id="intuitive-definition">Intuitive Definition<a class="headerlink" href="#intuitive-definition" title="Permanent link">¶</a></h2>
+<p>Data Race以下情况发生：</p>
+<ol>
+<li>存在不同线程的内存访问操作</li>
+<li>对同一内存位置的访问</li>
+<li>至少有一个是写操作</li>
+<li>两个访问可以自由交错</li>
+</ol></div>
 
 
 
@@ -2032,7 +1889,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 6, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2025</span>
   </span>
 
     
@@ -2066,44 +1923,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../Week6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week6">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Week6
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../Week8/" class="md-footer__link md-footer__link--next" aria-label="Next: Week8">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Week8
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2134,14 +1953,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="../../javascripts/MathJax-4.0.0-beta.7/tex-mml-chtml.js"></script>
+        <script src="../../../javascripts/MathJax-4.0.0-beta.7/tex-mml-chtml.js"></script>
       
-        <script src="../../javascripts/canvas-nest.js"></script>
+        <script src="../../../javascripts/canvas-nest.js"></script>
       
     
   </body>
