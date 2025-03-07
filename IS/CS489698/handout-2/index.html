@@ -12,13 +12,13 @@
         <meta name="author" content="Jabofish">
       
       
-        <link rel="canonical" href="https://jabofish.github.io/blogs/IS/CS%20489698/handout-9/">
+        <link rel="canonical" href="https://jabofish.github.io/blogs/IS/CS489698/handout-2/">
       
       
         <link rel="prev" href="../handout-1/">
       
       
-        <link rel="next" href="../../../CTF/CVE/A%20note%20of%20CVE-2022-20186%20write-up/">
+        <link rel="next" href="../handout-9/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>handout9 - Jabofish's Blogs</title>
+        <title>handout2 - Jabofish's Blogs</title>
       
     
     
@@ -129,7 +129,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fuzz-testing" class="md-skip">
+        <a href="#data-races" class="md-skip">
           Skip to content
         </a>
       
@@ -165,7 +165,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              handout9
+              handout2
             
           </span>
         </div>
@@ -1155,6 +1155,8 @@
       
         
       
+        
+      
     
     
       
@@ -1227,7 +1229,7 @@
           
   
   <span class="md-ellipsis">
-    handout9
+    handout2
   </span>
   
 
@@ -1238,7 +1240,7 @@
         
   
   <span class="md-ellipsis">
-    handout9
+    handout2
   </span>
   
 
@@ -1269,68 +1271,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#evolution" class="md-nav__link">
+  <a href="#intuitive-definition" class="md-nav__link">
     <span class="md-ellipsis">
-      Evolution
+      Intuitive Definition
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Evolution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      基因算法
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#coverage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Coverage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#loops-trouble-maker-for-branch-coverage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Loops: Trouble Maker for Branch Coverage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concolic-execution-forced-path-exploration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Concolic execution: forced path exploration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Concolic execution: forced path exploration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#narrow-range-constraints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Narrow-range constraints
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1338,6 +1283,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handout-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    handout9
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1404,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CTF/CVE/A%20note%20of%20CVE-2022-20186%20write-up/" class="md-nav__link">
+      <a href="../../../CTF/CVE/CVE-2022-20186/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1425,7 +1391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CTF/CVE/A%20note%20of%20CVE-2022-38181%20write-up/" class="md-nav__link">
+      <a href="../../../CTF/CVE/CVE-2022-38181/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1912,7 +1878,7 @@
                   
 
   
-    <a href="https://github.com/Jabofish/blogs/edit/main/docs/IS/CS 489698/handout-9.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/Jabofish/blogs/edit/main/docs/IS/CS489698/handout-2.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1921,30 +1887,82 @@
     
       
     
-    <a href="https://github.com/Jabofish/blogs/raw/main/docs/IS/CS 489698/handout-9.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/Jabofish/blogs/raw/main/docs/IS/CS489698/handout-2.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<div><h1 id="fuzz-testing">Fuzz Testing<a class="headerlink" href="#fuzz-testing" title="Permanent link">¶</a></h1>
+<div><h1 id="data-races">Data Races<a class="headerlink" href="#data-races" title="Permanent link">¶</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>Fuzz的目的是驱动系统执行进入期望的状态。</p>
-<h2 id="evolution">Evolution<a class="headerlink" href="#evolution" title="Permanent link">¶</a></h2>
-<h3 id="_1">基因算法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
-<p>基因算法是一种模拟自然选择的算法。将初始随机种子输入到种子池，通过选择和变异得到种子，以这个种子作为测试用例，执行程序，得到结果，根据结果判断是否是好的种子，如果是，加入到种子池，否则丢弃。</p>
-<h2 id="coverage">Coverage<a class="headerlink" href="#coverage" title="Permanent link">¶</a></h2>
-<p>如果fuzzer生成了一个能够扩大代码覆盖率的测试用例，那么这个测试用例就是好的种子。</p>
-<p>覆盖分为Block Coverage(基本块覆盖)、Branch Coverage(分支覆盖)、Return Coverage(返回覆盖)、Path Coverage(路径覆盖)等。</p>
-<p>如果我们可以获得一组覆盖程序控制流图（CFG）中每条可行路径的输入集，那么这个程序就被认为是饱和测试的。</p>
-<p>路径覆盖是最全面的覆盖，但在实际中很难实现。在实践中，我们更多是采取分支覆盖，因为它在有效性和可行性之间取得了良好的平衡。</p>
-<h2 id="loops-trouble-maker-for-branch-coverage">Loops: Trouble Maker for Branch Coverage<a class="headerlink" href="#loops-trouble-maker-for-branch-coverage" title="Permanent link">¶</a></h2>
-<p>循环会影响分支覆盖的测试，应当使用Bounded Loop Unrolling技术。把循环变成一个一定次数的顺序执行的代码块。</p>
-<h2 id="concolic-execution-forced-path-exploration">Concolic execution: forced path exploration<a class="headerlink" href="#concolic-execution-forced-path-exploration" title="Permanent link">¶</a></h2>
-<h3 id="narrow-range-constraints">Narrow-range constraints<a class="headerlink" href="#narrow-range-constraints" title="Permanent link">¶</a></h3>
-<p>对于一些约束很窄的情况，使用随机的输入很难找到满足约束的输入。但从另一方面，如果我们知道约束的范围，我们可以使用符号执行来找到满足约束的输入。</p>
-<p>让fuzz完成大部分的状态空间探索，然后使用符号推理引擎来解决剩下的约束。</p></div>
+<p>Data Race是指在多线程程序中，两个或多个线程同时访问同一个共享变量，且至少有一个线程是写操作。</p>
+<p>Data Race并不是某个编程语言的特性，而是Concurrent Execution的特性。</p>
+<p>在数据库中也会出现数据竞争的问题，比如两个事务同时对同一个数据进行操作。解决办法是使用Transaction(事务)。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">COMMIT</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">COMMIT</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>数据竞争很常见，但只出现在并行模型中，如多线程、分布式系统等。</p>
+<p>数据竞争可能导致内存问题，假设p是一个被初始化为NULL的全局指针，那么下面的代码可能会导致错误：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">thread1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">thread2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>执行这段代码的可能结果是：两边前后分配了不同大小的内存，但后续释放时却只释放了一次，导致内存泄漏；两边同时释放了同一块内存，导致double free；一边已经置空了p，另一边却又释放了p指向的内存，触发未定义行为。</p>
+<p>并行程序中的数据竞争问题很难调试，重复运行可能会得到不同的结果。</p>
+<h2 id="intuitive-definition">Intuitive Definition<a class="headerlink" href="#intuitive-definition" title="Permanent link">¶</a></h2>
+<p>Data Race以下情况发生：</p>
+<ol>
+<li>存在不同线程的内存访问操作</li>
+<li>对同一内存位置的访问</li>
+<li>至少有一个是写操作</li>
+<li>两个访问可以自由交错</li>
+</ol></div>
 
 
 
@@ -2020,13 +2038,13 @@
         
         
           
-          <a href="../../../CTF/CVE/A%20note%20of%20CVE-2022-20186%20write-up/" class="md-footer__link md-footer__link--next" aria-label="Next: CVE-2022-20186">
+          <a href="../handout-9/" class="md-footer__link md-footer__link--next" aria-label="Next: handout9">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                CVE-2022-20186
+                handout9
               </div>
             </div>
             <div class="md-footer__button md-icon">
