@@ -2811,7 +2811,7 @@ $$</p>
 <li>
 <p>第三项:
     $$
-    \sin(\alpha)(\mathbf{n} \times \mathbf{v}) = (\sin<a href="\mathbf{n}">\alpha</a><em _times="\times">{\times})\mathbf{v}
+    \sin(\alpha)(\mathbf{n} \times \mathbf{v}) = (\sin(\alpha)(\mathbf{n})<em _times="\times">{\times})\mathbf{v}
     $$
     叉积运算 <span class="arithmatex">\(\mathbf{n} \times \mathbf{v}\)</span> 可以等价地表示为一个斜对称矩阵 <span class="arithmatex">\([\mathbf{n}]_{\times}\)</span> 左乘向量 <span class="arithmatex">\(\mathbf{v}\)</span>。该矩阵定义为:
     $$
@@ -2821,11 +2821,11 @@ $$</p>
 </ol>
 <p>现在，将这三项的矩阵形式代回 <span class="arithmatex">\(\mathbf{v}_{\text{rot}}\)</span> 的表达式中:
 $$
-\mathbf{v}<em _times="\times">{\text{rot}} = (\cos(\alpha)\mathbf{I})\mathbf{v} + \left( (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T \right)\mathbf{v} + (\sin<a href="\mathbf{n}">\alpha</a></em>
+\mathbf{v}<em _times="\times">{\text{rot}} = (\cos(\alpha)\mathbf{I})\mathbf{v} + \left( (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T \right)\mathbf{v} + (\sin(\alpha)(\mathbf{n})</em>
 $$
 从右侧提出公因子 })\mathbf{v<span class="arithmatex">\(\mathbf{v}\)</span>:
 $$
-\mathbf{v}<em _times="\times">{\text{rot}} = \left[ \cos(\alpha)\mathbf{I} + (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T + \sin<a href="\mathbf{n}">\alpha</a></em>
+\mathbf{v}<em _times="\times">{\text{rot}} = \left[ \cos(\alpha)\mathbf{I} + (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T + \sin(\alpha)(\mathbf{n})</em>
 $$
 因此，我们得到了最终的旋转矩阵 } \right] \mathbf{v<span class="arithmatex">\(\mathbf{R}\)</span>:
 $$
@@ -2987,9 +2987,9 @@ $$
     
       <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="../../javascripts/MathJax-4.0.0-beta.7/tex-mml-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../javascripts/canvas-nest.js"></script>
+        <script src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js"></script>
       
     
   </body>
