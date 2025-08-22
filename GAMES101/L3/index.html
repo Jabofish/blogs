@@ -2635,63 +2635,63 @@
 <h3 id="scale">Scale<a class="headerlink" href="#scale" title="Permanent link">¶</a></h3>
 <p>以矩阵形式表示:</p>
 <div class="arithmatex">\[
-\begin{bmatrix}S_x &amp; 0 \\0 &amp; S_y\end{bmatrix}
+\begin{bmatrix}S_x &amp; 0 \\ 0 &amp; S_y\end{bmatrix}
 \]</div>
 <h3 id="reflect">Reflect<a class="headerlink" href="#reflect" title="Permanent link">¶</a></h3>
-<p>以矩阵形式表示:
-$$
-\begin{bmatrix}-1 &amp; 0 \0 &amp; 1\end{bmatrix}
-$$</p>
+<p>以矩阵形式表示:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}-1 &amp; 0 \\ 0 &amp; 1\end{bmatrix}
+\]</div>
 <h3 id="shear">Shear<a class="headerlink" href="#shear" title="Permanent link">¶</a></h3>
-<p>以矩阵形式表示:
-$$
-\begin{bmatrix}1 &amp; Sh_x \Sh_y &amp; 1\end{bmatrix}
-$$</p>
+<p>以矩阵形式表示:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}1 &amp; Sh_x \\ Sh_y &amp; 1\end{bmatrix}
+\]</div>
 <h3 id="rotate">Rotate<a class="headerlink" href="#rotate" title="Permanent link">¶</a></h3>
-<p>以矩阵形式表示:
-$$
-\begin{bmatrix}\cos\theta &amp; -\sin\theta \\sin\theta &amp; \cos\theta\end{bmatrix}
-$$</p>
-<p>其具有一个性质，这个矩阵的逆矩阵等于其转置矩阵，即:
-$$
-\begin{bmatrix}\cos\theta &amp; \sin\theta \-\sin\theta &amp; \cos\theta\end{bmatrix}
-$$</p>
+<p>以矩阵形式表示:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}\cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta\end{bmatrix}
+\]</div>
+<p>其具有一个性质，这个矩阵的逆矩阵等于其转置矩阵，即:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}\cos\theta &amp; \sin\theta \\ -\sin\theta &amp; \cos\theta\end{bmatrix}
+\]</div>
 <p>因为该矩阵是一个正交矩阵，而正交矩阵的逆矩阵等于其转置矩阵。</p>
 <h3 id="translate">Translate<a class="headerlink" href="#translate" title="Permanent link">¶</a></h3>
-<p>公式为:
-$$
-\begin{bmatrix}x' \y'\end{bmatrix} = \begin{bmatrix}x \y\end{bmatrix} + \begin{bmatrix}T_x \T_y\end{bmatrix}
-$$</p>
+<p>公式为:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}x' \\ y'\end{bmatrix} = \begin{bmatrix}x \\ y\end{bmatrix} + \begin{bmatrix}T_x \\ T_y\end{bmatrix}
+\]</div>
 <p>可以看出，这个公式不是矩阵乘法，而是向量加法。为了将其转换为矩阵乘法，我们需要使用齐次坐标。</p>
 <h3 id="_1">齐次坐标<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
-<p>使用齐次坐标可以将线性变换和仿射变换统一表示为矩阵乘法。齐次坐标在二维空间中表示为三维向量，以Translate为例:
-$$
-\begin{bmatrix}x' \y' \w'\end{bmatrix} = \begin{bmatrix}1 &amp; 0 &amp; T_x \0 &amp; 1 &amp; T_y \0 &amp; 0 &amp; 1\end{bmatrix} \begin{bmatrix}x \y \1\end{bmatrix}= \begin{bmatrix}x + T_x \y + T_y \1\end{bmatrix}
-$$</p>
+<p>使用齐次坐标可以将线性变换和仿射变换统一表示为矩阵乘法。齐次坐标在二维空间中表示为三维向量，以Translate为例:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}x' \\ y' \\ w'\end{bmatrix} = \begin{bmatrix}1 &amp; 0 &amp; T_x \\ 0 &amp; 1 &amp; T_y \\ 0 &amp; 0 &amp; 1\end{bmatrix} \begin{bmatrix}x \\ y \\ 1\end{bmatrix}= \begin{bmatrix}x + T_x \\ y + T_y \\ 1\end{bmatrix}
+\]</div>
 <p>对于二维点，齐次坐标可以表示为 <span class="arithmatex">\((x, y, 1)^T\)</span>。对于二维向量，齐次坐标可以表示为 <span class="arithmatex">\((x, y, 0)^T\)</span>。这样，所有的变换都可以用矩阵乘法来表示。</p>
 <p>二维点的z坐标要使用1（或者更宽泛的说，一个非0数）的原因是要保证拓展后的坐标表示同样可以完成点和向量之间的运算，如两个点做减法得到向量，或者点和向量做加法得到点。</p>
 <p>也就是说，在齐次坐标中，<span class="arithmatex">\((x, y, w)^T\)</span> 表示的点是 <span class="arithmatex">\((x/w, y/w)\)</span>，因此齐次坐标中将两个点相加得到的是这两个点的中点。</p>
-<p>对于所有仿射变换，都可以用齐次坐标变化为矩阵相乘的形式:
-$$
-\begin{bmatrix}x' \y' \1\end{bmatrix}=\begin{bmatrix}a &amp; b &amp; T_x \c &amp; d &amp; T_y \0 &amp; 0 &amp; 1\end{bmatrix} \begin{bmatrix}x \y \1\end{bmatrix}
-$$</p>
-<p>根据以上公式可以将原有的二维变换矩阵转换为齐次坐标形式:
-$$
-Scale = \begin{bmatrix}S_x &amp; 0 &amp; 0 \0 &amp; S_y &amp; 0 \0 &amp; 0 &amp; 1\end{bmatrix}, \quad
-Reflect = \begin{bmatrix}-1 &amp; 0 &amp; 0 \0 &amp; 1 &amp; 0 \0 &amp; 0 &amp; 1\end{bmatrix}, \quad
-Shear = \begin{bmatrix}1 &amp; Sh_x &amp; 0 \Sh_y &amp; 1 &amp; 0 \0 &amp; 0 &amp; 1\end{bmatrix}, \quad
-Rotate = \begin{bmatrix}\cos\theta &amp; -\sin\theta &amp; 0 \ \sin\theta &amp; \cos\theta &amp; 0 \ 0 &amp; 0 &amp; 1\end{bmatrix}, \quad
-Translate = \begin{bmatrix}1 &amp; 0 &amp; T_x \0 &amp; 1 &amp; T_y \0 &amp; 0 &amp; 1\end{bmatrix}
-$$</p>
-<p>如果需要将多个变换组合在一起，可以将它们的矩阵相乘。比如需要先旋转45度再平移(2, 3)，可以表示为<span class="arithmatex">\(T_{(2, 3)} \cdot R_{45} \cdot \begin{bmatrix}x \\y \\1\end{bmatrix}\)</span>，按执行的顺序从右到左依次执行变换。</p>
+<p>对于所有仿射变换，都可以用齐次坐标变化为矩阵相乘的形式:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}x' \\ y' \\ 1\end{bmatrix}=\begin{bmatrix}a &amp; b &amp; T_x \\ c &amp; d &amp; T_y \\ 0 &amp; 0 &amp; 1\end{bmatrix} \begin{bmatrix}x \\ y \\ 1\end{bmatrix}
+\]</div>
+<p>根据以上公式可以将原有的二维变换矩阵转换为齐次坐标形式:</p>
+<div class="arithmatex">\[
+Scale = \begin{bmatrix}S_x &amp; 0 &amp; 0 \\ 0 &amp; S_y &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix}, \quad
+Reflect = \begin{bmatrix}-1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix}, \quad
+Shear = \begin{bmatrix}1 &amp; Sh_x &amp; 0 \\ Sh_y &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix}, \quad
+Rotate = \begin{bmatrix}\cos\theta &amp; -\sin\theta &amp; 0 \\  \sin\theta &amp; \cos\theta &amp; 0 \\  0 &amp; 0 &amp; 1\end{bmatrix}, \quad
+Translate = \begin{bmatrix}1 &amp; 0 &amp; T_x \\ 0 &amp; 1 &amp; T_y \\ 0 &amp; 0 &amp; 1\end{bmatrix}
+\]</div>
+<p>如果需要将多个变换组合在一起，可以将它们的矩阵相乘。比如需要先旋转45度再平移(2, 3)，可以表示为<span class="arithmatex">\(T_{(2, 3)} \cdot R_{45} \cdot \begin{bmatrix}x \\ y \\ 1\end{bmatrix}\)</span>，按执行的顺序从右到左依次执行变换。</p>
 <h3 id="_2">逆变换<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<p>对于变换<span class="arithmatex">\(M\)</span>，其逆变换$M^{-1}可以撤销变换的效果。逆变换的矩阵可以通过求逆矩阵得到。</p>
+<p>对于变换<span class="arithmatex">\(M\)</span>，其逆变换<span class="arithmatex">\(M^{-1}\)</span>可以撤销变换的效果。逆变换的矩阵可以通过求逆矩阵得到。</p>
 <h2 id="3d">3D变换<a class="headerlink" href="#3d" title="Permanent link">¶</a></h2>
 <p>三维点的齐次坐标表示为 <span class="arithmatex">\((x, y, z, 1)^T\)</span>，三维向量的齐次坐标表示为 <span class="arithmatex">\((x, y, z, 0)^T\)</span>。对于点<span class="arithmatex">\((x, y, z, w)\)</span>，齐次坐标表示为 <span class="arithmatex">\((x/w, y/w, z/w)\)</span>。（注意这里的w可以是任意非零数）</p>
-<p>可以使用一个四维矩阵来表示三维变换:
-$$
-\begin{bmatrix}a &amp; b &amp; c &amp; T_x \d &amp; e &amp; f &amp; T_y \g &amp; h &amp; i &amp; T_z \0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
-$$</p>
+<p>可以使用一个四维矩阵来表示三维变换:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}a &amp; b &amp; c &amp; T_x \\ d &amp; e &amp; f &amp; T_y \\ g &amp; h &amp; i &amp; T_z \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\]</div>
 <p>可以表示先线性变换，再平移的变换。</p></div>
 
 
@@ -2819,14 +2819,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
-        <script src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js"></script>
+        <script src="../../javascripts/MathJax-4.0.0-beta.7/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/canvas-nest.js"></script>
       
     
   </body>

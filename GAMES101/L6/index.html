@@ -2589,11 +2589,11 @@
 <h2 id="anti-aliasing">抗锯齿 (Anti-Aliasing)<a class="headerlink" href="#anti-aliasing" title="Permanent link">¶</a></h2>
 <p>抗锯齿是指在图形渲染中减少锯齿状边缘的技术。锯齿状边缘通常出现在低分辨率或不平滑的曲线和斜线中。</p>
 <p>先模糊（滤波）再采样是常用的抗锯齿方法。模糊可以通过卷积核实现，常用的卷积核有高斯核等（有点图像处理的味道）。</p>
-<p>均值滤波、高斯滤波等都是常见的模糊方法，使用的卷积核如下:
-$$
-\frac{1}{9}\begin{bmatrix}1 &amp; 1 &amp; 1 \1 &amp; 1 &amp; 1 \1 &amp; 1 &amp; 1\end{bmatrix}\qquad
-\frac{1}{16}\begin{bmatrix}1 &amp; 2 &amp; 1 \2 &amp; 4 &amp; 2 \1 &amp; 2 &amp; 1\end{bmatrix}
-$$</p>
+<p>均值滤波、高斯滤波等都是常见的模糊方法，使用的卷积核如下:</p>
+<div class="arithmatex">\[
+\frac{1}{9}\begin{bmatrix}1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1\end{bmatrix}\qquad
+\frac{1}{16}\begin{bmatrix}1 &amp; 2 &amp; 1 \\ 2 &amp; 4 &amp; 2 \\ 1 &amp; 2 &amp; 1\end{bmatrix}
+\]</div>
 <p>傅里叶变换是将信号从时域转换到频域的工具。通过傅里叶变换，可以将信号分解为不同频率的正弦波。高频部分通常对应于图像中的细节和噪声，而低频部分对应于图像的整体形状和轮廓。使用低通滤波器可以去除高频噪声，从而平滑图像。</p>
 <p>冲激函数（Dirac Delta Function）是一个理想化的数学函数，用于描述无限小的脉冲。它在某一点处取无穷大，而在其他地方为零，其积分为1。</p>
 <h3 id="_1">减少走样的方法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
@@ -2769,14 +2769,16 @@ $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
-        <script src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js"></script>
+        <script src="../../javascripts/MathJax-4.0.0-beta.7/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/canvas-nest.js"></script>
       
     
   </body>

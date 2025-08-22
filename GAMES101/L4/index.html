@@ -2695,10 +2695,10 @@
 <div class="arithmatex">\[
 \begin{bmatrix}S_x &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; S_y &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; S_z &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
 \]</div>
-<p>Translate可以表示为:
-$$
-\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; T_x \ 0 &amp; 1 &amp; 0 &amp; T_y \ 0 &amp; 0 &amp; 1 &amp; T_z \ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
-$$</p>
+<p>Translate可以表示为:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; T_x \\ 0 &amp; 1 &amp; 0 &amp; T_y \\ 0 &amp; 0 &amp; 1 &amp; T_z \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\]</div>
 <p>绕x, y, z轴的旋转可以表示为:</p>
 <div class="arithmatex">\[
 \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; \cos\theta &amp; -\sin\theta &amp; 0 \\ 0 &amp; \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}, \quad
@@ -2721,7 +2721,7 @@ R(n, \alpha) = \cos(\alpha)I + (1 - \cos(\alpha))nn^T + \sin(\alpha)\begin{bmatr
 <p>推导一个向量 <span class="arithmatex">\(\mathbf{v}\)</span> 绕一个单位向量旋转轴 <span class="arithmatex">\(\mathbf{n}\)</span> 旋转角度 <span class="arithmatex">\(\alpha\)</span> 后的新向量 <span class="arithmatex">\(\mathbf{v}_{\text{rot}}\)</span> 的计算公式，并最终表示为旋转矩阵 <span class="arithmatex">\(\mathbf{R}\)</span> 的形式。</p>
 <p>最终的矩阵形式为:</p>
 <div class="arithmatex">\[
-\mathbf{R}(\mathbf{n}, \alpha) = \cos(\alpha)\mathbf{I} + (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T + \sin[\alpha](\mathbf{n})_{\times}
+\mathbf{R}(\mathbf{n}, \alpha) = \cos(\alpha)\mathbf{I} + (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T + \sin(\alpha)(\mathbf{n})_{\times}
 \]</div>
 <p>其中 <span class="arithmatex">\([\mathbf{n}]_{\times}\)</span> 是 <span class="arithmatex">\(\mathbf{n}\)</span> 的斜对称叉积矩阵。</p>
 <hr>
@@ -2731,106 +2731,106 @@ R(n, \alpha) = \cos(\alpha)I + (1 - \cos(\alpha))nn^T + \sin(\alpha)\begin{bmatr
 <li>平行于旋转轴 <span class="arithmatex">\(\mathbf{n}\)</span> 的分量，记为 <span class="arithmatex">\(\mathbf{v}_{\parallel}\)</span>。</li>
 <li>垂直于旋转轴 <span class="arithmatex">\(\mathbf{n}\)</span> 的分量，记为 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span>。</li>
 </ol>
-<p>很显然，我们有:
-$$
-\mathbf{v} = \mathbf{v}<em _perp="\perp">{\parallel} + \mathbf{v}</em>
-$$</p>
+<p>很显然，我们有:</p>
+<div class="arithmatex">\[
+\mathbf{v} = \mathbf{v}_{\parallel} + \mathbf{v}_{\perp}
+\]</div>
 <p>在旋转过程中，只有垂直分量 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span> 会发生改变，而平行分量 <span class="arithmatex">\(\mathbf{v}_{\parallel}\)</span> 将保持不变。</p>
 <hr>
 <h4 id="_3"><strong>第一步:计算向量分量</strong><a class="headerlink" href="#_3" title="Permanent link">¶</a></h4>
 <ul>
 <li>
 <p><strong>平行分量 <span class="arithmatex">\(\mathbf{v}_{\parallel}\)</span></strong></p>
-<p>该分量是向量 <span class="arithmatex">\(\mathbf{v}\)</span> 在单位轴向量 <span class="arithmatex">\(\mathbf{n}\)</span> 上的投影。根据向量投影的定义:
-$$
+<p>该分量是向量 <span class="arithmatex">\(\mathbf{v}\)</span> 在单位轴向量 <span class="arithmatex">\(\mathbf{n}\)</span> 上的投影。根据向量投影的定义:</p>
+<div class="arithmatex">\[
 \mathbf{v}_{\parallel} = (\mathbf{v} \cdot \mathbf{n}) \mathbf{n}
-$$
-其中 <span class="arithmatex">\((\mathbf{v} \cdot \mathbf{n})\)</span> 是一个标量。</p>
+\]</div>
+<p>其中 <span class="arithmatex">\((\mathbf{v} \cdot \mathbf{n})\)</span> 是一个标量。</p>
 </li>
 <li>
 <p><strong>垂直分量 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span></strong></p>
-<p>该分量可以由原始向量减去平行分量得到:
-$$
-\mathbf{v}<em _parallel="\parallel">{\perp} = \mathbf{v} - \mathbf{v}</em>
-$$} = \mathbf{v} - (\mathbf{v} \cdot \mathbf{n}) \mathbf{n</p>
+<p>该分量可以由原始向量减去平行分量得到:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\perp} = \mathbf{v} - \mathbf{v}_{\parallel} = \mathbf{v} - (\mathbf{v} \cdot \mathbf{n}) \mathbf{n}
+\]</div>
 </li>
 </ul>
 <hr>
 <h4 id="_4"><strong>第二步:旋转垂直分量</strong><a class="headerlink" href="#_4" title="Permanent link">¶</a></h4>
 <p>现在，我们需要将 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span> 在垂直于 <span class="arithmatex">\(\mathbf{n}\)</span> 的平面内旋转角度 <span class="arithmatex">\(\alpha\)</span>，得到旋转后的向量 <span class="arithmatex">\(\mathbf{v}_{\perp, \text{rot}}\)</span>。</p>
-<p>在这个旋转平面内，我们需要一组正交基来描述旋转。我们已经有了 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span>，还需要一个与它垂直且长度相等的向量。我们可以通过叉积巧妙地构造出这个向量:
-$$
+<p>在这个旋转平面内，我们需要一组正交基来描述旋转。我们已经有了 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span>，还需要一个与它垂直且长度相等的向量。我们可以通过叉积巧妙地构造出这个向量:</p>
+<div class="arithmatex">\[
 \mathbf{w} = \mathbf{n} \times \mathbf{v}
-$$
-这个向量 <span class="arithmatex">\(\mathbf{w}\)</span> 位于旋转平面内，且与 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span> 垂直。它的长度 <span class="arithmatex">\(|\mathbf{w}| = |\mathbf{n}| |\mathbf{v}| \sin(\theta) = |\mathbf{v}_{\perp}|\)</span> (其中 <span class="arithmatex">\(\theta\)</span> 是 <span class="arithmatex">\(\mathbf{n}\)</span> 和 <span class="arithmatex">\(\mathbf{v}\)</span> 的夹角)，与 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span> 的长度相等。</p>
+\]</div>
+<p>这个向量 <span class="arithmatex">\(\mathbf{w}\)</span> 位于旋转平面内，且与 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span> 垂直。它的长度 <span class="arithmatex">\(|\mathbf{w}| = |\mathbf{n}| |\mathbf{v}| \sin(\theta) = |\mathbf{v}_{\perp}|\)</span> (其中 <span class="arithmatex">\(\theta\)</span> 是 <span class="arithmatex">\(\mathbf{n}\)</span> 和 <span class="arithmatex">\(\mathbf{v}\)</span> 的夹角)，与 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span> 的长度相等。</p>
 <p><em>注:这里用 <span class="arithmatex">\(\mathbf{n} \times \mathbf{v}\)</span> 而非 <span class="arithmatex">\(\mathbf{n} \times \mathbf{v}_{\perp}\)</span> 是因为二者结果相同且前者更直接。因为 <span class="arithmatex">\(\mathbf{n} \times \mathbf{v} = \mathbf{n} \times (\mathbf{v}_{\parallel} + \mathbf{v}_{\perp}) = (\mathbf{n} \times \mathbf{v}_{\parallel}) + (\mathbf{n} \times \mathbf{v}_{\perp})\)</span>，而 <span class="arithmatex">\(\mathbf{n} \times \mathbf{v}_{\parallel} = \mathbf{0}\)</span>。</em></p>
-<p>有了旋转平面内的一对正交基 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span> 和 <span class="arithmatex">\(\mathbf{w}\)</span>，我们可以利用标准的二维旋转公式来表示旋转后的向量:
-$$
-\mathbf{v}<em _perp="\perp">{\perp, \text{rot}} = \cos(\alpha) \mathbf{v}</em>
-$$
-将 } + \sin(\alpha) \mathbf{w<span class="arithmatex">\(\mathbf{w} = \mathbf{n} \times \mathbf{v}\)</span> 代入，我们得到:
-$$
-\mathbf{v}<em _perp="\perp">{\perp, \text{rot}} = \cos(\alpha) \mathbf{v}</em>)
-$$} + \sin(\alpha) (\mathbf{n} \times \mathbf{v</p>
+<p>有了旋转平面内的一对正交基 <span class="arithmatex">\(\mathbf{v}_{\perp}\)</span> 和 <span class="arithmatex">\(\mathbf{w}\)</span>，我们可以利用标准的二维旋转公式来表示旋转后的向量:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\perp, \text{rot}} = \cos(\alpha) \mathbf{v}_{\perp} + \sin(\alpha) \mathbf{w}
+\]</div>
+<p>将 <span class="arithmatex">\(\mathbf{w} = \mathbf{n} \times \mathbf{v}\)</span> 代入，我们得到:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\perp, \text{rot}} = \cos(\alpha) \mathbf{v}_{\perp} + \sin(\alpha) (\mathbf{n} \times \mathbf{v})
+\]</div>
 <hr>
 <h4 id="_5"><strong>第三步:合并分量得到向量公式</strong><a class="headerlink" href="#_5" title="Permanent link">¶</a></h4>
-<p>最终的旋转向量 <span class="arithmatex">\(\mathbf{v}_{\text{rot}}\)</span> 是旋转后平行分量与垂直分量的和。由于平行分量不变，即 <span class="arithmatex">\(\mathbf{v}_{\parallel, \text{rot}} = \mathbf{v}_{\parallel}\)</span>，我们有:
-$$
-\mathbf{v}<em _parallel_="\parallel," _text_rot="\text{rot">{\text{rot}} = \mathbf{v}</em>}} + \mathbf{v<em _parallel="\parallel">{\perp, \text{rot}} = \mathbf{v}</em>} + \mathbf{v<em _text_rot="\text{rot">{\perp, \text{rot}}
-$$
-将前面推导出的表达式代入:
-$$
-\mathbf{v}</em>}} = (\mathbf{v} \cdot \mathbf{n}) \mathbf{n} + \cos(\alpha) \mathbf{v<em _text_rot="\text{rot">{\perp} + \sin(\alpha) (\mathbf{n} \times \mathbf{v})
-$$
-再将 <span class="arithmatex">\(\mathbf{v}_{\perp} = \mathbf{v} - (\mathbf{v} \cdot \mathbf{n}) \mathbf{n}\)</span> 代入:
-$$
-\mathbf{v}</em>)
-$$
-展开并重新组合各项，得到罗德里格旋转公式的 }} = (\mathbf{v} \cdot \mathbf{n}) \mathbf{n} + \cos(\alpha) \left( \mathbf{v} - (\mathbf{v} \cdot \mathbf{n}) \mathbf{n} \right) + \sin(\alpha) (\mathbf{n} \times \mathbf{v<strong>向量形式</strong>:
-$$
+<p>最终的旋转向量 <span class="arithmatex">\(\mathbf{v}_{\text{rot}}\)</span> 是旋转后平行分量与垂直分量的和。由于平行分量不变，即 <span class="arithmatex">\(\mathbf{v}_{\parallel, \text{rot}} = \mathbf{v}_{\parallel}\)</span>，我们有:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\text{rot}} = \mathbf{v}_{\parallel, \text{rot}} + \mathbf{v}_{\perp, \text{rot}} = \mathbf{v}_{\parallel} + \mathbf{v}_{\perp, \text{rot}}
+\]</div>
+<p>将前面推导出的表达式代入:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\text{rot}} = (\mathbf{v} \cdot \mathbf{n}) \mathbf{n} + \cos(\alpha) \mathbf{v}_{\perp} + \sin(\alpha) (\mathbf{n} \times \mathbf{v})
+\]</div>
+<p>再将 <span class="arithmatex">\(\mathbf{v}_{\perp} = \mathbf{v} - (\mathbf{v} \cdot \mathbf{n}) \mathbf{n}\)</span> 代入:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\text{rot}} = (\mathbf{v} \cdot \mathbf{n}) \mathbf{n} + \cos(\alpha) \left( \mathbf{v} - (\mathbf{v} \cdot \mathbf{n}) \mathbf{n} \right) + \sin(\alpha) (\mathbf{n} \times \mathbf{v})
+\]</div>
+<p>展开并重新组合各项，得到罗德里格旋转公式的 <strong>向量形式</strong>:</p>
+<div class="arithmatex">\[
 \mathbf{v}_{\text{rot}} = \cos(\alpha)\mathbf{v} + (1 - \cos(\alpha))(\mathbf{v} \cdot \mathbf{n})\mathbf{n} + \sin(\alpha)(\mathbf{n} \times \mathbf{v})
-$$</p>
+\]</div>
 <hr>
 <h4 id="_6"><strong>第四步:转换为矩阵形式</strong><a class="headerlink" href="#_6" title="Permanent link">¶</a></h4>
 <p>我们的目标是找到一个旋转矩阵 <span class="arithmatex">\(\mathbf{R}\)</span>，使得 <span class="arithmatex">\(\mathbf{v}_{\text{rot}} = \mathbf{R}\mathbf{v}\)</span>。为此，我们将向量形式公式中的每一项都改写为矩阵与向量 <span class="arithmatex">\(\mathbf{v}\)</span> 的乘积。</p>
 <ol>
 <li>
-<p>第一项:
-    $$
-    \cos(\alpha)\mathbf{v} = (\cos(\alpha)\mathbf{I})\mathbf{v}
-    $$
-    其中 <span class="arithmatex">\(\mathbf{I}\)</span> 是 3x3 单位矩阵。</p>
+<p>第一项:</p>
+<div class="arithmatex">\[
+\cos(\alpha)\mathbf{v} = (\cos(\alpha)\mathbf{I})\mathbf{v}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{I}\)</span> 是 3x3 单位矩阵。</p>
 </li>
 <li>
-<p>第二项:
-    $$
-    (1 - \cos(\alpha))(\mathbf{v} \cdot \mathbf{n})\mathbf{n} = (1 - \cos(\alpha))(\mathbf{n}\mathbf{n}^T)\mathbf{v}
-    $$
-    这里利用了 <span class="arithmatex">\((\mathbf{v} \cdot \mathbf{n}) = \mathbf{n}^T \mathbf{v}\)</span>，所以 <span class="arithmatex">\((\mathbf{v} \cdot \mathbf{n})\mathbf{n} = \mathbf{n}(\mathbf{n}^T\mathbf{v}) = (\mathbf{n}\mathbf{n}^T)\mathbf{v}\)</span>。其中 <span class="arithmatex">\(\mathbf{n}\mathbf{n}^T\)</span> 是一个 3x3 矩阵 (外积)。</p>
+<p>第二项:</p>
+<div class="arithmatex">\[
+(1 - \cos(\alpha))(\mathbf{v} \cdot \mathbf{n})\mathbf{n} = (1 - \cos(\alpha))(\mathbf{n}\mathbf{n}^T)\mathbf{v}
+\]</div>
+<p>这里利用了 <span class="arithmatex">\((\mathbf{v} \cdot \mathbf{n}) = \mathbf{n}^T \mathbf{v}\)</span>，所以 <span class="arithmatex">\((\mathbf{v} \cdot \mathbf{n})\mathbf{n} = \mathbf{n}(\mathbf{n}^T\mathbf{v}) = (\mathbf{n}\mathbf{n}^T)\mathbf{v}\)</span>。其中 <span class="arithmatex">\(\mathbf{n}\mathbf{n}^T\)</span> 是一个 3x3 矩阵 (外积)。</p>
 </li>
 <li>
-<p>第三项:
-    $$
-    \sin(\alpha)(\mathbf{n} \times \mathbf{v}) = (\sin(\alpha)(\mathbf{n})<em _times="\times">{\times})\mathbf{v}
-    $$
-    叉积运算 <span class="arithmatex">\(\mathbf{n} \times \mathbf{v}\)</span> 可以等价地表示为一个斜对称矩阵 <span class="arithmatex">\([\mathbf{n}]_{\times}\)</span> 左乘向量 <span class="arithmatex">\(\mathbf{v}\)</span>。该矩阵定义为:
-    $$
-    [\mathbf{n}]</em>
-    $$} = \begin{bmatrix} 0 &amp; -n_z &amp; n_y \ n_z &amp; 0 &amp; -n_x \ -n_y &amp; n_x &amp; 0 \end{bmatrix</p>
+<p>第三项:</p>
+<div class="arithmatex">\[
+\sin(\alpha)(\mathbf{n} \times \mathbf{v}) = (\sin(\alpha)(\mathbf{n})_{\times})\mathbf{v}
+\]</div>
+<p>叉积运算 <span class="arithmatex">\(\mathbf{n} \times \mathbf{v}\)</span> 可以等价地表示为一个斜对称矩阵 <span class="arithmatex">\([\mathbf{n}]_{\times}\)</span> 左乘向量 <span class="arithmatex">\(\mathbf{v}\)</span>。该矩阵定义为:</p>
+<div class="arithmatex">\[
+[\mathbf{n}]_{\times} = \begin{bmatrix} 0 &amp; -n_z &amp; n_y \\ n_z &amp; 0 &amp; -n_x \\ -n_y &amp; n_x &amp; 0 \end{bmatrix}
+\]</div>
 </li>
 </ol>
-<p>现在，将这三项的矩阵形式代回 <span class="arithmatex">\(\mathbf{v}_{\text{rot}}\)</span> 的表达式中:
-$$
-\mathbf{v}<em _times="\times">{\text{rot}} = (\cos(\alpha)\mathbf{I})\mathbf{v} + \left( (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T \right)\mathbf{v} + (\sin(\alpha)(\mathbf{n})</em>
-$$
-从右侧提出公因子 })\mathbf{v<span class="arithmatex">\(\mathbf{v}\)</span>:
-$$
-\mathbf{v}<em _times="\times">{\text{rot}} = \left[ \cos(\alpha)\mathbf{I} + (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T + \sin(\alpha)(\mathbf{n})</em>
-$$
-因此，我们得到了最终的旋转矩阵 } \right] \mathbf{v<span class="arithmatex">\(\mathbf{R}\)</span>:
-$$
-\mathbf{R}(\mathbf{n}, \alpha) = \cos(\alpha)\mathbf{I} + (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T + \sin(\alpha)\begin{bmatrix} 0 &amp; -n_z &amp; n_y \ n_z &amp; 0 &amp; -n_x \ -n_y &amp; n_x &amp; 0 \end{bmatrix}
-$$</p>
+<p>现在，将这三项的矩阵形式代回 <span class="arithmatex">\(\mathbf{v}_{\text{rot}}\)</span> 的表达式中:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\text{rot}} = (\cos(\alpha)\mathbf{I})\mathbf{v} + \left( (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T \right)\mathbf{v} + (\sin(\alpha)(\mathbf{n})_{\times})\mathbf{v}
+\]</div>
+<p>从右侧提出公因子 <span class="arithmatex">\(\mathbf{v}\)</span>:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\text{rot}} = \left[ \cos(\alpha)\mathbf{I} + (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T + \sin(\alpha)(\mathbf{n})_{\times} \right] \mathbf{v}
+\]</div>
+<p>因此，我们得到了最终的旋转矩阵 <span class="arithmatex">\(\mathbf{R}\)</span>:</p>
+<div class="arithmatex">\[
+\mathbf{R}(\mathbf{n}, \alpha) = \cos(\alpha)\mathbf{I} + (1 - \cos(\alpha))\mathbf{n}\mathbf{n}^T + \sin(\alpha)\begin{bmatrix} 0 &amp; -n_z &amp; n_y \\ n_z &amp; 0 &amp; -n_x \\ -n_y &amp; n_x &amp; 0 \end{bmatrix}
+\]</div>
 <p>证明完毕。</p>
 <h2 id="_7">视图变换和投影变换<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <h3 id="viewcamera-transformation">View/Camera Transformation<a class="headerlink" href="#viewcamera-transformation" title="Permanent link">¶</a></h3>
@@ -2845,17 +2845,17 @@ $$</p>
 <h4 id="_9">正交投影<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
 <p>正交投影是将三维物体投影到二维平面上的一种方法。它保留了物体的形状和大小，但不保留深度信息。</p>
 <p>先把模型包围盒映射到标准立方体[-1, 1]，然后丢弃z坐标。</p>
-<p>映射使用的矩阵为:
-$$
-M{ortho} = \begin{bmatrix}\frac{2}{r-l} &amp; 0 &amp; 0 &amp; 0 \ 0 &amp; \frac{2}{t-b} &amp; 0 &amp; 0 \ 0 &amp; 0 &amp; \frac{2}{n-f} &amp; 0 \ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; -\frac{r+l}{2} \ 0 &amp; 1 &amp; 0 &amp; -\frac{t+b}{2} \ 0 &amp; 0 &amp; 1 &amp; -\frac{n+f}{2} \ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
-$$</p>
+<p>映射使用的矩阵为:</p>
+<div class="arithmatex">\[
+M{ortho} = \begin{bmatrix}\frac{2}{r-l} &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; \frac{2}{t-b} &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; \frac{2}{n-f} &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; -\frac{r+l}{2} \\ 0 &amp; 1 &amp; 0 &amp; -\frac{t+b}{2} \\ 0 &amp; 0 &amp; 1 &amp; -\frac{n+f}{2} \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\]</div>
 <h4 id="_10">透视投影<a class="headerlink" href="#_10" title="Permanent link">¶</a></h4>
 <p>透视投影是将三维物体投影到二维平面上的另一种方法。它保留了物体的深度信息，但会改变物体的形状和大小，基本特点是近大远小。</p>
-<p>需要一个矩阵<span class="arithmatex">\(M_{persp-&gt;ortho}\)</span>将透视投影转换为正交投影:
-$$
-M_{persp-&gt;ortho} = \begin{bmatrix}n &amp; 0 &amp; 0 &amp; 0 \ 0 &amp; n &amp; 0 &amp; 0 \ 0 &amp; 0 &amp; n + f &amp; -nf \ 0 &amp; 0 &amp; 1 &amp; 0\end{bmatrix}
-$$
-其中n是近平面，f是远平面。</p></div>
+<p>需要一个矩阵<span class="arithmatex">\(M_{persp-&gt;ortho}\)</span>将透视投影转换为正交投影:</p>
+<div class="arithmatex">\[
+M_{persp-&gt;ortho} = \begin{bmatrix}n &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; n &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; n + f &amp; -nf \\ 0 &amp; 0 &amp; 1 &amp; 0\end{bmatrix}
+\]</div>
+<p>其中n是近平面，f是远平面。</p></div>
 
 
 
@@ -2982,14 +2982,16 @@ $$
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.path", "search.share", "toc.follow", "toc.integrate", "header.autohide", "navigation.footer", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
-        <script src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js"></script>
+        <script src="../../javascripts/MathJax-4.0.0-beta.7/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/canvas-nest.js"></script>
       
     
   </body>
