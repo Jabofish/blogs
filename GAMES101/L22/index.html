@@ -12,7 +12,7 @@
         <meta name="author" content="Jabofish">
       
       
-        <link rel="canonical" href="https://jabofish.github.io/blogs/GAMES101/L16/">
+        <link rel="canonical" href="https://jabofish.github.io/blogs/GAMES101/L22/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>Lecture 16: Ray Tracing 4(Monte Carlo Path Tracing) - Jabofish's Blogs</title>
+        <title>Lecture 22: Amination Continued - Jabofish's Blogs</title>
       
     
     
@@ -125,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lecture-16-ray-tracing-4monte-carlo-path-tracing" class="md-skip">
+        <a href="#lecture-22-amination-continued" class="md-skip">
           Skip to content
         </a>
       
@@ -161,7 +161,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lecture 16: Ray Tracing 4(Monte Carlo Path Tracing)
+              Lecture 22: Amination Continued
             
           </span>
         </div>
@@ -2602,7 +2602,7 @@
                   
 
   
-    <a href="https://github.com/Jabofish/blogs/edit/main/docs/GAMES101/L16.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/Jabofish/blogs/edit/main/docs/GAMES101/L22.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2611,246 +2611,60 @@
     
       
     
-    <a href="https://github.com/Jabofish/blogs/raw/main/docs/GAMES101/L16.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/Jabofish/blogs/raw/main/docs/GAMES101/L22.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<div><h1 id="lecture-16-ray-tracing-4monte-carlo-path-tracing">Lecture 16: Ray Tracing 4(Monte Carlo Path Tracing)<a class="headerlink" href="#lecture-16-ray-tracing-4monte-carlo-path-tracing" title="Permanent link">¶</a></h1>
-<h2 id="monte-carlo-integration">Monte Carlo Integration<a class="headerlink" href="#monte-carlo-integration" title="Permanent link">¶</a></h2>
-<p>蒙特卡洛积分是一种通过随机采样来估计积分值的方法。对于一个函数<span class="arithmatex">\(f(x)\)</span>在区间<span class="arithmatex">\([a, b]\)</span>上的积分，在<span class="arithmatex">\(n\)</span>次独立均匀采样下，蒙特卡洛积分的估计值为：</p>
+<div><h1 id="lecture-22-amination-continued">Lecture 22: Amination Continued<a class="headerlink" href="#lecture-22-amination-continued" title="Permanent link">¶</a></h1>
+<h2 id="simple-particle-simulation">Simple Particle Simulation<a class="headerlink" href="#simple-particle-simulation" title="Permanent link">¶</a></h2>
+<h3 id="ode">ODE<a class="headerlink" href="#ode" title="Permanent link">¶</a></h3>
+<p>常微分方程(Ordinary Differential Equation, ODE)是未知函数是一个变量的函数的方程。我们可以用ODE来描述粒子的运动。</p>
 <div class="arithmatex">\[
-I \approx \frac{b-a}{n} \sum_{i=1}^{n} f(x_i)
+\frac{dx}{dt} = \mathbf{v}_i = v(x, t)
 \]</div>
-<p>更泛用地，Monte Carlo estimator为：</p>
+<h3 id="euler-method">Euler Method<a class="headerlink" href="#euler-method" title="Permanent link">¶</a></h3>
+<p>Euler方法是数值求解ODE的一种简单方法。它通过在每个时间步长上使用当前的速度来更新位置。</p>
 <div class="arithmatex">\[
-F_n = \frac{1}{n} \sum_{i=1}^{n} \frac{f(X_i)}{p(X_i)}
+x(t + \Delta t) = x(t) + \mathbf{v}(x(t), t) \Delta t
 \]</div>
-<p>其中，<span class="arithmatex">\(X_i\)</span>是根据概率密度函数<span class="arithmatex">\(p(x)\)</span>采样得到的随机变量。</p>
-<p>则：</p>
+<p>但这个办法误差大，稳定性差。（不稳定性表现在一些场景中的误差会随着时间的推移而迅速增大。）</p>
+<h4 id="midpoint-method">Midpoint Method<a class="headerlink" href="#midpoint-method" title="Permanent link">¶</a></h4>
+<p>Midpoint方法是一种改进的Euler方法。它通过在时间步长的一半处计算速度来更新位置。</p>
 <div class="arithmatex">\[
-\int f(x) dx = \frac{1}{n} \sum_{i=1}^{n} \frac{f(X_i)}{p(X_i)}
+x_{mid} = x(t) + \frac{1}{2} \mathbf{v}(x(t), t) \Delta t \\
+x(t + \Delta t) = x(t) + \mathbf{v}(x_{mid}, t) \Delta t
 \]</div>
-<h2 id="path-tracing">Path Tracing<a class="headerlink" href="#path-tracing" title="Permanent link">¶</a></h2>
-<p>路径追踪(Path Tracing)是一种基于蒙特卡洛积分的全局光照计算方法。它通过模拟光线在场景中的传播路径，来估计每个像素的颜色值。</p>
-<p>路径追踪用于解决老光线追踪无法处理的glossy material（半光泽材质）和diffuse material（漫反射材质）的问题。Whitted-Style Ray Tracing含有积分和递归，在实际计算时会截取递归深度。</p>
-<h3 id="a-simple-solution">A Simple Solution<a class="headerlink" href="#a-simple-solution" title="Permanent link">¶</a></h3>
-<p>根据渲染方程：</p>
+<h4 id="adaptive-step-size">Adaptive Step Size<a class="headerlink" href="#adaptive-step-size" title="Permanent link">¶</a></h4>
+<p>自适应步长方法根据误差估计动态调整时间步长。用两个步长计算结果的差异来估计误差，误差小则增大步长，误差大则减小步长。</p>
+<h4 id="implicit-euler-method">Implicit Euler Method<a class="headerlink" href="#implicit-euler-method" title="Permanent link">¶</a></h4>
+<p>隐式Euler方法通过在时间步长的末尾计算速度来更新位置。</p>
+<p>但这个方程不好解，一般使用牛顿迭代法(Newton's Method)来求解，但稳定性更好。</p>
+<p>其局部截断误差为<span class="arithmatex">\(O(h^2)\)</span>，全局截断误差为<span class="arithmatex">\(O(h)\)</span>。其中，局部截断误差是指在每个时间步长上引入的误差，而全局截断误差是指在整个模拟过程中累积的误差，<span class="arithmatex">\(h\)</span>是步长。</p>
+<h4 id="runge-kutta-methods">Runge-Kutta Methods<a class="headerlink" href="#runge-kutta-methods" title="Permanent link">¶</a></h4>
+<p>Runge-Kutta方法是一类更高阶的数值求解ODE的方法。最常用的是四阶Runge-Kutta方法。</p>
 <div class="arithmatex">\[
-L_o(p, \omega_o) = L_e(p, \omega_o) + \int_{\Omega^+} f_r(p, \omega_i, \omega_o) L_i(p, \omega_i) \cos\theta_i d\omega_i
+\frac{dy}{dt} = f(t, y), \quad y(t_0) = y_0
 \]</div>
-<p>再根据蒙特卡洛积分：</p>
+<p>RK4的公式如下：</p>
 <div class="arithmatex">\[
-f(x) = f_r(p, \omega_i, \omega_o) L_i(p, \omega_i) \cos\theta_i
+y_{n+1} = y_n + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4) h\\
+t_{n+1} = t_n + h
 \]</div>
-<div class="arithmatex">\[
-p(\omega_i) = \frac{1}{2\pi}
-\]</div>
-<p>则有：</p>
-<div class="arithmatex">\[
-L_o(p, \omega_o) =\int_{\Omega^+} f_r(p, \omega_i, \omega_o) L_i(p, \omega_i) \cos\theta_i d\omega_i \approx \frac{1}{N} \sum_{i=1}^{N} \frac{f_r(p, \omega_i, \omega_o) L_i(p, \omega_i) \cos\theta_i}{p(\omega_i)}
-\]</div>
-<p>其中，<span class="arithmatex">\(N\)</span>是采样数量，<span class="arithmatex">\(\omega_i\)</span>是根据概率密度函数<span class="arithmatex">\(p(\omega_i)\)</span>采样得到的入射方向。</p>
-<p>根据以上可以以设计一个简单的路径追踪算法：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wo</span><span class="p">){</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">Randomly</span><span class="w"> </span><span class="n">choose</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">directions</span><span class="w"> </span><span class="n">wi</span><span class="o">~</span><span class="n">pdf</span><span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">L_o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="n">For</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">wi</span><span class="p">{</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="n">Trace</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="n">If</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="n">source</span><span class="p">){</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">            </span><span class="n">L_o</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">L_i</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">L_o</span><span class="p">;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>以上算法可以解释为：随机选择N个入射方向，对每个方向追踪一条光线，如果光线击中光源，则计算该方向的贡献，计算的原理是基于渲染方程和蒙特卡洛积分，最后将所有方向的贡献累加，得到最终的出射辐射亮度。</p>
-<p>以上只涉及了直接光照的计算，间接光照的计算需要递归地追踪反射和折射光线。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wo</span><span class="p">){</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">Randomly</span><span class="w"> </span><span class="n">choose</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">directions</span><span class="w"> </span><span class="n">wi</span><span class="o">~</span><span class="n">pdf</span><span class="p">;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="n">L_o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">For</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">wi</span><span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="n">Trace</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="n">If</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="n">source</span><span class="p">){</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">            </span><span class="n">L_o</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">L_i</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">object</span><span class="p">){</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">            </span><span class="n">L_o</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">shade</span><span class="p">(</span><span class="n">hitPoint</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">wi</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">L_o</span><span class="p">;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p><code>shade(hitPoint, -wi)</code>表示在交点处递归地计算出射辐射亮度，<code>-wi</code>表示光线的反方向，即视角方向。</p>
-<p>但是以上算法存在一些问题：当多次计算间接光源时，计算量会指数级爆炸。为了解决这个问题，在计算光照时，可以只随机选择一个方向进行追踪，而不是N个方向。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wo</span><span class="p">){</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">Randomly</span><span class="w"> </span><span class="n">choose</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="n">wi</span><span class="o">~</span><span class="n">pdf</span><span class="p">;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">Trace</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="n">source</span><span class="p">){</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="n">L_o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L_i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">object</span><span class="p">){</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="n">L_o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shade</span><span class="p">(</span><span class="n">hitPoint</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">wi</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">L_o</span><span class="p">;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>但是这种方法会导致很多噪音，因为每次只采样一个方向，可能会错过重要的光照贡献。为了解决这个问题，可以增加采样数量N，在每个像素上多次采样，然后对结果进行平均。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">ray_generation</span><span class="p">(</span><span class="n">camPos</span><span class="p">,</span><span class="w"> </span><span class="n">pixel</span><span class="p">){</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">Uniformly</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pixel</span><span class="p">;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">pixel_radiance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">For</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">sample</span><span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="n">Shoot</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">camPos</span><span class="p">,</span><span class="w"> </span><span class="n">pixel</span><span class="p">);</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">hit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">p</span><span class="p">){</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">            </span><span class="n">pixel_radiance</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">sample_to_cam</span><span class="p">);</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_radiance</span><span class="p">;</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>但以上还有严重问题，即可能会陷入无限递归。为了解决这个问题，可以设置最大递归深度，或者使用Russian Roulette方法随机终止路径。</p>
-<p>假设使用Russian Roulette方法：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wo</span><span class="p">){</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">Manually</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">probability</span><span class="w"> </span><span class="n">P_RR</span><span class="p">;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">Randomly</span><span class="w"> </span><span class="n">choose</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">xi</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">xi</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">P_RR</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="n">Randomly</span><span class="w"> </span><span class="n">choose</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="n">wi</span><span class="o">~</span><span class="n">pdf</span><span class="p">;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="n">Trace</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="n">source</span><span class="p">){</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="n">L_o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L_i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">P_RR</span><span class="p">);</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">object</span><span class="p">){</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">        </span><span class="n">L_o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shade</span><span class="p">(</span><span class="n">hitPoint</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">wi</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">P_RR</span><span class="p">);</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">L_o</span><span class="p">;</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>其中，<span class="arithmatex">\(P_{RR}\)</span>是Russian Roulette的概率，决定了路径继续追踪的概率。通过这种方法，可以在保持无偏性的同时，减少计算量。</p>
-<p>但这个方法在实际应用中仍然会有噪音问题（尤其是每像素样本数较少时）。为了解决噪音问题，可以只对光源采样，减少大量的不必要采样。（其实还可以用重要性采样Importance Sampling，甚至多重重要性采样Multiple Importance Sampling）</p>
-<p>需要将<span class="arithmatex">\(d\omega\)</span>转化为<span class="arithmatex">\(dA\)</span>：</p>
-<div class="arithmatex">\[
-d\omega = \frac{dA \cos\theta_A}{r^2}
-\]</div>
-<p>则：</p>
-<div class="arithmatex">\[
-L_o(p, \omega_o) =\int_{A} f_r(p, \omega_i, \omega_o) L_i(p, \omega_i) \cos\theta_i \frac{\cos\theta_A}{r^2} dA
-\]</div>
-<p>因此，最终的做法是，对光源进行均匀采样，对非光源进行Russian Roulette采样。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wo</span><span class="p">){</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">Uniformly</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">x_light</span><span class="w"> </span><span class="p">(</span><span class="n">pdf_light</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">A</span><span class="p">);</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">L_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L_i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine_i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine_light</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">|</span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x_light</span><span class="o">|^</span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf_light</span><span class="p">;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="n">L_indir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="n">Test</span><span class="w"> </span><span class="n">Russian</span><span class="w"> </span><span class="n">Roulette</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">probability</span><span class="w"> </span><span class="n">P_RR</span><span class="p">;</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="n">Uniformly</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hemisphere</span><span class="w"> </span><span class="n">toward</span><span class="w"> </span><span class="n">wi</span><span class="w"> </span><span class="p">(</span><span class="n">pdf_hemi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="n">pi</span><span class="p">);</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="n">Trace</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">emitting</span><span class="w"> </span><span class="n">object</span><span class="p">){</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="n">L_indir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shade</span><span class="p">(</span><span class="n">hitPoint</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">wi</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf_hemi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">P_RR</span><span class="p">;</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">L_dir</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">L_indir</span><span class="p">;</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>以上还需要补充一个点，即光源采样时需要考虑遮挡问题。如果光源被其他物体遮挡，则该方向的贡献为零。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span>
-<span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span>
-<span class="normal"><a href="#__codelineno-6-17">17</a></span>
-<span class="normal"><a href="#__codelineno-6-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wo</span><span class="p">){</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">Uniformly</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">x_light</span><span class="w"> </span><span class="p">(</span><span class="n">pdf_light</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">A</span><span class="p">);</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="n">Trace</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shadow</span><span class="w"> </span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">x_light</span><span class="p">);</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">blocked</span><span class="p">){</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="n">L_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L_i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine_i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine_light</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">|</span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x_light</span><span class="o">|^</span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf_light</span><span class="p">;</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="n">L_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="n">L_indir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">    </span><span class="n">Test</span><span class="w"> </span><span class="n">Russian</span><span class="w"> </span><span class="n">Roulette</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">probability</span><span class="w"> </span><span class="n">P_RR</span><span class="p">;</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">    </span><span class="n">Uniformly</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hemisphere</span><span class="w"> </span><span class="n">toward</span><span class="w"> </span><span class="n">wi</span><span class="w"> </span><span class="p">(</span><span class="n">pdf_hemi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="n">pi</span><span class="p">);</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">    </span><span class="n">Trace</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">wi</span><span class="p">);</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">hits</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">emitting</span><span class="w"> </span><span class="n">object</span><span class="p">){</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">        </span><span class="n">L_indir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shade</span><span class="p">(</span><span class="n">hitPoint</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">wi</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosine</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pdf_hemi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">P_RR</span><span class="p">;</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">L_dir</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">L_indir</span><span class="p">;</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div></div>
+<h3 id="position-basedverlet-integration">Position Based/Verlet Integration<a class="headerlink" href="#position-basedverlet-integration" title="Permanent link">¶</a></h3>
+<p>Position Based Dynamics (PBD) 是一种用于模拟物理系统的数值方法，特别适用于处理约束条件。PBD 直接在位置空间中工作，通过迭代调整粒子的位置以满足约束条件，而不是通过计算力和加速度来更新速度和位置。</p>
+<h2 id="rigid-body-simulation">Rigid Body Simulation<a class="headerlink" href="#rigid-body-simulation" title="Permanent link">¶</a></h2>
+<p>刚体是指在受力作用下形状和大小保持不变的物体。模拟刚体和模拟单个粒子类似，但要考虑更多的属性，如旋转。</p>
+<h2 id="fluid-simulation">Fluid Simulation<a class="headerlink" href="#fluid-simulation" title="Permanent link">¶</a></h2>
+<p>流体模拟可以使用粒子系统来实现。每个粒子代表流体的一部分，粒子之间的相互作用模拟流体的行为。可以使用简单的PBD方法来模拟流体的运动，并使用梯度下降法来更新粒子的位置。</p>
+<h3 id="eulerian-vs-lagrangian">Eulerian vs Lagrangian<a class="headerlink" href="#eulerian-vs-lagrangian" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Eulerian方法</strong>：在固定的空间网格上描述流体的属性，如速度和压力。适用于大规模流体模拟，但处理复杂边界时较困难。</li>
+<li><strong>Lagrangian方法</strong>：跟踪流体中的个别粒子，描述它们的位置和速度。适用于处理复杂边界和自由表面，但计算量较大。</li>
+</ul>
+<p>以及有混合方法，结合了两者的优点。</p></div>
 
 
 
@@ -2871,7 +2685,7 @@ L_o(p, \omega_o) =\int_{A} f_r(p, \omega_i, \omega_o) L_i(p, \omega_i) \cos\thet
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 28, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2025</span>
   </span>
 
     
