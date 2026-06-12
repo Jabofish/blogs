@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jabofish's Blogs</title>
   <meta name="description" content="毫不起眼的小站">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta property="og:title" content="Jabofish's Blogs">
+  <meta property="og:description" content="毫不起眼的小站">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+
+  
   <script>
-    tailwindcss.config = {
-      darkMode: 'media',
-      theme: {
-        extend: {
-          colors: { accent: '#3b82f6' },
-        },
-      },
-    }
+    (function(){var t=localStorage.getItem('__md-theme');if(t==='slate'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')})()
   </script>
+
+  
+  <link rel="stylesheet" href="stylesheets/home.css">
+  
+  <span class="hidden text-accent" aria-hidden="true"></span>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     body {
@@ -26,6 +30,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+    .dark body, body.dark { background-color: #0a0a0a; color: #e5e5e5; }
     @media (prefers-color-scheme: dark) {
       body { background-color: #0a0a0a; color: #e5e5e5; }
     }
@@ -34,6 +39,10 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes skeletonPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
     .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
     .fade-in-up-delayed { opacity: 0; }
@@ -68,6 +77,7 @@
         box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
         border-color: #3b82f6;
       }
+      .dark .card-expandable:hover { box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6); }
       @media (prefers-color-scheme: dark) {
         .card-expandable:hover { box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6); }
       }
@@ -130,6 +140,56 @@
         opacity: 1; transform: translateX(0);
       }
     }
+
+    /* Skeleton loading */
+    .skeleton-card {
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      padding: 1.25rem;
+    }
+    .dark .skeleton-card { border-color: #262626; background: #171717; }
+    @media (prefers-color-scheme: dark) {
+      .skeleton-card { border-color: #262626; background: #171717; }
+    }
+    .skeleton-line {
+      height: 1rem;
+      border-radius: 0.375rem;
+      background: #e5e7eb;
+      animation: skeletonPulse 1.8s ease-in-out infinite;
+    }
+    .dark .skeleton-line { background: #262626; }
+    @media (prefers-color-scheme: dark) {
+      .skeleton-line { background: #262626; }
+    }
+    .skeleton-line-sm { height: 0.75rem; width: 60%; }
+    .skeleton-line-md { width: 80%; }
+    .skeleton-icon {
+      width: 2rem; height: 2rem;
+      border-radius: 0.5rem;
+      background: #e5e7eb;
+      animation: skeletonPulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .dark .skeleton-icon { background: #262626; }
+    @media (prefers-color-scheme: dark) {
+      .skeleton-icon { background: #262626; }
+    }
+
+    /* Error fallback */
+    #cards-error { display: none; }
+
+    /* nav.json fallback links */
+    .fallback-link {
+      display: block; padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem; text-decoration: none;
+      color: #475569; transition: background-color 0.2s;
+    }
+    .dark .fallback-link { color: #a3a3a3; }
+    @media (prefers-color-scheme: dark) {
+      .fallback-link { color: #a3a3a3; }
+    }
+    .fallback-link:hover { background-color: rgba(59, 130, 246, 0.08); color: #3b82f6; }
   </style>
 </head>
 <body class="min-h-screen">
@@ -154,6 +214,194 @@
       <section id="cards-container"
                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 items-start"
                aria-label="Topics">
+
+        
+        <!-- 专业课笔记 -->
+<div class="card-expandable fade-in-up-delayed card-stagger-1 group rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 sm:p-6 lg:p-8">
+  <div class="flex items-center justify-between">
+    <a href="CS61A/" class="flex items-center gap-3 no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 text-neutral-400 dark:text-neutral-500 shrink-0" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100 hover:text-accent transition-colors duration-200">专业课笔记</h2>
+    </a>
+    <button class="card-expand-btn" aria-label="展开/收起" onclick="this.closest('.card-expandable').classList.toggle('expanded')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+  <div class="card-first-item">
+    <a href="CS61A/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      CS61A
+      <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </a>
+  </div>
+  <div class="card-body">
+    <ul class="space-y-1 list-none p-0 m-0">
+      <li>
+        <a href="ADS/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          DS
+          <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a href="Database/CMU/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          Database
+          <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- 科研 -->
+<div class="card-expandable fade-in-up-delayed card-stagger-2 group rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 sm:p-6 lg:p-8">
+  <div class="flex items-center justify-between">
+    <a href="IS/" class="flex items-center gap-3 no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 text-neutral-400 dark:text-neutral-500 shrink-0" aria-hidden="true"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16.5h10"/></svg>
+      <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100 hover:text-accent transition-colors duration-200">科研</h2>
+    </a>
+    <button class="card-expand-btn" aria-label="展开/收起" onclick="this.closest('.card-expandable').classList.toggle('expanded')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+  <div class="card-first-item">
+    <a href="IS/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      IS
+      <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </a>
+  </div>
+</div>
+<!-- 杂项 -->
+<div class="card-expandable fade-in-up-delayed card-stagger-3 group rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 sm:p-6 lg:p-8">
+  <div class="flex items-center justify-between">
+    <a href="UE/" class="flex items-center gap-3 no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 text-neutral-400 dark:text-neutral-500 shrink-0" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+      <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100 hover:text-accent transition-colors duration-200">杂项</h2>
+    </a>
+    <button class="card-expand-btn" aria-label="展开/收起" onclick="this.closest('.card-expandable').classList.toggle('expanded')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+  <div class="card-first-item">
+    <a href="UE/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      UE
+      <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </a>
+  </div>
+  <div class="card-body">
+    <ul class="space-y-1 list-none p-0 m-0">
+      <li>
+        <a href="AI/DAinML/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          机器学习在数据分析中的应用
+          <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a href="GAMES101/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          GAMES101
+          <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- 通识课笔记 -->
+<div class="card-expandable fade-in-up-delayed card-stagger-4 group rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 sm:p-6 lg:p-8">
+  <div class="flex items-center justify-between">
+    <a href="Others/" class="flex items-center gap-3 no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 text-neutral-400 dark:text-neutral-500 shrink-0" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100 hover:text-accent transition-colors duration-200">通识课笔记</h2>
+    </a>
+    <button class="card-expand-btn" aria-label="展开/收起" onclick="this.closest('.card-expandable').classList.toggle('expanded')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+  <div class="card-first-item">
+    <a href="Others/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      介绍
+      <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </a>
+  </div>
+  <div class="card-body">
+    <ul class="space-y-1 list-none p-0 m-0">
+      <li>
+        <a href="Others/Economics/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          Economics
+          <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a href="Others/GameTheory/" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          Game Theory
+          <span class="sub-item-arrow ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+        
+        <div id="cards-skeleton" class="contents">
+          
+          <div class="skeleton-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="skeleton-icon"></div>
+              <div class="skeleton-line skeleton-line-md"></div>
+            </div>
+            <div class="space-y-1.5">
+              <div class="skeleton-line skeleton-line-sm"></div>
+              <div class="skeleton-line skeleton-line-sm" style="width:40%"></div>
+            </div>
+          </div>
+          
+          <div class="skeleton-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="skeleton-icon"></div>
+              <div class="skeleton-line skeleton-line-md"></div>
+            </div>
+            <div class="space-y-1.5">
+              <div class="skeleton-line skeleton-line-sm"></div>
+              <div class="skeleton-line skeleton-line-sm" style="width:40%"></div>
+            </div>
+          </div>
+          
+          <div class="skeleton-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="skeleton-icon"></div>
+              <div class="skeleton-line skeleton-line-md"></div>
+            </div>
+            <div class="space-y-1.5">
+              <div class="skeleton-line skeleton-line-sm"></div>
+              <div class="skeleton-line skeleton-line-sm" style="width:40%"></div>
+            </div>
+          </div>
+          
+          <div class="skeleton-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="skeleton-icon"></div>
+              <div class="skeleton-line skeleton-line-md"></div>
+            </div>
+            <div class="space-y-1.5">
+              <div class="skeleton-line skeleton-line-sm"></div>
+              <div class="skeleton-line skeleton-line-sm" style="width:40%"></div>
+            </div>
+          </div>
+          
+        </div>
+
+        
+        <div id="cards-error" class="col-span-full text-center py-16">
+          <div class="text-4xl mb-4 opacity-30">📭</div>
+          <p class="text-slate-500 dark:text-slate-400 mb-5">导航加载失败，请刷新重试。</p>
+          <div id="cards-error-links" class="max-w-xl mx-auto text-left space-y-1"></div>
+        </div>
       </section>
 
       
@@ -184,17 +432,11 @@
   </main>
 
   
-  <script src="javascripts/canvas-nest.js" zIndex="-1" opacity="0.3" color="163,163,163" count="80"></script>
+  <script src="javascripts/canvas-nest.js" defer zIndex="-1" opacity="0.3" color="163,163,163" count="80"></script>
 
   <script>
     (function () {
       'use strict';
-
-      // ── Load nav data from nav.json ──
-      fetch('nav.json')
-        .then(function (res) { return res.json(); })
-        .then(function (navData) { renderCards(navData); })
-        .catch(function (err) { console.error('Failed to load nav.json:', err); });
 
       // ── Icon SVGs ──
       var ICONS = {
@@ -206,14 +448,12 @@
         chevron: '<polyline points="6 9 12 15 18 9"/>',
       };
 
-      // ── Icon resolver ──
       function resolveIcon(title) {
         if (title.indexOf('专业课') !== -1 || title.indexOf('笔记') !== -1) return ICONS.book;
         if (title.indexOf('科研') !== -1 || title.indexOf('研究') !== -1) return ICONS.flask;
         return ICONS.palette;
       }
 
-      // ── SVG helpers ──
       function iconSvg(paths, size, cls) {
         return '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="' + cls + '" aria-hidden="true">' + paths + '</svg>';
       }
@@ -221,11 +461,14 @@
         return '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1.5 shrink-0" aria-hidden="true">' + paths + '</svg>';
       }
 
-      // ── Render cards into DOM ──
-      function renderCards(cards) {
-        var container = document.getElementById('cards-container');
-        if (!container) return;
+      // ── DOM refs ──
+      var container = document.getElementById('cards-container');
+      var skeleton = document.getElementById('cards-skeleton');
+      var errorEl = document.getElementById('cards-error');
+      var errorLinks = document.getElementById('cards-error-links');
 
+      // ── Render cards from nav.json data ──
+      function renderCards(cards) {
         cards.forEach(function (card, idx) {
           var stagger = Math.min(idx + 1, 4);
           var hasChildren = card.children.length > 0;
@@ -245,7 +488,6 @@
           html += '</div>';
 
           if (hasChildren) {
-            // First sub-item (always visible)
             var first = card.children[0];
             html += '<div class="card-first-item">';
             html += '<a href="' + first.url + '" class="sub-item flex items-center text-sm text-neutral-500 dark:text-neutral-400 no-underline">';
@@ -254,7 +496,6 @@
             html += '<span class="sub-item-arrow ml-auto">' + iconSvg(ICONS.arrow, 14, '') + '</span>';
             html += '</a></div>';
 
-            // Remaining sub-items (collapsible)
             if (card.children.length > 1) {
               html += '<div class="card-body"><ul class="space-y-1 list-none p-0 m-0">';
               for (var i = 1; i < card.children.length; i++) {
@@ -272,8 +513,10 @@
           html += '</div>';
           container.insertAdjacentHTML('beforeend', html);
         });
+      }
 
-        // Re-observe new cards for scroll animation
+      // ── Attach scroll-intersect observers to all cards ──
+      function observeCards() {
         var observer = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
@@ -287,6 +530,69 @@
           observer.observe(el);
         });
       }
+
+      // ── Build simple fallback links when nav.json fails ──
+      function buildFallbackLinks() {
+        // Walk the pre-rendered cards (if any) to extract links
+        var existingCards = container.querySelectorAll('.card-expandable');
+        if (existingCards.length > 0) {
+          // Pre-rendered cards are already visible, just build error links for reference
+          var links = [];
+          existingCards.forEach(function (card) {
+            var h2 = card.querySelector('h2');
+            var a = card.querySelector('a');
+            if (h2 && a) {
+              links.push('<a href="' + a.getAttribute('href') + '" class="fallback-link">' + h2.textContent + '</a>');
+            }
+          });
+          if (links.length > 0) {
+            errorLinks.innerHTML = links.join('');
+          }
+        }
+      }
+
+      // ── Hide skeleton, show error ──
+      function showError(err) {
+        console.error('Failed to load nav.json:', err);
+        if (skeleton) skeleton.style.display = 'none';
+        if (errorEl) {
+          errorEl.style.display = 'block';
+          buildFallbackLinks();
+        }
+      }
+
+      // ── Hide skeleton ──
+      function hideSkeleton() {
+        if (skeleton) skeleton.style.display = 'none';
+      }
+
+      // ── Initialize: check for pre-rendered cards or fetch nav.json ──
+      function initCards() {
+        var preRendered = container.querySelectorAll('.card-expandable');
+
+        if (preRendered.length > 0) {
+          // Pre-rendered cards exist (home_cards.html was included)
+          hideSkeleton();
+          observeCards();
+        } else {
+          // No pre-rendered cards — fetch nav.json and render
+          fetch('nav.json')
+            .then(function (res) {
+              if (!res.ok) throw new Error('HTTP ' + res.status);
+              return res.json();
+            })
+            .then(function (navData) {
+              hideSkeleton();
+              renderCards(navData);
+              observeCards();
+            })
+            .catch(function (err) {
+              showError(err);
+            });
+        }
+      }
+
+      initCards();
 
       // ── Typewriter effect ──
       var typewriterEl = document.querySelector('.typewriter-text');
@@ -341,6 +647,28 @@
           }
         }, { passive: true });
       }
+
+      // ── Sync dark mode with Zensical theme ──
+      // Listen for theme changes from Zensical (it dispatches on localStorage)
+      window.addEventListener('storage', function (e) {
+        if (e.key === '__md-theme') {
+          var html = document.documentElement;
+          if (e.newValue === 'slate') html.classList.add('dark');
+          else html.classList.remove('dark');
+        }
+      });
+
+      // Also poll for same-tab changes (Zensical updates localStorage in same tab)
+      var _lastTheme = localStorage.getItem('__md-theme');
+      setInterval(function () {
+        var cur = localStorage.getItem('__md-theme');
+        if (cur !== _lastTheme) {
+          _lastTheme = cur;
+          var html = document.documentElement;
+          if (cur === 'slate') html.classList.add('dark');
+          else html.classList.remove('dark');
+        }
+      }, 500);
     })();
   </script>
 </body>

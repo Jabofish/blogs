@@ -1,4 +1,4 @@
-// docs/javascripts/mathjax.js
+// docs/javascripts/mathjax.js — MathJax 4.1.x config
 window.MathJax = {
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -7,8 +7,7 @@ window.MathJax = {
     processEnvironments: true
   },
   options: {
-    ignoreHtmlClass: ".*|",
-    processHtmlClass: "arithmatex"
+    enableExplorer: true
   }
 };
 
