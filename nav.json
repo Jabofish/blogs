@@ -1,0 +1,66 @@
+[
+  {
+    "title": "专业课笔记",
+    "url": "CS61A/",
+    "children": [
+      {
+        "name": "CS61A",
+        "url": "CS61A/"
+      },
+      {
+        "name": "DS",
+        "url": "ADS/"
+      },
+      {
+        "name": "Database",
+        "url": "Database/CMU/"
+      }
+    ]
+  },
+  {
+    "title": "科研",
+    "url": "IS/",
+    "children": [
+      {
+        "name": "IS",
+        "url": "IS/"
+      }
+    ]
+  },
+  {
+    "title": "杂项",
+    "url": "UE/",
+    "children": [
+      {
+        "name": "UE",
+        "url": "UE/"
+      },
+      {
+        "name": "机器学习在数据分析中的应用",
+        "url": "AI/DAinML/"
+      },
+      {
+        "name": "GAMES101",
+        "url": "GAMES101/"
+      }
+    ]
+  },
+  {
+    "title": "通识课笔记",
+    "url": "Others/",
+    "children": [
+      {
+        "name": "介绍",
+        "url": "Others/"
+      },
+      {
+        "name": "Economics",
+        "url": "Others/Economics/"
+      },
+      {
+        "name": "Game Theory",
+        "url": "Others/GameTheory/"
+      }
+    ]
+  }
+]
